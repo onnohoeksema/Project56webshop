@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html ng-app="app1" ng-init="person = {fName: 'Derek'. lName: 'Banas'}; capitals = [{city: 'Montgomery', state: 'Alabama'}, {city: 'Juneau', state: 'Alaska'}, {city:'Phoenix'}, state: 'Arizona']">
+<html ng-app="app1" ng-init="person = {fName: 'Derek', lName: 'Banas'}; capitals = [{city: 'Montgomery', state: 'Alabama'}, {city: 'Juneau', state: 'Alaska'}, {city:'Phoenix', state: 'Arizona'}]">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - D&D webshop</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
 </head>
@@ -27,11 +27,12 @@
             </div>
         </div>
     </div>
+   
     <div class="container body-content">
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - Dungeons and Dragons webshop</p>
         </footer>
     </div>
 
