@@ -26,5 +26,12 @@ namespace Project_webshop.Controllers
 
             return View();
         }
+
+        public ActionResult DiceCustomizer()
+        {
+            ViewBag.Message = "Dice Customizer";
+
+            return View();
+        }
     }
 }
