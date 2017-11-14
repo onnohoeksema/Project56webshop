@@ -5,12 +5,108 @@
     ViewBag.Title = "Dice Customizer";
 }
 
-<h2>DiceCustomizer</h2>
-<p>
-    Make your own decisions to create your own special dice! <br /><br />
-    Type: <br />
-    Dice Color: <br />
-    Number Color <br />
-    Pattern: <br />
-</p>
-
+<h2>Dice Customizer</h2>
+<div ng-controller="ctrl1">
+    <p>
+        Make your own decisions to create your own special dice! <br /><br />
+        Type: <br />
+    </p>
+    <form name="somethingsomething form" ng-controller="Dicecustomizer">
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D4">
+            D4
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D6">
+            D6
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D8">
+            D8
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D10">
+            D10
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D12">
+            D12
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D20">
+            D20
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="D100">
+            D100
+        </label>
+    </form>
+    <p>
+        Dice Color: <br />
+    </p>
+    <form name="somethingsomething form" ng-controller="Dicecustomizer">
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Red">
+            Red
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Green">
+            Green
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Blue">
+            Blue
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Orange">
+            Orange
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="White">
+            White
+        </label>
+    </form>
+    <p>
+        Number Color: <br />
+    </p>
+    <form name="somethingsomething form" ng-controller="Dicecustomizer">
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Red">
+            Red
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Green">
+            Green
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Blue">
+            Blue
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Black">
+            Black
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Pink">
+            Pink
+        </label>
+    </form>
+    <p>
+        Pattern: <br />
+    </p>
+    <form name="somethingsomething form" ng-controller="Dicecustomizer">
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Gucci">
+            Gucci
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="Panther">
+            Panther
+        </label>
+        <label>
+            <input type="Radio" ng-model="color.name" ng-value="None">
+            None
+        </label>
+    </form>
+    
+</div>

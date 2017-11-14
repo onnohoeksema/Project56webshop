@@ -11,8 +11,9 @@ namespace Project_webshop.Models
 
         public string[] DiceType = new string[] { "D4", "D6", "D8", "D10", "D12", "D20" };
         public string[] DiceColor = new string[] { "Red", "Green", "Blue", "Orange", "White"};
-        public string[] DicePattern = new string[] { "Gucci", "Panther", "None" };
         public string[] NumberColor = new string[] { "Red", "Green", "Blue", "Black", "Pink" };
+        public string[] DicePattern = new string[] { "Gucci", "Panther", "None" };
+        
         
        //Wat is nu de bedoeling: Uiteindelijk moeten deze arrays op het scherm komen te staan met allemaal verschillende keuzes. Laten we nu eerst beginnen met het laten zien van de opties
        //Daarna is het misschien wel handig om te kijken of we in het scherm nog extra kunnen laten laten zien wat er gekozen is. Kiest de klant bijvoorbeeld een groene D4, dat er dan ook een tekstvak 
