@@ -10,4 +10,5 @@
                 "id": "customized dice 1",
                 "value": "something something 2"
             };
+        $scope.selection = [];
     });

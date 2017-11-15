@@ -19,3 +19,9 @@ ng\:form {
 .ng-anchor {
   position:absolute;
 }
+
+.wrap {
+  width: 320px;
+  margin: 0 auto;
+  display: block;
+}
