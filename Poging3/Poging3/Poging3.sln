@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27004.2005
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angular webshop", "Angular webshop\Angular webshop.csproj", "{F315B173-A432-42E0-9612-66606654227D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F315B173-A432-42E0-9612-66606654227D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F315B173-A432-42E0-9612-66606654227D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F315B173-A432-42E0-9612-66606654227D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F315B173-A432-42E0-9612-66606654227D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3D836D5F-2FC8-4982-994F-A481D73C888A}
+	EndGlobalSection
+EndGlobal

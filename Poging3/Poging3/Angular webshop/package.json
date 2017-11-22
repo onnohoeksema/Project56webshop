@@ -1,5 +1,5 @@
 {
-  "name": "ProjectAngular",
+  "name": "Angular_webshop",
   "private": true,
   "version": "0.0.0",
   "scripts": {
@@ -26,6 +26,7 @@
     "aspnet-prerendering": "^3.0.1",
     "aspnet-webpack": "^2.0.1",
     "awesome-typescript-loader": "3.2.1",
+    "bootstrap": "3.3.7",
     "chai": "4.0.2",
     "css": "2.2.1",
     "css-loader": "0.28.4",
@@ -53,13 +54,9 @@
     "to-string-loader": "1.1.5",
     "typescript": "2.4.1",
     "url-loader": "0.5.9",
-    "webpack": "^2.5.1",
+    "webpack": "2.5.1",
     "webpack-hot-middleware": "2.18.2",
     "webpack-merge": "4.1.0",
     "zone.js": "0.8.12"
-  },
-  "dependencies": {
-    "angular": "^1.6.6",
-    "angular-cli": "^1.0.0-beta.28.3"
   }
 }
