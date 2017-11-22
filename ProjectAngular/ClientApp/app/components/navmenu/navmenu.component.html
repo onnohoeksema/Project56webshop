@@ -6,8 +6,9 @@
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
                 <span class='icon-bar'></span>
+                <span class='icon-bar'></span>
             </button>
-            <a class='navbar-brand' [routerLink]="['/home']">Devtest2</a>
+            <a class='navbar-brand' [routerLink]="['/home']">Our DnD webshop</a>
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
@@ -25,6 +26,11 @@
                 <li [routerLinkActive]="['link-active']">
                     <a [routerLink]="['/fetch-data']">
                         <span class='glyphicon glyphicon-th-list'></span> Fetch data
+                    </a>
+                </li>
+                <li [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/DiceCustomizer']">
+                        <span class='glyphicon glyphicon-expand'></span> Dice Customizer
                     </a>
                 </li>
             </ul>
