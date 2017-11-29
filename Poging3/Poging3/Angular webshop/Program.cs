@@ -45,6 +45,7 @@ namespace Angular_webshop
                 {
                     Console.WriteLine("{0}, {1}", item.Username, item.Password);
                 }
+                Console.WriteLine("\n\n\n\n");
             }
 
             host.Run();
