@@ -1,0 +1,18 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\Angular webshop",
+    "\\Angular webshop\\ClientApp",
+    "\\Angular webshop\\ClientApp\\app",
+    "\\Angular webshop\\ClientApp\\app\\components",
+    "\\Angular webshop\\ClientApp\\app\\components\\counter",
+    "\\Angular webshop\\ClientApp\\app\\components\\DiceCustomizer",
+    "\\Angular webshop\\ClientApp\\app\\components\\fetchdata",
+    "\\Angular webshop\\ClientApp\\app\\components\\navmenu",
+    "\\Angular webshop\\Controllers",
+    "\\Angular webshop\\Views",
+    "\\Angular webshop\\Views\\Home"
+  ],
+  "SelectedNode": "\\Angular webshop\\Angular webshop.csproj",
+  "PreviewInSolutionExplorer": false
+}

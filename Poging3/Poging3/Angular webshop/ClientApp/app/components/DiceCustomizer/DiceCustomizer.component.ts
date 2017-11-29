@@ -1,20 +1,18 @@
 import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 
+
 @Component({
     selector: 'DiceCustomizer',
-    templateUrl: './DiceCustomizer.component.cshtml'
+    templateUrl: './DiceCustomizer.component.html'
 })
-export class FetchDataComponent {
-    public DiceCustomizer: dicecustomizer[];
 
-    constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/SampleData/dicecustomizer').subscribe(result => {
-            this.DiceCustomizer = result.json() as dicecustomizer[];
-        }, error => console.error(error));
-    }
+export class DiceCustomizerComponent {
+  
+    public diceType = ["D4", "D6", "D8", "D10", "D12", "D20"];
+    public diceColor = ["Red", "Green", "Blue", "Orange", "White"];
+    public numberColor = ["Red", "Green", "Blue", "Black", "Pink"];
+    public dicePattern = ["Gucci", "Panther", "None"];
+
 }
 
-interface dicecustomizer {
-    chickenNuggets69: string
-}
