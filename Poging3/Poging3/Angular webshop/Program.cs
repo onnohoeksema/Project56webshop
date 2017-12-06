@@ -40,10 +40,20 @@ namespace Angular_webshop
                              select u;
 
                 Console.WriteLine("\n\n\n\n");
-                Console.WriteLine("USername | Password");
+                Console.WriteLine("Username | Password");
                 foreach (var item in result)
                 {
                     Console.WriteLine("{0}, {1}", item.Username, item.Password);
+                }
+                Console.WriteLine("\n\n\n\n");
+                
+                var items = from p in db.Products
+                    select p;
+                Console.WriteLine("\n\n\n\n");
+                Console.WriteLine("Itemname");
+                foreach (var item in items)
+                {
+                    Console.WriteLine("{0}", item.productName);
                 }
                 Console.WriteLine("\n\n\n\n");
             }
