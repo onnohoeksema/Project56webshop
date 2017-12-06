@@ -24,6 +24,15 @@ namespace Angular_webshop.Models
         public string Password { get; set; }
     }
 
+    public class Product
+    {
+        public int ProductID { get; set; }
+        public string ProductName { get; set; }
+        public float ProductPrice { get; set; }
+        public int ProductStock { get; set; }
+        public string ProductCategory { get; set; }
+        public string ProductTag { get; set; }
+    }
     public static class SeedData
     {
         public static void Initialize(IServiceProvider serviceProvider)
