@@ -11,6 +11,9 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { DiceCustomizerComponent } from './components/DiceCustomizer/DiceCustomizer.component';
 import { LoginPageComponent } from './components/Login/LoginPage.component';
+import { ItemPageComponent } from './components/itempage/itempage.component';
+import { ShoppingCartComponent } from './components/shoppingcart/shoppingcart.component';
+import { PaymentRedirectComponent } from './components/paymentredirect/paymentredirect.component';
 
 @NgModule({
     declarations: [
@@ -20,7 +23,10 @@ import { LoginPageComponent } from './components/Login/LoginPage.component';
         FetchDataComponent,
         DiceCustomizerComponent,
         HomeComponent,
-        LoginPageComponent
+        LoginPageComponent,
+        ItemPageComponent,
+        ShoppingCartComponent,
+        PaymentRedirectComponent
     ],
     imports: [
         CommonModule,
@@ -33,6 +39,9 @@ import { LoginPageComponent } from './components/Login/LoginPage.component';
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
+            { path: 'itempage', component: ItemPageComponent },
+            { path: 'shoppingcart', component: ShoppingCartComponent },
+            { path: 'paymentredirect', component: PaymentRedirectComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]

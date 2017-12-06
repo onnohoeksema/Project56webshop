@@ -49,3 +49,14 @@
         }]);
     
 </script>
+
+<h1><b><u>Dice Customizer dropdown tester</u></b></h1>
+
+<div ng-controller="AppCtrl">
+    <h1>Dropdown Select</h1>
+    <p>You have selected: {{ddSelectSelected}}</p>
+    <div dropdown-select="ddSelectOptions"
+         dropdown-model="ddSelectSelected"
+         dropdown-item-label="text" >
+    </div>
+</div>

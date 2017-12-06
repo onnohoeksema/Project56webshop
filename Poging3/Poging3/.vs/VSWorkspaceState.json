@@ -9,10 +9,8 @@
     "\\Angular webshop\\ClientApp\\app\\components\\DiceCustomizer",
     "\\Angular webshop\\ClientApp\\app\\components\\fetchdata",
     "\\Angular webshop\\ClientApp\\app\\components\\navmenu",
-    "\\Angular webshop\\Controllers",
-    "\\Angular webshop\\Views",
-    "\\Angular webshop\\Views\\Home"
+    "\\Angular webshop\\Controllers"
   ],
-  "SelectedNode": "\\Angular webshop\\Angular webshop.csproj",
+  "SelectedNode": "\\Angular webshop\\webpack.config.vendor.js",
   "PreviewInSolutionExplorer": false
 }
