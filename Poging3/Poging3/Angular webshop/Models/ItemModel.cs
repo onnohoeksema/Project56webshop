@@ -7,5 +7,4 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace Angular_webshop.Models
 {
-    
 }
