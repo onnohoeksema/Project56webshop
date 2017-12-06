@@ -11,6 +11,8 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { DiceCustomizerComponent } from './components/DiceCustomizer/DiceCustomizer.component';
 import { LoginPageComponent } from './components/Login/LoginPage.component';
+import { UserDashBoardComponent } from './components/Login/UserDashBoard.component';
+
 
 @NgModule({
     declarations: [
@@ -20,7 +22,8 @@ import { LoginPageComponent } from './components/Login/LoginPage.component';
         FetchDataComponent,
         DiceCustomizerComponent,
         HomeComponent,
-        LoginPageComponent
+        LoginPageComponent,
+        UserDashBoardComponent
     ],
     imports: [
         CommonModule,
@@ -33,6 +36,7 @@ import { LoginPageComponent } from './components/Login/LoginPage.component';
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
+            { path: 'UserDashBoard', component: UserDashBoardComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
