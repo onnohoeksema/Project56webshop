@@ -11,14 +11,10 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { DiceCustomizerComponent } from './components/DiceCustomizer/DiceCustomizer.component';
 import { LoginPageComponent } from './components/Login/LoginPage.component';
-<<<<<<< HEAD
 import { UserDashBoardComponent } from './components/Login/UserDashBoard.component';
-
-=======
 import { ItemPageComponent } from './components/itempage/itempage.component';
 import { ShoppingCartComponent } from './components/shoppingcart/shoppingcart.component';
 import { PaymentRedirectComponent } from './components/paymentredirect/paymentredirect.component';
->>>>>>> b6fc98793baaf91bc0842780986c2d30c4c74294
 
 @NgModule({
     declarations: [
@@ -29,13 +25,10 @@ import { PaymentRedirectComponent } from './components/paymentredirect/paymentre
         DiceCustomizerComponent,
         HomeComponent,
         LoginPageComponent,
-<<<<<<< HEAD
-        UserDashBoardComponent
-=======
+        UserDashBoardComponent,
         ItemPageComponent,
         ShoppingCartComponent,
         PaymentRedirectComponent
->>>>>>> b6fc98793baaf91bc0842780986c2d30c4c74294
     ],
     imports: [
         CommonModule,
@@ -48,13 +41,10 @@ import { PaymentRedirectComponent } from './components/paymentredirect/paymentre
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
-<<<<<<< HEAD
             { path: 'UserDashBoard', component: UserDashBoardComponent },
-=======
             { path: 'itempage', component: ItemPageComponent },
             { path: 'shoppingcart', component: ShoppingCartComponent },
             { path: 'paymentredirect', component: PaymentRedirectComponent },
->>>>>>> b6fc98793baaf91bc0842780986c2d30c4c74294
             { path: '**', redirectTo: 'home' }
         ])
     ]
