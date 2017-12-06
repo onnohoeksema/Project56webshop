@@ -1,5 +1,13 @@
 ﻿<h1>Itempage</h1>
 
 <p>This is a simple example of an itempage.</p>
+<div ng-app="myApp">
 
-
+    <p>Dice Type:</p>
+    <ul>
+        <li *ngFor="let sexyTime of Sjaak">
+            <input type="radio" name="SjaakNr" ng-model="sexyTime.Type" value="{{ sexyTime }}" />
+            {{ sexyTime }}
+        </li>
+    </ul>
+</div>
