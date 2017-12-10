@@ -20,7 +20,9 @@ export class ItemPageComponent {
     */
 
     constructor(http: Http, @Inject('BASE_URL') baseUrl: string) {
-        http.get(baseUrl + 'api/SampleData/GetAll').subscribe();
+        http.get(baseUrl + 'api/SampleData/GetAll').subscribe(result => {
+            this.items = result.json() as ItemInfo[];
+        }, error => console.error(error));
     }
   
 

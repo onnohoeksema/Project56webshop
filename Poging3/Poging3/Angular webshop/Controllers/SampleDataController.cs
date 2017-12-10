@@ -53,8 +53,9 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetAll")]
         public IQueryable<Product> ItemInfo()
         {
-            var _products = _context.Products;
-            return _products;
+            var items = from p in _context.Products
+                    select p;
+            return items;
         }
           
       
