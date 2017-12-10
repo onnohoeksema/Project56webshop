@@ -1,19 +1,20 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Angular_webshop.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Angular_webshop.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class TestManiaController : Controller
     {
 
         private static string[] Summaries = new[]
         {
-            "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
+            "Testing Freezing", "Testing Bracing", "Testing Chilly", "Testing Cool", "Testing Mild", "Testing Warm", "Testing Balmy", "Testing Hot", "Testing Sweltering", "Testing Scorching"
         };
 
         [HttpGet("[action]")]
@@ -41,22 +42,19 @@ namespace Angular_webshop.Controllers
                     return 32 + (int)(TemperatureC / 0.5556);
                 }
             }
-            
         }
+
         private readonly DatabaseModel _context;
 
-        public SampleDataController(DatabaseModel context)
+        public TestManiaController(DatabaseModel context)
         {
             _context = context;
         }
 
         [HttpGet("GetAll")]
-        public IQueryable<Product> ItemInfo()
+        public IActionResult GetAll()
         {
-            var _products = _context.Products;
-            return _products;
+            return Ok(_context.Products.ToArray());
         }
-          
-      
     }
 }

@@ -8,7 +8,7 @@ using Angular_webshop.Models;
 namespace Angular_webshop.Controllers
 {
     [Route("api/[controller]")]
-    public class SampleDataController : Controller
+    public class ProductCategoryController : Controller
     {
 
         private static string[] Summaries = new[]
@@ -41,22 +41,6 @@ namespace Angular_webshop.Controllers
                     return 32 + (int)(TemperatureC / 0.5556);
                 }
             }
-            
         }
-        private readonly DatabaseModel _context;
-
-        public SampleDataController(DatabaseModel context)
-        {
-            _context = context;
-        }
-
-        [HttpGet("GetAll")]
-        public IQueryable<Product> ItemInfo()
-        {
-            var _products = _context.Products;
-            return _products;
-        }
-          
-      
     }
 }
