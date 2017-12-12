@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Angular_webshop.Models;
 
 namespace Angular_webshop.Controllers
@@ -10,7 +11,22 @@ namespace Angular_webshop.Controllers
     [Route("api/[controller]")]
     public class SampleDataController : Controller
     {
+        private readonly DatabaseModel _context;
 
+        public SampleDataController(DatabaseModel context)
+        {
+            _context = context;
+        }
+        
+        [HttpGet("GetAll")]
+        public IActionResult GetAll()
+        {/*
+            var items = from p in _context.Products
+                select p.productName;
+                */
+            return Ok(_context.Products.ToArray());
+        }
+        
         private static string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
@@ -43,20 +59,7 @@ namespace Angular_webshop.Controllers
             }
             
         }
-        private readonly DatabaseModel _context;
 
-        public SampleDataController(DatabaseModel context)
-        {
-            _context = context;
-        }
-
-        [HttpGet("GetAll")]
-        public IQueryable<Product> ItemInfo()
-        {
-            var items = from p in _context.Products
-                    select p;
-            return items;
-        }
           
       
     }

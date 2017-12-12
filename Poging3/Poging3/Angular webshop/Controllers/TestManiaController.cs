@@ -11,6 +11,18 @@ namespace Angular_webshop.Controllers
     [Route("api/[controller]")]
     public class TestManiaController : Controller
     {
+        private readonly DatabaseModel _context;
+
+        public TestManiaController(DatabaseModel context)
+        {
+            _context = context;
+        }
+
+        [HttpGet("GetAll")]
+        public IActionResult GetAll()
+        {
+            return Ok(_context.Products.ToArray());
+        }
 
         private static string[] Summaries = new[]
         {
@@ -44,17 +56,6 @@ namespace Angular_webshop.Controllers
             }
         }
 
-        private readonly DatabaseModel _context;
 
-        public TestManiaController(DatabaseModel context)
-        {
-            _context = context;
-        }
-
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
-        {
-            return Ok(_context.Products.ToArray());
-        }
     }
 }

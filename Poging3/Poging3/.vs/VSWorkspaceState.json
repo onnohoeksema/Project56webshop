@@ -2,8 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\Angular webshop",
-    "\\Angular webshop\\Controllers"
+    "\\Angular webshop\\ClientApp",
+    "\\Angular webshop\\ClientApp\\app",
+    "\\Angular webshop\\ClientApp\\app\\components",
+    "\\Angular webshop\\ClientApp\\app\\components\\fetchdata",
+    "\\Angular webshop\\ClientApp\\app\\components\\itempage",
+    "\\Angular webshop\\Controllers",
+    "\\Angular webshop\\JsScripts"
   ],
-  "SelectedNode": "\\Angular webshop\\Controllers\\TestManiaController.cs",
+  "SelectedNode": "\\Angular webshop\\ClientApp\\app\\components\\itempage\\itempage2.component.ts",
   "PreviewInSolutionExplorer": false
 }
