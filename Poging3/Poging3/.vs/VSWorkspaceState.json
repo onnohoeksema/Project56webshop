@@ -2,15 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Angular webshop",
-    "\\Angular webshop\\ClientApp",
-    "\\Angular webshop\\ClientApp\\app",
-    "\\Angular webshop\\ClientApp\\app\\components",
-    "\\Angular webshop\\ClientApp\\app\\components\\counter",
-    "\\Angular webshop\\ClientApp\\app\\components\\DiceCustomizer",
-    "\\Angular webshop\\ClientApp\\app\\components\\fetchdata",
-    "\\Angular webshop\\ClientApp\\app\\components\\navmenu",
     "\\Angular webshop\\Controllers"
   ],
-  "SelectedNode": "\\Angular webshop\\webpack.config.vendor.js",
+  "SelectedNode": "\\Angular webshop\\Controllers\\TestManiaController.cs",
   "PreviewInSolutionExplorer": false
 }

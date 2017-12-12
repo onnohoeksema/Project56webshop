@@ -1,13 +1,26 @@
 ﻿<h1>Itempage</h1>
 
 <p>This is a simple example of an itempage.</p>
-<div ng-app="myApp">
 
-    <p>Dice Type:</p>
+<p *ngIf="!items"><em>Loading Items...</em></p>
+<p *ngIf="!forecasts"><em>Loading Forecasts...</em></p>
+<div *ngIf="items">
+
+    <p>Item Name</p>
     <ul>
-        <li *ngFor="let sexyTime of Sjaak">
-            <input type="radio" name="SjaakNr" ng-model="sexyTime.Type" value="{{ sexyTime }}" />
-            {{ sexyTime }}
+        <li *ngFor="let item of items">
+            {{ item.productName }}
         </li>
     </ul>
+
+</div>
+<div *ngIf="forecasts">
+
+    <p>Item Name</p>
+    <ul>
+        <li *ngFor="let forecast of forecasts">
+            {{ forecast.summary }}
+        </li>
+    </ul>
+
 </div>
