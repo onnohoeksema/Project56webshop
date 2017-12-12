@@ -4,26 +4,19 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
 
 import { UserDashBoardComponent } from './UserDashBoard.component';
 
-@NgModule({
-    declarations: [
-        UserDashBoardComponent
-    ],
-    imports: [
-        CommonModule,
-        HttpModule,
-        FormsModule,
-        RouterModule.forRoot([
-            { path: 'UserDashBoard', component: UserDashBoardComponent }
-            
-        ])
-    ]
-    
-})
+const routes: Routes = [
+    { path: 'UserDashBoard', component: UserDashBoardComponent }
+];
 
+@NgModule({
+    imports:
+    [RouterModule.forRoot(routes)],
+    exports: [RouterModule]
+})
 
 @Component({
     selector: 'LoginPage',
