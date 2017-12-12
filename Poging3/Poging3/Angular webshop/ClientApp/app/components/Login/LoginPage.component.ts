@@ -18,6 +18,7 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
+//Tot hier copieren als je het wil gebruiken, daarna de Import {---} veranderen naar jou adress en de Route changen.
 @Component({
     selector: 'LoginPage',
     templateUrl: './LoginPage.component.html'

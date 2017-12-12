@@ -17,6 +17,8 @@ const routes: Routes = [
     [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
+
+//Tot hier copieren als je het wil gebruiken, daarna de Import {---} veranderen naar jou adress en de Route changen.
 @Component({
     selector: 'UserDashBoard',
     templateUrl: './UserDashBoard.component.html'
