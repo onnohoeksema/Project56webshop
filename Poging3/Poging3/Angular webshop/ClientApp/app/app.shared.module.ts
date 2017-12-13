@@ -45,9 +45,9 @@ import { AccountSettingsComponent } from './components/Login/AccountSettings.com
         HttpModule,
         FormsModule,
         BrowserModule,
-        HttpClientModule,
+        //HttpClientModule,
         HttpModule,
-        HttpClient,
+        //HttpClient,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
