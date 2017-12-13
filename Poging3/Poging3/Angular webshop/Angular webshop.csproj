@@ -24,7 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\Login\AccountSettings.component.ts" />
     <None Remove="ClientApp\app\components\Login\LoginPage.component.ts" />
+    <None Remove="ClientApp\app\components\Login\MyOrder.component.ts" />
+    <None Remove="ClientApp\app\components\Login\WatchList.component.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -32,8 +35,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\Login\AccountSettings.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\LoginPage.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\MyOrder.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\PurchaseHistory.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\UserDashBoard.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\WatchList.component.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

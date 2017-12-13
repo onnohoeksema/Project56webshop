@@ -6,10 +6,10 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
-import { LoginPageComponent } from './LoginPage.component';
+import { UserDashBoardComponent } from './UserDashBoard.component';
 
 const routes: Routes = [
-    { path: 'LoginPage', component: LoginPageComponent },
+    { path: 'UserDashBoard', component: UserDashBoardComponent }
 ];
 
 @NgModule({
@@ -18,11 +18,10 @@ const routes: Routes = [
     exports: [RouterModule]
 })
 
-//Tot hier copieren als je het wil gebruiken, daarna de Import {---} veranderen naar jou adress en de Route changen.
 @Component({
-    selector: 'UserDashBoard',
-    templateUrl: './UserDashBoard.component.html'
+    selector: 'PurchaseHistory',
+    templateUrl: './PurchaseHistory.component.html'
 })
 
-export class UserDashBoardComponent {
+export class PurchaseHistoryComponent {
 }
