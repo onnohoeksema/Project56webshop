@@ -1,3 +1,4 @@
+/*
 import { Component, Inject } from '@angular/core';
 import { Http } from '@angular/http';
 //THIS IS THE OLD COMPONENT
@@ -24,7 +25,7 @@ export class ItemPageComponent {
             console.log(this.infoitems);
         }, error => console.error(error));
     }
-  */
+  
     
 
 }
@@ -46,3 +47,4 @@ interface WeatherForecast {
     temperatureF: number;
     summary: string;
 }
+*/
