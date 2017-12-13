@@ -2,14 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\Angular webshop",
-    "\\Angular webshop\\ClientApp",
-    "\\Angular webshop\\ClientApp\\app",
-    "\\Angular webshop\\ClientApp\\app\\components",
-    "\\Angular webshop\\ClientApp\\app\\components\\fetchdata",
-    "\\Angular webshop\\ClientApp\\app\\components\\itempage",
-    "\\Angular webshop\\Controllers",
-    "\\Angular webshop\\JsScripts"
+    "\\Angular webshop\\ClientApp"
   ],
-  "SelectedNode": "\\Angular webshop\\ClientApp\\app\\components\\itempage\\itempage2.component.ts",
+  "SelectedNode": "\\Angular webshop\\ClientApp\\boot.server.ts",
   "PreviewInSolutionExplorer": false
 }
