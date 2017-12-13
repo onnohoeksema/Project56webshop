@@ -12,9 +12,13 @@ import { CounterComponent } from './components/counter/counter.component';
 import { DiceCustomizerComponent } from './components/DiceCustomizer/DiceCustomizer.component';
 import { LoginPageComponent } from './components/Login/LoginPage.component';
 import { UserDashBoardComponent } from './components/Login/UserDashBoard.component';
+import { MyOrderComponent } from './components/Login/MyOrder.component';
+import { PurchaseHistoryComponent } from './components/Login/PurchaseHistory.component';
 import { ItemPageComponent } from './components/itempage/itempage.component';
 import { ShoppingCartComponent } from './components/shoppingcart/shoppingcart.component';
 import { PaymentRedirectComponent } from './components/paymentredirect/paymentredirect.component';
+import { WatchListComponent } from './components/Login/WatchList.component';
+import { AccountSettingsComponent } from './components/Login/AccountSettings.component';
 
 @NgModule({
     declarations: [
@@ -26,9 +30,13 @@ import { PaymentRedirectComponent } from './components/paymentredirect/paymentre
         HomeComponent,
         LoginPageComponent,
         UserDashBoardComponent,
+        PurchaseHistoryComponent,
+        MyOrderComponent,
         ItemPageComponent,
         ShoppingCartComponent,
-        PaymentRedirectComponent
+        PaymentRedirectComponent,
+        WatchListComponent,
+        AccountSettingsComponent
     ],
     imports: [
         CommonModule,
@@ -42,9 +50,13 @@ import { PaymentRedirectComponent } from './components/paymentredirect/paymentre
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
             { path: 'UserDashBoard', component: UserDashBoardComponent },
+            { path: 'MyOrder', component: MyOrderComponent },
+            { path: 'PurchaseHistory', component: PurchaseHistoryComponent },
             { path: 'itempage', component: ItemPageComponent },
             { path: 'shoppingcart', component: ShoppingCartComponent },
             { path: 'paymentredirect', component: PaymentRedirectComponent },
+            { path: 'WatchList', component: WatchListComponent },
+            { path: 'AccountSettings', component: AccountSettingsComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
