@@ -3,21 +3,22 @@ import { Component, OnInit } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
+import { HttpModule } from '@angular/http';
 
 
-@Component({
-    selector: "itempage",
-    templateUrl: "./itempage.component.html"
-})
 
 @NgModule({
     imports: [
         BrowserModule,
         // Include it under 'imports' in your application module
         // after BrowserModule.
-        HttpClientModule
+        HttpClientModule,
+        HttpModule
     ],
 })
+export class MyAppModule {
+}
+
 
 /*
 export class ItemPageComponent implements OnInit {
@@ -42,6 +43,10 @@ export class ItemPageComponent implements OnInit {
     }
 }
 */
+@Component({
+    selector: "itempage",
+    templateUrl: "./itempage.component.html"
+})
 export class ItemPageComponent implements OnInit {
 
     results: string[];
