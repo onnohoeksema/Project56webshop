@@ -3,8 +3,9 @@
     "",
     "\\Angular webshop",
     "\\Angular webshop\\ClientApp",
-    "\\Angular webshop\\Controllers"
+    "\\Angular webshop\\Controllers",
+    "\\Angular webshop\\Models"
   ],
-  "SelectedNode": "\\Angular webshop\\Models",
+  "SelectedNode": "\\Angular webshop\\webpack.config.vendor.js",
   "PreviewInSolutionExplorer": false
 }

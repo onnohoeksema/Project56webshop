@@ -4,20 +4,27 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
+using System.Data;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.IO;
+using System.Text;
+
 
 namespace Angular_webshop.Models
 {
+    
     public class DatabaseModel : DbContext
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=Project56.db");
+            //password needs to be changed to developers password
+            optionsBuilder.UseMySQL(@"User Id = root;Password=root;Host=localhost;Database=Project56test");
         }
-
-       
+         
     }
 
     public class User

@@ -21,12 +21,16 @@ namespace Angular_webshop.Controllers
         }
         
         [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        public IQueryable GetAll()
         {
-            var items = from p in _context.Products
-                select p.productName;
-                
-            return Ok(_context.Products.ToArray());
+            //var items = from p in _context.Products
+                //select p.productName;
+            //results = _context.Products.ToArray();
+            var results = from p in _context.Products
+                select p;
+
+        
+            return(results);
         }
         
         private static string[] Summaries = new[]

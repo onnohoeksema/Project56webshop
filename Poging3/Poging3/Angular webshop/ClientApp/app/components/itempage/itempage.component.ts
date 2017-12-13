@@ -6,6 +6,7 @@ import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { Inject } from '@angular/core';
 
+
 @Component({
     selector: "itempage",
     templateUrl: "./itempage.component.html"
@@ -41,7 +42,7 @@ export class ItemPageComponent implements OnInit {
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
-        this.http.get<ItemsResponse>('/api/TestMania/GetAll').subscribe(data => { this.results = data.results });
+        this.http.get<ItemsResponse>('/api/SampleData/GetAll').subscribe(data => { this.results = data.results });
     }
     
 }

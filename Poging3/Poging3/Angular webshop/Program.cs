@@ -36,6 +36,7 @@ namespace Angular_webshop
 
             using (var db = new DatabaseModel())
             {
+                /*
                 var result = from u in db.Users
                              select u;
 
@@ -56,6 +57,7 @@ namespace Angular_webshop
                     Console.WriteLine("{0}", item.productName);
                 }
                 Console.WriteLine("\n\n\n\n");
+                */
             }
 
             host.Run();
