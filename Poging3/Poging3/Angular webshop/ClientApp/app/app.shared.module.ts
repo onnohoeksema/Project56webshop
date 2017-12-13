@@ -21,11 +21,6 @@ import { ShoppingCartComponent } from './components/shoppingcart/shoppingcart.co
 import { PaymentRedirectComponent } from './components/paymentredirect/paymentredirect.component';
 import { WatchListComponent } from './components/Login/WatchList.component';
 import { AccountSettingsComponent } from './components/Login/AccountSettings.component';
-import { AdminDashBoardComponent } from './components/Login/AdminDashBoard.component';
-import { AdminUsersComponent } from './components/Login/AdminUsers.component';
-import { AdminProductsComponent } from './components/Login/AdminProducts.component';
-import { AdminStatisticsComponent } from './components/Login/AdminStatistics.component';
-
 
 @NgModule({
     declarations: [
@@ -43,11 +38,7 @@ import { AdminStatisticsComponent } from './components/Login/AdminStatistics.com
         ShoppingCartComponent,
         PaymentRedirectComponent,
         WatchListComponent,
-        AccountSettingsComponent,
-        AdminDashBoardComponent,
-        AdminUsersComponent,
-        AdminProductsComponent,
-        AdminStatisticsComponent
+        AccountSettingsComponent
     ],
     imports: [
         CommonModule,
@@ -72,10 +63,6 @@ import { AdminStatisticsComponent } from './components/Login/AdminStatistics.com
             { path: 'paymentredirect', component: PaymentRedirectComponent },
             { path: 'WatchList', component: WatchListComponent },
             { path: 'AccountSettings', component: AccountSettingsComponent },
-            { path: 'AdminDashBoard', component: AdminDashBoardComponent },
-            { path: 'AdminUsers', component: AdminUsersComponent },
-            { path: 'AdminProducts', component: AdminProductsComponent },
-            { path: 'AdminStatistics', component: AdminStatisticsComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
