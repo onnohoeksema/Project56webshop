@@ -3,13 +3,8 @@
     "",
     "\\Angular webshop",
     "\\Angular webshop\\ClientApp",
-    "\\Angular webshop\\ClientApp\\app",
-    "\\Angular webshop\\ClientApp\\app\\components",
-    "\\Angular webshop\\ClientApp\\app\\components\\fetchdata",
-    "\\Angular webshop\\ClientApp\\app\\components\\itempage",
-    "\\Angular webshop\\Controllers",
-    "\\Angular webshop\\JsScripts"
+    "\\Angular webshop\\Controllers"
   ],
-  "SelectedNode": "\\Angular webshop\\ClientApp\\app\\components\\itempage\\itempage2.component.ts",
+  "SelectedNode": "\\Angular webshop\\Models",
   "PreviewInSolutionExplorer": false
 }

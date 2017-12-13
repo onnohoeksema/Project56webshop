@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
-import { HttpClient } from '@angular/common/http';
+//import { HttpClient } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
@@ -45,7 +45,7 @@ import { AccountSettingsComponent } from './components/Login/AccountSettings.com
         HttpModule,
         FormsModule,
         BrowserModule,
-        //HttpClientModule,
+        HttpClientModule,
         HttpModule,
         //HttpClient,
         RouterModule.forRoot([

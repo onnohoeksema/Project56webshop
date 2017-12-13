@@ -10,14 +10,14 @@ import { Inject } from '@angular/core';
     selector: "itempage",
     templateUrl: "./itempage.component.html"
 })
-
+/*
 export class ItemPageComponent implements OnInit {
 
     results: string[];
     // HttpClient needs to be implemented, probably the database connection
     //HttpClient has been implemented
     constructor(private http: HttpClient, @Inject('BASE_URL') baseUrl: string) {
-        http.get<ItemsResponse>(baseUrl + '/api/SampleData/GetAll').subscribe(data => {
+        http.get<ItemsResponse>(baseUrl + '/api/TestMania/GetAll').subscribe(data => {
                 this.results = data.results;
             },
             err => { console.log('Something went wrong!'); }
@@ -25,14 +25,14 @@ export class ItemPageComponent implements OnInit {
     }
     
     ngOnInit(): void {
-        this.http.get('/api/SampleData/GetAll').subscribe(data => {
+        this.http.get('/api/TestMania/GetAll').subscribe(data => {
             this.results = (data as any)['results']; 
             
         });
 
     }
 }
-/*
+*/
 
 export class ItemPageComponent implements OnInit {
 
@@ -45,7 +45,7 @@ export class ItemPageComponent implements OnInit {
     }
     
 }
-*/
+
 interface ItemsResponse {
     results: string[];
 }
