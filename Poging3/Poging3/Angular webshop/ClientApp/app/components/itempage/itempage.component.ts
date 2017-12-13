@@ -4,23 +4,13 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
+import { Inject } from '@angular/core';
 
-
-
-@NgModule({
-    imports: [
-        BrowserModule,
-        // Include it under 'imports' in your application module
-        // after BrowserModule.
-        HttpClientModule,
-        HttpModule
-    ],
+@Component({
+    selector: "itempage",
+    templateUrl: "./itempage.component.html"
 })
-export class MyAppModule {
-}
 
-
-/*
 export class ItemPageComponent implements OnInit {
 
     results: string[];
@@ -42,11 +32,8 @@ export class ItemPageComponent implements OnInit {
 
     }
 }
-*/
-@Component({
-    selector: "itempage",
-    templateUrl: "./itempage.component.html"
-})
+/*
+
 export class ItemPageComponent implements OnInit {
 
     results: string[];
@@ -58,7 +45,7 @@ export class ItemPageComponent implements OnInit {
     }
     
 }
-
+*/
 interface ItemsResponse {
     results: string[];
 }

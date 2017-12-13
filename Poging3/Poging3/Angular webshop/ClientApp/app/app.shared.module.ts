@@ -3,7 +3,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule } from '@angular/router';
-
+import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent } from './components/app/app.component';
 import { NavMenuComponent } from './components/navmenu/navmenu.component';
 import { HomeComponent } from './components/home/home.component';
@@ -34,6 +36,10 @@ import { PaymentRedirectComponent } from './components/paymentredirect/paymentre
         CommonModule,
         HttpModule,
         FormsModule,
+        BrowserModule,
+        HttpClientModule,
+        HttpModule,
+        HttpClient,
         RouterModule.forRoot([
             { path: '', redirectTo: 'home', pathMatch: 'full' },
             { path: 'home', component: HomeComponent },
