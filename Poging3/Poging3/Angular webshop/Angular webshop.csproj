@@ -26,6 +26,7 @@
 
   <ItemGroup>
     <None Remove="ClientApp\app\components\Login\AccountSettings.component.ts" />
+    <None Remove="ClientApp\app\components\Login\AdminProducts.component.ts" />
     <None Remove="ClientApp\app\components\Login\LoginPage.component.ts" />
     <None Remove="ClientApp\app\components\Login\MyOrder.component.ts" />
     <None Remove="ClientApp\app\components\Login\WatchList.component.ts" />
@@ -37,6 +38,10 @@
 
   <ItemGroup>
     <TypeScriptCompile Include="ClientApp\app\components\Login\AccountSettings.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\AdminDashBoard.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\AdminProducts.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\AdminStatistics.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\Login\AdminUsers.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\LoginPage.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\MyOrder.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\PurchaseHistory.component.ts" />
