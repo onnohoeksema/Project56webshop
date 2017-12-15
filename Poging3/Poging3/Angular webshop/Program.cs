@@ -7,7 +7,7 @@ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
-using Angular_webshop.Models;
+using Models;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace Angular_webshop
@@ -17,7 +17,7 @@ namespace Angular_webshop
         public static void Main(string[] args)
         {
             var host = BuildWebHost(args);
-
+/* 
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
@@ -32,11 +32,14 @@ namespace Angular_webshop
                     var logger = services.GetRequiredService<ILogger<Program>>();
                     logger.LogError(ex, "An error occurred seeding the DB.");
                 }
-            }
+            }*/
 
-            using (var db = new DatabaseModel())
+
+              
+            /*
+           using (var db = new DatabaseModel(options):base(options))
             {
-                /*
+                
                 var result = from u in db.Users
                              select u;
 
@@ -57,9 +60,9 @@ namespace Angular_webshop
                     Console.WriteLine("{0}", item.productName);
                 }
                 Console.WriteLine("\n\n\n\n");
-                */
+                
             }
-
+            */
             host.Run();
         }
 

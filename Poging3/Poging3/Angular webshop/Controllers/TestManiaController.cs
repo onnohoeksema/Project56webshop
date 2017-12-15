@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Angular_webshop.Models;
+using Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Angular_webshop.Controllers

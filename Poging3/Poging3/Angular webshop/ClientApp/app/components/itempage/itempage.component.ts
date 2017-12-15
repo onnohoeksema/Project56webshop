@@ -37,16 +37,19 @@ export class ItemPageComponent implements OnInit {
 
 export class ItemPageComponent implements OnInit {
 
-    results: string[];
+    public products: string[] //= ["Test1", "Test2", "Test3"];
 
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
-        this.http.get<ItemsResponse>('/api/SampleData/GetAll').subscribe(data => { this.results = data.results });
+        
+        this.http.get<ItemsResponse>('/api/ItemPage/GetAll').subscribe(data => { this.products = data.products; });
+        
     }
     
 }
 
 interface ItemsResponse {
-    results: string[];
+    products: string[] 
+    
 }

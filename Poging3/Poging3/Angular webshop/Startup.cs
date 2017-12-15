@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace Angular_webshop
 {
@@ -22,6 +24,10 @@ namespace Angular_webshop
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<DatabaseModel>(
+                optionsBuilder => optionsBuilder.UseMySQL(@"User Id=root;Password=root;Host=localhost;Database=project56test")
+            );
+            
             services.AddMvc();
         }
 

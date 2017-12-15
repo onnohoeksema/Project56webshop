@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Angular_webshop.Models;
+using Models;
 
 namespace Angular_webshop.Controllers
 {
@@ -20,9 +20,22 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
-            var _products = from p in _context.Products
-                            select p;
-            return Ok(_products);
+            /*var results = from p in _context.Products
+            select p.productName;
+            results = _context.Products.ToArray();
+            */
+             Console.WriteLine("\n\n Something will be done \n\n");
+            var products = from p in _context.Products
+                select p;
+            
+            Console.WriteLine("\n\n Done with database stuff, these should be the products \n\n");
+            foreach (var product in products)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+            Console.WriteLine(products);
+            return Ok(products);
+            
         }
 
         [HttpGet("GetProducts/{name}")]
@@ -33,37 +46,16 @@ namespace Angular_webshop.Controllers
             return Ok(product);
         }
 
+public class Product
+    {
+        public int productID { get; set; }
+        public string productName { get; set; }
+        public float productPrice { get; set; }
+        public int productStock { get; set; }
+        public string productCategory { get; set; }
+        public string productTag { get; set; }
+    }
 
-        private static string[] Summaries = new[]
-        {
-            "Item Freezing", "Item Bracing", "Item Chilly", "Item Cool", "Item Mild", "Item Warm", "Item Balmy", "Item Hot", "Item Sweltering", "Item Scorching"
-        };
-
-        [HttpGet("[action]")]
-        public IEnumerable<WeatherForecast> WeatherForecasts()
-        {
-            var rng = new Random();
-            return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-            {
-                DateFormatted = DateTime.Now.AddDays(index).ToString("d"),
-                TemperatureC = rng.Next(-20, 55),
-                Summary = Summaries[rng.Next(Summaries.Length)]
-            });
-        }
-
-        public class WeatherForecast
-        {
-            public string DateFormatted { get; set; }
-            public int TemperatureC { get; set; }
-            public string Summary { get; set; }
-
-            public int TemperatureF
-            {
-                get
-                {
-                    return 32 + (int)(TemperatureC / 0.5556);
-                }
-            }
-        }
+    
     }
 }

@@ -2,21 +2,21 @@
 
 <p>This is a simple example of an itempage.</p>
 
-<p *ngIf="!results"><em>Loading Items...</em></p>
-<p *ngIf="!forecasts"><em>Loading Forecasts...</em></p>
-<div *ngIf="results">
+<p><em>Loading 1231Items...</em></p>
 
-    <p>Item Name</p>
+<div>
+
+    <p>Item Name1</p>
     <ul>
-        <li *ngFor="let item of results">
-            {{ item.productName }}
+        <li *ngFor="let product of products">
+            {{ product.productName }}
         </li>
     </ul>
 
 </div>
 <div *ngIf="forecasts">
 
-    <p>Item Name</p>
+    <p>Item Name2</p>
     <ul>
         <li *ngFor="let forecast of forecasts">
             {{ forecast.summary }}
