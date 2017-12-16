@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { Inject } from '@angular/core';
+import { Http } from '@angular/http/src/http';
 
 
 @Component({
@@ -37,19 +38,26 @@ export class ItemPageComponent implements OnInit {
 
 export class ItemPageComponent implements OnInit {
 
-    public products: string[] //= ["Test1", "Test2", "Test3"];
+    public products: any //= ["Test1", "Test2", "Test3"];
 
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
         
-        this.http.get<ItemsResponse>('/api/ItemPage/GetAll').subscribe(data => { this.products = data.products; });
+        this.http.get('/api/ItemPage/GetAll').subscribe(data => { this.products = data ; 
+        
+        }, error => console.error(error));
         
     }
     
 }
 
 interface ItemsResponse {
-    products: string[] 
+    productID: number;
+    productName: string;
+    productPrice: number;
+    productStock: number;
+    productCategory: string;
+    productTag: string; 
     
 }
