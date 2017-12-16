@@ -9,8 +9,8 @@ import { Http } from '@angular/http/src/http';
 
 
 @Component({
-    selector: "itempage",
-    templateUrl: "./itempage.component.html"
+    selector: "itemcategories",
+    templateUrl: "./itemcategories.component.html"
 })
 /*
 export class ItemPageComponent implements OnInit {
@@ -36,26 +36,22 @@ export class ItemPageComponent implements OnInit {
 }
 */
 
-export class ItemPageComponent implements OnInit {
+export class ItemCategoriesComponent implements OnInit {
 
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
-    public filteredproducts: any
 
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
         
-        this.http.get('/api/ItemPage/GetAll').subscribe(data => { this.products = data ; 
+        this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.products = data ; 
         
         }, error => console.error(error));
         
-        this.http.get('/api/ItemPage/GetProducts/Book').subscribe(data => { this.filteredproducts = data ; 
-        
-        }, error => console.error(error));
     }
     
 }
-//Did not test if this was actually nescesary
+
 interface ItemsResponse {
     productID: number;
     productName: string;

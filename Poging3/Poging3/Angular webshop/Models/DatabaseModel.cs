@@ -19,7 +19,7 @@ namespace Models
     {
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
-
+        public DbSet<Category> ProductCategories { get; set; }
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
@@ -49,6 +49,11 @@ namespace Models
         public string productTag { get; set; }
     }
 
+    public class Category
+    {
+        public int categoryID { get; set; }
+        public string categoryName { get; set; }
+    }
 
 /* 
 
@@ -59,7 +64,7 @@ namespace Models
             using (var context = new DatabaseModel())
             {
                 //Query for selecting all products??
-                var products = from p in context.Products
+                var products = from p in context.pro
                     select p;
 
             }

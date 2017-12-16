@@ -1,26 +1,27 @@
-﻿<h1>Itempage</h1>
+﻿<h1>Item Page</h1>
 
-<p>This is a simple example of an itempage.</p>
+<p>This is a simple example of the category page.</p>
 
-<p><em>Loading 1231Items...</em></p>
+<p *ngIf="!products"><em>Loading 1231Items...</em></p>
 
-<div>
+<div *ngIf="products">
 
-    <p>Item Name1</p>
-    <ul>
-        <li *ngFor="let product of products">
+    <p>Item Name</p>
+    <nav>
+        <!--Dumps all of the items in the database, just because we can -->
+        <a *ngFor="let product of products" class="btn btn-default">
             {{ product.productName }}
-        </li>
-    </ul>
-
-</div>
-<div *ngIf="forecasts">
-
-    <p>Item Name2</p>
-    <ul>
-        <li *ngFor="let forecast of forecasts">
-            {{ forecast.summary }}
-        </li>
-    </ul>
-
+            <br>
+        </a>
+    </nav>
+<br><br><br><br><br>
+    <!--Here a selection of items should be shown, for now it will be all of the available books  -->
+    <h2>Item Name filtered</h2>
+    <nav>
+        <!--Dumps all of the items in the database, just because we can -->
+        <a *ngFor="let product of filteredproducts" class="btn btn-default">
+            {{ product.productName }}
+            <br>
+        </a>
+    </nav>
 </div>

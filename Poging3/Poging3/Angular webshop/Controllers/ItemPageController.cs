@@ -24,27 +24,29 @@ namespace Angular_webshop.Controllers
             select p.productName;
             results = _context.Products.ToArray();
             */
-             Console.WriteLine("\n\n Something will be done \n\n");
+            // Console.WriteLine("\n\n Something will be done \n\n");
             var products = from p in _context.Products
                 select p;
             
-            Console.WriteLine("\n\n Done with database stuff, these should be the products \n\n");
-            foreach (var product in products)
-            {
-                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
-            }
-            Console.WriteLine(products);
+           // Console.WriteLine("\n\n Done with database stuff, these should be the products \n\n");
+           // foreach (var product in products)
+            //{
+            //    Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+           // }
+            //Console.WriteLine(products);
             return Ok(products);
             
         }
 
-        [HttpGet("GetProducts/{name}")]
-        public IActionResult GetProduct(string name)
+
+        [HttpGet("GetProducts/{category}")]
+        public IActionResult GetProducts(string category)
         {
-            var product = _context.Products.Where(a => a.productName == name).FirstOrDefault();
-            if (product == null) return NotFound();
-            return Ok(product);
+            var filteredproducts = _context.Products.Where(a => a.productCategory == category);
+            if (filteredproducts == null) return NotFound();
+            return Ok(filteredproducts);
         }
+
 
 public class Product
     {

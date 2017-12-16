@@ -1,0 +1,49 @@
+﻿<h1>Item categories</h1>
+
+<p>This is a simple example of the category page.</p>
+
+<p *ngIf="!products"><em>Loading 1231Items...</em></p>
+
+<div *ngIf="products">
+
+    <p>Category Name</p>
+    <nav>
+        <!--still needs routerLink to navigate to the right page -->
+        <a *ngFor="let product of products" class="btn btn-default">
+            {{ product }}
+        </a>
+    </nav>
+
+    <!--created hardcoded buttons with routerlinks so we can execute queries based on  -->
+    <p>Category Name hardcoded</p>
+    <div>
+            <nav>
+                <!--Dit Veranderen naar je desbetreffende router link.-->
+                <a routerLink="/itempage" class="btn btn-default">Accessory</a>
+            </nav>
+        </div>
+        <div>
+            <nav>
+                <!--Dit Veranderen naar je desbetreffende router link.-->
+                <a routerLink="/itempage" class="btn btn-default">Book</a>
+            </nav>
+        </div>
+        <div>
+            <nav>
+                <!--Dit Veranderen naar je desbetreffende router link.-->
+                <a routerLink="/itempage" class="btn btn-default">Dice</a>
+            </nav>    
+        </div>
+        <div>
+            <nav>
+                <!--Dit Veranderen naar je desbetreffende router link.-->
+                <a routerLink="/itempage" class="btn btn-default">Extra</a>
+            </nav>
+        </div>
+        <div>
+                <nav>
+                    <!--Dit Veranderen naar je desbetreffende router link.-->
+                    <a routerLink="/itempage" class="btn btn-default">Miniature</a>
+                </nav>
+            </div>
+</div>

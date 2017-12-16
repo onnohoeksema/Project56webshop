@@ -25,6 +25,7 @@ import { AdminDashBoardComponent } from './components/Login/AdminDashBoard.compo
 import { AdminUsersComponent } from './components/Login/AdminUsers.component';
 import { AdminProductsComponent } from './components/Login/AdminProducts.component';
 import { AdminStatisticsComponent } from './components/Login/AdminStatistics.component';
+import { ItemCategoriesComponent } from './components/itemcategories/itemcategories.component';
 
 
 @NgModule({
@@ -47,7 +48,8 @@ import { AdminStatisticsComponent } from './components/Login/AdminStatistics.com
         AdminDashBoardComponent,
         AdminUsersComponent,
         AdminProductsComponent,
-        AdminStatisticsComponent
+        AdminStatisticsComponent,
+        ItemCategoriesComponent
     ],
     imports: [
         CommonModule,
@@ -76,6 +78,7 @@ import { AdminStatisticsComponent } from './components/Login/AdminStatistics.com
             { path: 'AdminUsers', component: AdminUsersComponent },
             { path: 'AdminProducts', component: AdminProductsComponent },
             { path: 'AdminStatistics', component: AdminStatisticsComponent },
+            { path: 'itemcategories', component: ItemCategoriesComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ]
