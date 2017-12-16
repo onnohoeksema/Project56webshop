@@ -2,15 +2,15 @@
 
 <p>This is a simple example of the category page.</p>
 
-<p *ngIf="!products"><em>Loading 1231Items...</em></p>
+<p *ngIf="!categories"><em>Loading 1231Items...</em></p>
 
-<div *ngIf="products">
+<div *ngIf="categories">
 
     <p>Category Name</p>
     <nav>
         <!--still needs routerLink to navigate to the right page -->
-        <a *ngFor="let product of products" class="btn btn-default">
-            {{ product }}
+        <a *ngFor="let category of categories" class="btn btn-default">
+            {{ category }}
         </a>
     </nav>
 

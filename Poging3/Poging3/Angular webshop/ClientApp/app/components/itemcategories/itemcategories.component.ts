@@ -38,13 +38,13 @@ export class ItemPageComponent implements OnInit {
 
 export class ItemCategoriesComponent implements OnInit {
 
-    public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+    public categories: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
 
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
         
-        this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.products = data ; 
+        this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.categories = data ; 
         
         }, error => console.error(error));
         
