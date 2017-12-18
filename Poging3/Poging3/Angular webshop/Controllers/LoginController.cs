@@ -22,15 +22,15 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetUsers")]
         public IActionResult GetUsers()
         {
-            var User = from u in _context.Users
+            var Users = from u in _context.Users
 
                        select u.Username;
 
-            foreach (var Username in User)
+            foreach (var Username in Users)
             {
                 Console.WriteLine("{0}", Username);
             }
-            return Ok(User);
+            return Ok(Users);
         }
 
 

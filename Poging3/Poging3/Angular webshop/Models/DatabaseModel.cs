@@ -20,6 +20,9 @@ namespace Models
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> ProductCategories { get; set; }
+        
+
+
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }

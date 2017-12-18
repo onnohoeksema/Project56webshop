@@ -7,13 +7,16 @@
 <div *ngIf="categories">
 
     <p>Category Name</p>
-    <nav>
+    <nav *ngFor="let category of categories">
         <!--still needs routerLink to navigate to the right page -->
-        <a *ngFor="let category of categories" class="btn btn-default">
-            {{ category }}
+        <a class="btn btn-default">
+            {{ category.categoryName }}
         </a>
     </nav>
 
+    <p>You pressed the following button: {{ myCategory.name }} </p>
+
+    <br>
     <!--created hardcoded buttons with routerlinks so we can execute queries based on  -->
     <p>Category Name hardcoded</p>
     <div>

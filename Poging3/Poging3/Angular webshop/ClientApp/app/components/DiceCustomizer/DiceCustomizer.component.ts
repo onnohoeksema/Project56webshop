@@ -14,6 +14,12 @@ export class DiceCustomizerComponent {
     public numberColor = ["Red", "Green", "Blue", "Black", "Pink"];
     public dicePattern = ["Gucci", "Panther", "None"];
 
+    mydiceType = this.diceType;
 }
 
+export class diceType{
+    constructor(
+        public name: string) {}
+    
+}
 

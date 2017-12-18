@@ -8,6 +8,7 @@ import { Inject } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 
 
+
 @Component({
     selector: "itemcategories",
     templateUrl: "./itemcategories.component.html"
@@ -49,8 +50,9 @@ export class ItemCategoriesComponent implements OnInit {
         }, error => console.error(error));
         
     }
-    
+    myCategory = this.categories;
 }
+
 
 interface ItemsResponse {
     productID: number;

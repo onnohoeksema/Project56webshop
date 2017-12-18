@@ -29,14 +29,14 @@ const routes: Routes = [
 export class AdminUsersComponent {
 
 
-    public User: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+    public Users: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
 
     constructor(private http: HttpClient) { }
 
     ngOnInit(): void {
 
         this.http.get('/api/Login/GetUsers').subscribe(data => {
-            this.User = data;
+            this.Users = data;
 
         }, error => console.error(error));
 

@@ -8,8 +8,8 @@
     <h1>User Details</h1>
     <div>
             <!--Dumps all of the items in the database, just because we can -->
-            <a *ngFor="Users" class="btn btn-default">
-                {{ User.Username }}
+            <a *ngFor="let User of Users" class="btn btn-default">
+                {{ User }}
                 <br>
             </a>
         
