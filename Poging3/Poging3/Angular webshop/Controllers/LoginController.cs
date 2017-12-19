@@ -65,8 +65,17 @@ namespace Angular_webshop.Controllers
             return Ok(User);
         }
 
-        
 
+        [HttpGet("GetUser/{uname}/{passw}")]
+        public IActionResult GetUser(string uname, string passw)
+        {
+            var user = _context.Users.Where(u => u.Username == uname && u.Password == passw).FirstOrDefault();
 
+            if (user == null) return NotFound();
+            return Ok(user);
         }
+
+
+
     }
+}

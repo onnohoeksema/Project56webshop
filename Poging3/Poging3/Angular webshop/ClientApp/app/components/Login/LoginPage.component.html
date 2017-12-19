@@ -6,9 +6,9 @@
 </head>
 <body>
     <h1>Login Page</h1>
-    <input class="form-control" type="text" id="Username" name="Username" placeholder="Username" />
-    <input class="form-control" type="password" id="Password" name="Password" placeholder="Password" />
-    <input type="submit" value="Log in" class="btn btn-default" />
+    <input class="form-control" type="text" id="Username" [(ngModel)]="username" placeholder="Username" />
+    <input class="form-control" type="password" id="Password" [(ngModel)]="password" placeholder="Password" />
+    <button type="button" (click)="login()" class="btn btn-default">Login</button>
     <nav>
         <!--Dit Veranderen naar je desbetreffende router link.-->
         <a routerLink="/UserDashBoard" >UserDashboard</a>
