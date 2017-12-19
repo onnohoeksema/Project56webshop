@@ -20,9 +20,11 @@ namespace Models
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> ProductCategories { get; set; }
+        public DbSet<DCdicetype> dcdicetype { get; set; }
+        public DbSet<DCdicecolor> dcdicecolor { get; set; }
+        public DbSet<DCnumbercolor> dcnumbercolor { get; set; }
+        public DbSet<DCdicepattern> dcdicepattern { get; set; }
         
-
-
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
@@ -58,6 +60,34 @@ namespace Models
         public string categoryName { get; set; }
     }
 
+    public class DCdicetype
+    {
+        public int dicetypeID { get; set; }
+        public string dicetypeName { get; set; }
+        public string dicetypeStock { get; set; }
+    }
+    
+
+    public class DCdicecolor
+    {
+        public int dicecolorID { get; set; }
+        public string dicecolorName { get; set; }
+        public string dicecolorStock { get; set; }
+    }
+
+    public class DCnumbercolor
+    {
+        public int numbercolorID { get; set; }
+        public string numbercolorName { get; set; }
+        public string numbercolorStock { get; set; }
+    }
+
+    public class DCdicepattern
+    {
+        public int dicepatternID { get; set; }
+        public string dicepatternName { get; set; }
+        public string dicepatternStock { get; set; }
+    }
 /* 
 
     public static class FetchData
