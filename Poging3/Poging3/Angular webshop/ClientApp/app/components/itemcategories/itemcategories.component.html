@@ -3,14 +3,14 @@
 <p>This is a simple example of the category page.</p>
 
 <p *ngIf="!categories"><em>Loading 1231Items...</em></p>
-
+<button (click)="onClickMe()">Click me!</button>
 <div *ngIf="categories">
 
     <p>Category Name</p>
     <nav *ngFor="let category of categories">
         <!--still needs routerLink to navigate to the right page -->
         <a class="btn btn-default">
-            {{ category.categoryName }}
+            {{ category }}
         </a>
     </nav>
 

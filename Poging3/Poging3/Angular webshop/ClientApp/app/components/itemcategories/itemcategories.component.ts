@@ -42,13 +42,14 @@ export class ItemCategoriesComponent implements OnInit {
     public categories: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
 
     constructor(private http: HttpClient) {}
-
-    ngOnInit(): void {
-        
+    
+    onClickMe(){
         this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.categories = data ; 
         
         }, error => console.error(error));
-        
+    }
+    ngOnInit(): void {
+
     }
     myCategory = this.categories;
 }
