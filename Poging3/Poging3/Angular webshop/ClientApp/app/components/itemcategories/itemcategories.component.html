@@ -9,7 +9,7 @@
     <p>Category Name</p>
     <nav *ngFor="let category of categories">
         <!--still needs routerLink to navigate to the right page -->
-        <a class="btn btn-default">
+        <a class="btn btn-default" (click)="onClickMeToo()">
             {{ category }}
         </a>
     </nav>

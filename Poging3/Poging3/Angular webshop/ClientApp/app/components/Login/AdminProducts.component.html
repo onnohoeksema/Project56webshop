@@ -14,8 +14,37 @@
                 <br>
             </a>
         </nav>
-
+<!-- Idee: alle items in een tabel zetten (zoals weatherforecast), met de mogelijkheid om de items in de tabel dan te wijzigen, bij een wijziging worden alle
+parameters als update table query uitgestuurd -->
     </div>
+    <p>Table with items</p>
+    <!-- These should be the sort and filter options -->
+    <div class="alert alert-info">
+        <p>Sort Type: {{ sortType }}</p>
+        <p>Sort Reverse: {{ sortReverse }}</p>
+        <p>Search Query: {{ searchFish }}</p>
+      </div>
+    
+    <table class='table' *ngIf="products">
+        <thead>
+            <tr>
+                <th>Product Name</th>
+                <th>Price</th>
+                <th>Stock</th>
+                <th>Category</th>
+                <th>Tag</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let product of products">
+                <td>{{ product.productName }}</td>
+                <td>{{ product.productPrice }}</td>
+                <td>{{ product.productStock }}</td>
+                <td>{{ product.productCategory }}</td>
+                <td>{{ product.productTag }}</td>
+            </tr>
+        </tbody>
+    </table>
     <div>
         <nav>
             <!--Dit Veranderen naar je desbetreffende router link.-->
@@ -24,4 +53,91 @@
     </div>
 
 </body>
+<!-- Let's paste some template over here to see what it is all about -->
+
+<div class="container" ng-app="AdminProducts" ng-controller="mainController">
+  
+    <div class="alert alert-info">
+      <p>Sort Type: {{ sortType }}</p>
+      <p>Sort Reverse: {{ sortReverse }}</p>
+      <p>Search Query: {{ searchFish }}</p>
+    </div>
+    
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <div class="input-group-addon"><i class="fa fa-search"></i></div>
+          <input type="text" class="form-control" placeholder="Search da Fish" ng-model="searchFish">
+        </div>      
+      </div>
+    </form>
+    
+    <table class="table table-bordered table-striped">
+      
+      <thead>
+        <tr>
+          <td>
+            <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+              Product Name 
+              <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+            Price 
+              <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+          <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+            Stock 
+              <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+            Category
+              <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+          <td>
+            <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+            Tag
+              <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+              <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+            </a>
+          </td>
+        </tr>
+      </thead>
+      
+      <tbody>
+        <tr *ngFor="let product of products | orderBy:sortType:sortReverse | filter:searchFish"> 
+            <!-- also contains | orderBy:sortType:sortReverse | filter:searchFish, but not yet implemented, so errors -->
+           
+           
+            <td>{{ product.productName }}</td>
+            <td>{{ product.productPrice }}</td>
+            <td>{{ product.productStock }}</td>
+            <td>{{ product.productCategory }}</td>
+            <td>{{ product.productTag }}</td>
+
+        </tr>
+      </tbody>
+      
+    </table>
+    
+    <p class="text-center text-muted">
+      <a href="#" target="_blank">Read the Tutorial</a>
+    </p>
+    
+    <p class="text-center">
+      by <a href="https://scotch.io" target="_blank">scotch.io</a>
+    </p>
+
+  </div>
+
 </html>

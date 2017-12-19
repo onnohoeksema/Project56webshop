@@ -7,7 +7,7 @@ import { HttpModule } from '@angular/http';
 import { Inject } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 import { RouterModule, Routes } from '@angular/router';
-
+;
 import { LoginPageComponent } from './LoginPage.component';
 
 const routes: Routes = [
@@ -29,6 +29,10 @@ const routes: Routes = [
 export class AdminProductsComponent {
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredproducts: any
+
+    public sortType     = 'name'; // set the default sort type
+    public sortReverse  = false;  // set the default sort order
+    public searchFish   = '';     // set the default search/filter term
 
     constructor(private http: HttpClient) { }
 

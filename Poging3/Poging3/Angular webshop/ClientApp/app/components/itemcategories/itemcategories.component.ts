@@ -48,6 +48,12 @@ export class ItemCategoriesComponent implements OnInit {
         
         }, error => console.error(error));
     }
+
+    onClickMeToo(){
+        this.http.get('/api/ItemCategories/GetProducts/{name}').subscribe(data => { this.categories = data ; 
+        
+        }, error => console.error(error));
+    }
     ngOnInit(): void {
 
     }
