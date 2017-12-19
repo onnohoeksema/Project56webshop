@@ -8,6 +8,16 @@
     <h1>Product Details</h1>
     <div>
         <nav>
+            <!--Dumps all of the items in the database, just because we can -->
+            <a *ngFor="let product of products" class="btn btn-default">
+                {{ product.productName }}
+                <br>
+            </a>
+        </nav>
+
+    </div>
+    <div>
+        <nav>
             <!--Dit Veranderen naar je desbetreffende router link.-->
             <a routerLink="/AdminDashBoard" class="btn btn-default">Back to Dashboard</a>
         </nav>
