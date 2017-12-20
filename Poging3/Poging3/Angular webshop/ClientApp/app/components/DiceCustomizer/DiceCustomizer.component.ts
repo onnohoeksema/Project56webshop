@@ -22,25 +22,25 @@ export class DiceCustomizerComponent implements OnInit {
 
         constructor(private http: HttpClient) {}
         
-        onClickMe(){
-            this.http.get('/api/DiceCustomizer/GetdcDiceTypes').subscribe(data => { this.dcdicetypes = data ; 
-            
-            }, error => console.error(error));
+       
+        
+        ngOnInit(): void {
 
-            this.http.get('/api/DiceCustomizer/GetdcDiceColors').subscribe(data1 => { this.dcdicecolors = data1 ; 
+            this.http.get('/api/DiceCustomizer/GetdcDiceTypes').subscribe(data => { this.dcdicetypes = data ; 
                 
                 }, error => console.error(error));
-            
-            this.http.get('/api/DiceCustomizer/GetdcNumberColors').subscribe(data2 => { this.dcnumbercolors = data2 ; 
-                    
-                }, error => console.error(error));
-
-            this.http.get('/api/DiceCustomizer/GetdcDicePatterns').subscribe(data3 => { this.dcdicepatterns = data3 ; 
-                    
-                }, error => console.error(error));
-        }
-        ngOnInit(): void {
     
+                this.http.get('/api/DiceCustomizer/GetdcDiceColors').subscribe(data1 => { this.dcdicecolors = data1 ; 
+                    
+                    }, error => console.error(error));
+                
+                this.http.get('/api/DiceCustomizer/GetdcNumberColors').subscribe(data2 => { this.dcnumbercolors = data2 ; 
+                        
+                    }, error => console.error(error));
+    
+                this.http.get('/api/DiceCustomizer/GetdcDicePatterns').subscribe(data3 => { this.dcdicepatterns = data3 ; 
+                        
+                    }, error => console.error(error));
         }
         mydcDiceType = this.dcdicetypes;
         mydcDiceColor = this.dcdicecolors;

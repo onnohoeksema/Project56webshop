@@ -22,7 +22,7 @@ namespace Angular_webshop.Controllers
         public IActionResult GetdcDiceTypes()
         {
             var dcdicetypes = from p in _context.dcDiceType
-                
+            
                 select p.dcdicetypeName;
 
             foreach (var dcdicetype in dcdicetypes)
