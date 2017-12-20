@@ -43,19 +43,15 @@ export class ItemCategoriesComponent implements OnInit {
 
     constructor(private http: HttpClient) {}
     
-    onClickMe(){
+    ngOnInit(): void {
+
         this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.categories = data ; 
         
         }, error => console.error(error));
-    }
 
-    onClickMeToo(){
         this.http.get('/api/ItemCategories/GetProducts/{name}').subscribe(data => { this.categories = data ; 
         
         }, error => console.error(error));
-    }
-    ngOnInit(): void {
-
     }
     myCategory = this.categories;
 }
