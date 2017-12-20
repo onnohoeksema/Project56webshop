@@ -7,7 +7,8 @@ import { HttpModule } from '@angular/http';
 import { Inject } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 import { RouterModule, Routes } from '@angular/router';
-;
+import { Pipe, PipeTransform } from '@angular/core'; 
+
 import { LoginPageComponent } from './LoginPage.component';
 
 const routes: Routes = [
