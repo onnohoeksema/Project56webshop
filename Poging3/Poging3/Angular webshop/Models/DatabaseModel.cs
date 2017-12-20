@@ -20,10 +20,10 @@ namespace Models
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> ProductCategories { get; set; }
-        public DbSet<DCdicetype> DiceType { get; set; }
-        public DbSet<DCdicecolor> DiceColor { get; set; }
-        public DbSet<DCnumbercolor> NumberColor { get; set; }
-        public DbSet<DCdicepattern> DicePattern { get; set; }
+        public DbSet<DCdicetype> dcDiceType { get; set; }
+        public DbSet<DCdicecolor> dcDiceColor { get; set; }
+        public DbSet<DCnumbercolor> dcNumberColor { get; set; }
+        public DbSet<DCdicepattern> dcDicePattern { get; set; }
         
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        

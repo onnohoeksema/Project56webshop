@@ -1,10 +1,46 @@
-﻿<p *ngIf="!dicetypes"><em>Loading 1231Items...</em></p>
-<div *ngIf="dicetypes"></div>
+﻿<p *ngIf="!dcdicetypes"><em>Loading Items...</em></p>
+<button (click)="onClickMe()">Click me!</button>
+<div *ngIf="dcdicetypes"></div>
 
-    <p>Dicetypes:</p>
-    <nav *ngFor="let dicetype of dicetypes">
-        <!--still needs routerLink to navigate to the right page -->
-        <a class="btn btn-default">
-            {{ dicetype }}
-        </a>
-    </nav>
+<p>Dicetypes:</p>
+<ul>
+<li *ngFor="let dcdicetype of dcdicetypes">
+    <input type="radio" name="dcDiceType" [(ngModel)]="mydcDiceType" value="{{ dcdicetype }}" />
+    {{ dcdicetype }}
+</ul>
+
+<p *ngIf="!dcdicecolors"><em>Loading Items...</em></p>
+<div *ngIf="dcdicecolors"></div>
+
+<p>Dice colors:</p>
+<ul>
+    <li *ngFor="let dcdicecolor of dcdicecolors">
+        <input type="radio" name="dcDiceColor" [(ngModel)]="mydcDiceColor" value="{{ dcdicecolor }}" />
+        {{ dcdicecolor }}
+</ul>
+
+<p *ngIf="!dcnumbercolors"><em>Loading Items...</em></p>
+<div *ngIf="dcnumbercolors"></div>
+
+<p>Number colors:</p>
+<ul>
+    <li *ngFor="let dcnumbercolor of dcnumbercolors">
+        <input type="radio" name="dcNumberColor" [(ngModel)]="mydcNumberColor" value="{{ dcnumbercolor }}" />
+        {{ dcnumbercolor }}
+</ul>
+
+<p *ngIf="!dcdicepatterns"><em>Loading Items...</em></p>
+<div *ngIf="dcdicepatterns"></div>
+
+<p>Dice patterns:</p>
+<ul>
+    <li *ngFor="let dcdicepattern of dcdicepatterns">
+        <input type="radio" name="dcDicePattern" [(ngModel)]="mydcDicePattern" value="{{ dcdicepattern }}" />
+        {{ dcdicepattern }}
+</ul>
+
+<p> You have selected:<br />
+     Dice type: <strong>{{ mydcDiceType }}</strong> <br />
+     Dice color: <strong>{{ mydcDiceColor }}</strong> <br />
+     Number color: <strong>{{ mydcNumberColor }}</strong> <br />
+     Dice pattern: <strong>{{ mydcDicePattern }}</strong></p>
