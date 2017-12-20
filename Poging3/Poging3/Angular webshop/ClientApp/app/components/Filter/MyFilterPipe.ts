@@ -15,14 +15,14 @@ import { Pipe, PipeTransform } from '@angular/core';
     pure: false
 })  
 
-export class MyFilterPipe implements PipeTransform {
+/*export class MyFilterPipe implements PipeTransform {
     transform(Products: any, filter: Product): any {
         if (!Products || !filter) {
             return Products;
         }
-        return Products.filter(Product => Products.productName.indexOf(filter.productName) !== -1);
+        //return Products.filter(Product => Products.productName.indexOf(filter.productName) !== -1);
     } 
-}
+}*/
 
 export class Product {
     productID: number;
