@@ -36,16 +36,29 @@ export class LoginPageComponent implements OnInit {
     ngOnInit(): void { }
 
     public login() {
-        this.http.get('/api/Login/GetUser/' + this.username + '/' + this.password).subscribe(data =>
-            this.res = data.toString()
+
+        // User
+        this.http.get('/api/Login/GetUser/' + this.username + '/' + this.password).subscribe(
+            result => {
+                if (result) {
+                    location.href = "UserDashBoard";
+                }
+                // Doesn't work
+                else {
+                    location.href = "LoginPage";
+                }
+            }
         )
 
+        // Admin
         if (this.username == "admin" && this.password == "admin") {
             location.href = "AdminDashBoard";
         }
-        else if (this.res != null && this.res.length > 0) {
-            location.href = "UserDashBoard";
-        }
+
+
+        //else if (this.res != null && this.res.length > 0) {
+        //    location.href = "UserDashBoard";
+        //}
     }
 }
 
