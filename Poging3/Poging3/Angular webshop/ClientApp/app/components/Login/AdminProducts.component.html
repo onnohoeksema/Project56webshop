@@ -5,20 +5,25 @@
     <title></title>
 </head>
 <body>
+  <!--
     <h1>Product Details</h1>
     <div>
-        <nav>
+        <nav>-->
             <!--Dumps all of the items in the database, just because we can -->
+            <!--
             <a *ngFor="let product of products" class="btn btn-default">
                 {{ product.productName }}
                 <br>
             </a>
         </nav>
+        </div>
+      -->
 <!-- Idee: alle items in een tabel zetten (zoals weatherforecast), met de mogelijkheid om de items in de tabel dan te wijzigen, bij een wijziging worden alle
 parameters als update table query uitgestuurd -->
-    </div>
+    
     <p>Table with items</p>
     <!-- These should be the sort and filter options -->
+    <!--
     <div class="alert alert-info">
         <p>Sort Type: {{ sortType }}</p>
         <p>Sort Reverse: {{ sortReverse }}</p>
@@ -45,16 +50,12 @@ parameters als update table query uitgestuurd -->
             </tr>
         </tbody>
     </table>
-    <div>
-        <nav>
-            <!--Dit Veranderen naar je desbetreffende router link.-->
-            <a routerLink="/AdminDashBoard" class="btn btn-default">Back to Dashboard</a>
-        </nav>
-    </div>
+
 
 </body>
+-->
 <!-- Let's paste some template over here to see what it is all about -->
-
+</body>
 <div class="container" ng-app="AdminProducts" ng-controller="mainController">
   
     <div class="alert alert-info">
@@ -67,7 +68,7 @@ parameters als update table query uitgestuurd -->
       <div class="form-group">
         <div class="input-group">
           <div class="input-group-addon"><i class="fa fa-search"></i></div>
-          <input type="text" class="form-control" placeholder="Search da Fish" ng-model="searchFish">
+          <input type="text" class="form-control" placeholder="Search Items" ng-model="searchFish">
         </div>      
       </div>
     </form>
@@ -130,13 +131,12 @@ parameters als update table query uitgestuurd -->
       
     </table>
     
-    <p class="text-center text-muted">
-      <a href="#" target="_blank">Read the Tutorial</a>
-    </p>
-    
-    <p class="text-center">
-      by <a href="https://scotch.io" target="_blank">scotch.io</a>
-    </p>
+    <div>
+        <nav>
+            <!--Dit Veranderen naar je desbetreffende router link.-->
+            <a routerLink="/AdminDashBoard" class="btn btn-default">Back to Dashboard</a>
+        </nav>
+    </div>
 
   </div>
 
