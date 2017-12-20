@@ -1,5 +1,5 @@
-﻿<p *ngIf="!dcdicetypes"><em>Loading Items...</em></p>
-<button (click)="onClickMe()">Click me!</button>
+﻿<h1>Dice Customizer</h1>
+<p *ngIf="!dcdicetypes"><em>Loading Items...</em></p>
 <div *ngIf="dcdicetypes"></div>
 
 <p>Dicetypes:</p>
@@ -9,7 +9,6 @@
     {{ dcdicetype }}
 </ul>
 
-<p *ngIf="!dcdicecolors"><em>Loading Items...</em></p>
 <div *ngIf="dcdicecolors"></div>
 
 <p>Dice colors:</p>

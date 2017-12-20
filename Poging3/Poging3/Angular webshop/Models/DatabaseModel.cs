@@ -64,7 +64,7 @@ namespace Models
     {
         public int dcdicetypeID { get; set; }
         public string dcdicetypeName { get; set; }
-        public int dicetypeStock { get; set; }
+        public int dcdicetypeStock { get; set; }
     }
     
 

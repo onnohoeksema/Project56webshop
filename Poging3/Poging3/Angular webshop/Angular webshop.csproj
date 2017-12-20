@@ -25,6 +25,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Remove="ClientApp\app\components\Filter\MyFilterPipe.ts" />
     <None Remove="ClientApp\app\components\Login\AccountSettings.component.ts" />
     <None Remove="ClientApp\app\components\Login\AdminProducts.component.ts" />
     <None Remove="ClientApp\app\components\Login\LoginPage.component.ts" />
@@ -37,6 +38,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <TypeScriptCompile Include="ClientApp\app\components\Filter\MyFilterPipe.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\AccountSettings.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\AdminDashBoard.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\AdminProducts.component.ts" />
