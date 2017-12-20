@@ -15,36 +15,54 @@ import { Http } from '@angular/http/src/http';
 
 export class DiceCustomizerComponent implements OnInit {
     
-        public dicetypes: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
-    
+        public dcdicetypes: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+        public dcdicecolors: any
+        public dcnumbercolors: any
+        public dcdicepatterns: any
+
         constructor(private http: HttpClient) {}
         
         onClickMe(){
-            this.http.get('/api/DiceCustomizer/GetDiceTypes').subscribe(data => { this.dicetypes = data ; 
+            this.http.get('/api/DiceCustomizer/GetdcDiceTypes').subscribe(data => { this.dcdicetypes = data ; 
             
             }, error => console.error(error));
+
+            this.http.get('/api/DiceCustomizer/GetdcDiceColors').subscribe(data1 => { this.dcdicecolors = data1 ; 
+                
+                }, error => console.error(error));
+            
+            this.http.get('/api/DiceCustomizer/GetdcNumberColors').subscribe(data2 => { this.dcnumbercolors = data2 ; 
+                    
+                }, error => console.error(error));
+
+            this.http.get('/api/DiceCustomizer/GetdcDicePatterns').subscribe(data3 => { this.dcdicepatterns = data3 ; 
+                    
+                }, error => console.error(error));
         }
         ngOnInit(): void {
     
         }
-        myDiceType = this.dicetypes;
+        mydcDiceType = this.dcdicetypes;
+        mydcDiceColor = this.dcdicecolors;
+        mydcNumberColor = this.dcnumbercolors;
+        mydcDicePattern = this.dcdicepatterns;
     }
     
     
     interface ItemsResponse {
-        dicetypeID: number;
-        dicetypeName: string;
-        dicetypeStock: number;
+        dcdicetypeID: number;
+        dcdicetypeName: string;
+        dcdicetypeStock: number;
         
-        dicecolorID: number;
-        dicecolorName: string;
-        dicecolorStock: number;
+        dcdicecolorID: number;
+        dcdicecolorName: string;
+        dcdicecolorStock: number;
 
-        numbercolorID: number;
-        numbercolorName: string;
-        numbercolorStock: number;
+        dcnumbercolorID: number;
+        dcnumbercolorName: string;
+        dcnumbercolorStock: number;
         
-        dicepatternID: number;
-        dicepatternName: string;
-        dicepatternStock: number;
+        dcdicepatternID: number;
+        dcdicepatternName: string;
+        dcdicepatternStock: number;
     }

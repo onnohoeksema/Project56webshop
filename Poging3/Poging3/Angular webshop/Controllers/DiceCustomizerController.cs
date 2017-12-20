@@ -18,10 +18,10 @@ namespace Angular_webshop.Controllers
         }
 
 
-        [HttpGet ("GetDiceTypes")]
-        public IActionResult GetDiceTypes()
+        [HttpGet ("GetdcDiceTypes")]
+        public IActionResult GetdcDiceTypes()
         {
-            var dcdicetypes = from p in _context.DiceType
+            var dcdicetypes = from p in _context.dcDiceType
                 
                 select p.dcdicetypeName;
 
@@ -32,10 +32,10 @@ namespace Angular_webshop.Controllers
                 return Ok(dcdicetypes);
         }
 
-        [HttpGet ("GetDiceColor")]
-        public IActionResult GetDiceColor()
+        [HttpGet ("GetdcDiceColors")]
+        public IActionResult GetdcDiceColors()
         {
-            var dcdicecolors = from p in _context.DiceColor
+            var dcdicecolors = from p in _context.dcDiceColor
                 
                 select p.dcdicecolorName;
 
@@ -46,28 +46,28 @@ namespace Angular_webshop.Controllers
                 return Ok(dcdicecolors);
         }
 
-        [HttpGet ("GetNumberColor")]
-        public IActionResult GetNumberColor()
+        [HttpGet ("GetdcNumberColors")]
+        public IActionResult GetdcNumberColors()
         {
-            var dcnumbercolors = from p in _context.NumberColor
+            var dcnumbercolors = from p in _context.dcNumberColor
                 
                 select p.dcnumbercolorName;
 
-            foreach (var numbercolor in dcnumbercolors)
+            foreach (var dcnumbercolor in dcnumbercolors)
             {
                 Console.WriteLine("{0}",dcnumbercolors);
             }
                 return Ok(dcnumbercolors);
         }
 
-        [HttpGet ("GetDicePattern")]
-        public IActionResult GetDicePattern()
+        [HttpGet ("GetdcDicePatterns")]
+        public IActionResult GetdcDicePatterns()
         {
-            var dcdicepatterns = from p in _context.DicePattern
+            var dcdicepatterns = from p in _context.dcDicePattern
                 
                 select p.dcdicepatternName;
 
-            foreach (var dicepattern in dcdicepatterns)
+            foreach (var dcdicepattern in dcdicepatterns)
             {
                 Console.WriteLine("{0}",dcdicepatterns);
             }
