@@ -1,64 +1,10 @@
-﻿
-<h1><b><u>Dice Customizer</u></b></h1>
-<div ng-app="myApp">
+﻿<p *ngIf="!dicetypes"><em>Loading 1231Items...</em></p>
+<div *ngIf="dicetypes"></div>
 
-    <p>Dice Type:</p>
-    <ul>
-        <li *ngFor="let dice of diceType">
-            <input type="radio" name="DiceNr" ng-model="dice.Type" value="{{ dice }}" />
-            {{ dice }}
-        </li>
-    </ul>
-
-    <p>Dice Color:</p>
-    <ul>
-        <li *ngFor="let color of diceColor">
-            <input type="radio" name="DiceClr" ng-model="dice.Color" value="{{ color }}" />
-            {{ color }}
-        </li>
-    </ul>
-    
-    <p>Number Color:</p>
-    <ul>
-        <li *ngFor="let number of numberColor">
-            <input type="radio" name="NrClr" ng-model="number.Color" value="{{ number }}" />
-            {{ number }}
-        </li>
-    </ul>
-    <p>Dice Pattern:</p>
-    <ul>
-        <li *ngFor="let pattern of dicePattern">
-            <input type="radio" name="DicePtrn" ng-model="dice.Pattern" ng-click="getVal()" value="{{ pattern }}" />
-            {{ pattern }}
-        </li>
-    </ul>
-
-   
-    <p>Your options are: {{ dice.Pattern }}</p>
-
-</div>
-<script>
-    aap=angular.module('myApp',[])
-        .controller('myCtrl',["$scope",function($scope){
-            $scope.change='data';
-            $scope.getVal=function(){
-        
-                console.log($scope.changedVal);
-                $scope.change=$scope.changedVal;
-            }
-        }]);
-    
-</script>
-<h1><b><u>Show info</u></b></h1>
-<p>Your options are: {{ mydiceType.name }}</p>
-
-<h1><b><u>Dice Customizer dropdown tester</u></b></h1>
-
-<div ng-controller="AppCtrl">
-    <h1>Dropdown Select</h1>
-    <p>You have selected: {{ddSelectSelected}}</p>
-    <div dropdown-select="ddSelectOptions"
-         dropdown-model="ddSelectSelected"
-         dropdown-item-label="text" >
-    </div>
-</div>
+    <p>Dicetypes:</p>
+    <nav *ngFor="let dicetype of dicetypes">
+        <!--still needs routerLink to navigate to the right page -->
+        <a class="btn btn-default">
+            {{ dicetype }}
+        </a>
+    </nav>

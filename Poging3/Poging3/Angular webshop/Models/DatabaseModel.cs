@@ -20,10 +20,10 @@ namespace Models
         public DbSet<User> Users { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<Category> ProductCategories { get; set; }
-        public DbSet<DCdicetype> dcdicetype { get; set; }
-        public DbSet<DCdicecolor> dcdicecolor { get; set; }
-        public DbSet<DCnumbercolor> dcnumbercolor { get; set; }
-        public DbSet<DCdicepattern> dcdicepattern { get; set; }
+        public DbSet<DCdicetype> DiceType { get; set; }
+        public DbSet<DCdicecolor> DiceColor { get; set; }
+        public DbSet<DCnumbercolor> NumberColor { get; set; }
+        public DbSet<DCdicepattern> DicePattern { get; set; }
         
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
@@ -62,31 +62,31 @@ namespace Models
 
     public class DCdicetype
     {
-        public int dicetypeID { get; set; }
-        public string dicetypeName { get; set; }
-        public string dicetypeStock { get; set; }
+        public int dcdicetypeID { get; set; }
+        public string dcdicetypeName { get; set; }
+        public int dicetypeStock { get; set; }
     }
     
 
     public class DCdicecolor
     {
-        public int dicecolorID { get; set; }
-        public string dicecolorName { get; set; }
-        public string dicecolorStock { get; set; }
+        public int dcdicecolorID { get; set; }
+        public string dcdicecolorName { get; set; }
+        public int dcdicecolorStock { get; set; }
     }
 
     public class DCnumbercolor
     {
-        public int numbercolorID { get; set; }
-        public string numbercolorName { get; set; }
-        public string numbercolorStock { get; set; }
+        public int dcnumbercolorID { get; set; }
+        public string dcnumbercolorName { get; set; }
+        public int dcnumbercolorStock { get; set; }
     }
 
     public class DCdicepattern
     {
-        public int dicepatternID { get; set; }
-        public string dicepatternName { get; set; }
-        public string dicepatternStock { get; set; }
+        public int dcdicepatternID { get; set; }
+        public string dcdicepatternName { get; set; }
+        public int dcdicepatternStock { get; set; }
     }
 /* 
 
