@@ -44,6 +44,13 @@ namespace Angular_webshop.Controllers
         {
             var filteredproducts = _context.Products.Where(a => a.productCategory == category);
             if (filteredproducts == null) return NotFound();
+
+            Console.WriteLine("\n\n Done with database stuff, these should be the products \n\n");
+            foreach (var product in filteredproducts)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+            
             return Ok(filteredproducts);
         }
 

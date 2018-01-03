@@ -57,12 +57,83 @@ namespace Angular_webshop.Controllers
         }
 
 
-        [HttpGet("GetProducts/{name}")]
-        public IActionResult GetProduct(string name)
+        [HttpGet("GetProducts/{category}")]
+        public IActionResult GetProducts(string category)
         {
-            var product = _context.Products.Where(a => a.productName == name).FirstOrDefault();
-            if (product == null) return NotFound();
-            return Ok(product);
+            var filteredproducts = _context.Products.Where(a => a.productCategory == category);
+            if (filteredproducts == null) return NotFound();
+
+            Console.WriteLine("\n\n Done with database stuff, these should be the products \n\n");
+            foreach (var product in filteredproducts)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+            
+            return Ok(filteredproducts);
+        }
+
+        [HttpGet("GetBooks")]
+        public IActionResult GetBooks()
+        {
+            var items = _context.Products.Where(a => a.productCategory == "Book");
+                            
+            foreach (var product in items)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+                return Ok(items);
+        }
+
+        [HttpGet("GetAccessories")]
+        public IActionResult GetAccessories()
+        {
+            var items = _context.Products.Where(a => a.productCategory == "Accessory");
+
+            foreach (var product in items)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+
+                return Ok(items);
+        }
+
+        [HttpGet("GetDice")]
+        public IActionResult GetDice()
+        {
+            var items = _context.Products.Where(a => a.productCategory == "Dice");
+
+            foreach (var product in items)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+
+                return Ok(items);
+        }
+
+        [HttpGet("GetExtras")]
+        public IActionResult GetExtras()
+        {
+            var items = _context.Products.Where(a => a.productCategory == "Extra");
+
+                foreach (var product in items)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+
+                return Ok(items);
+        }
+
+        [HttpGet("GetMiniatures")]
+        public IActionResult GetMiniatures()
+        {
+            var items = _context.Products.Where(a => a.productCategory == "Miniatures");
+
+            foreach (var product in items)
+            {
+                Console.WriteLine("{0}. {1}", product.productName, product.productCategory);
+            }
+
+                return Ok(items);
         }
 
 public class Product

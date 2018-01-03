@@ -40,18 +40,20 @@ export class ItemPageComponent implements OnInit {
 
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredproducts: any
-
+    category: string
+    
     constructor(private http: HttpClient) {}
 
     ngOnInit(): void {
-        
+        /*
         this.http.get('/api/ItemPage/GetAll').subscribe(data => { this.products = data ; 
         
         }, error => console.error(error));
         
-        this.http.get('/api/ItemPage/GetProducts/Book').subscribe(data => { this.filteredproducts = data ; 
+        this.http.get('/api/ItemPage/GetProducts/' + this.category + '/').subscribe(data => { this.filteredproducts = data ; 
         
         }, error => console.error(error));
+        */
     }
     
 }
