@@ -7,9 +7,9 @@
 <div *ngIf="categories">
 
     <p>Category Name</p>
-    <nav *ngFor="let category of categories">
+    <nav *ngFor="let category of categories" >
         <!--still needs routerLink to navigate to the right page -->
-        <input type="button" class="btn btn-default" name="Category" value="{{category}}" (click)="onClickMe()" >
+        <input type="button" class="btn btn-default"  value="{{category}}" (click)="onClickMe(value)" >
             
         
     </nav>
@@ -20,7 +20,7 @@ You pressed button {{mycategory}}
     <p>Category Name2</p>
     <nav *ngFor="let category of categories">
         <!--still needs routerLink to navigate to the right page -->
-        <button ng-click="category='Book'" (click)="onClickMe(categories.category)">
+        <button ng-click="category='Book'" (click)="onClickMe(category.category)">
             {{ category }}
         </button>
     </nav>
@@ -65,3 +65,25 @@ You pressed button {{mycategory}}
         <button>{{ item.productName }}</button>
     </nav>
 </div>
+<br><br>
+<div>
+    <button type="button" (click)="GetItem()" class="btn btn-default">Get Item Info</button>
+
+</div>
+<div *ngIf="item">
+    <p>Item Details</p>
+
+    <ul *ngFor="let part of item">
+        <li>Product Name: {{ part.productName }}</li>
+        <li>Product Price: {{ part.productPrice }}</li>
+        <li>Product Stock: {{ part.productStock }}</li>
+        <li>Product Tag: {{ part.productTag }}</li>
+        <button type="button" class="btn btn-default" (click)="SelectedItem(part.productName)">Add to Cart</button>
+    </ul>
+    <ul *ngFor="let movie of movielist">
+        <li  (click)="SelectedMovie(movie)">{{movie}}</li>
+    </ul>
+
+    
+       
+   </div>

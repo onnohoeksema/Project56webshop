@@ -135,7 +135,14 @@ namespace Angular_webshop.Controllers
 
                 return Ok(items);
         }
+        [HttpGet("GetItem")]
+        public IActionResult GetItem()
+        {
+           
+            var item = _context.Products.Where(a => a.productName == "Starter Set");      
 
+                return Ok(item.ToArray());
+        }
 public class Product
     {
         public int productID { get; set; }

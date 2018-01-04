@@ -12,6 +12,7 @@ import { Http } from '@angular/http/src/http';
 @Component({
     selector: "itemcategories",
     templateUrl: "./itemcategories.component.html"
+
 })
 /*
 export class ItemPageComponent implements OnInit {
@@ -45,6 +46,9 @@ export class ItemCategoriesComponent implements OnInit {
     category: string;
     public items: any
     constructor(private http: HttpClient) {}
+    public item: Object
+  
+    
 
     onClickMe()
     {
@@ -91,7 +95,23 @@ export class ItemCategoriesComponent implements OnInit {
         }, error => console.error(error));
     }
 
+    GetItem()
+    {
+        this.http.get('/api/ItemCategories/GetItem/').subscribe(data => { this.item = data ; 
+        
+        }, error => console.error(error));
+    }
 
+    SelectedItem(productName: any)
+    {
+        
+        alert( productName + ' was selected');
+    }
+    
+    SelectedMovie(movie: any)
+    {
+        alert(movie + ' was selected')
+    }
 
     ngOnInit(): void {
 
@@ -104,6 +124,8 @@ export class ItemCategoriesComponent implements OnInit {
         //}, error => console.error(error));
     }
     myCategory = this.categories;
+
+    public movielist = ["1","2","3"]
 }
 
 
