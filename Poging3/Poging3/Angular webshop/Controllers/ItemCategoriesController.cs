@@ -141,7 +141,7 @@ namespace Angular_webshop.Controllers
            
             var item = _context.Products.Where(a => a.productName == "Starter Set");      
 
-                return Ok(item.ToArray());
+                return Ok(item);
         }
 public class Product
     {

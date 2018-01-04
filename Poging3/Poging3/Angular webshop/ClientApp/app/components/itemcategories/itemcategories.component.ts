@@ -44,10 +44,10 @@ export class ItemCategoriesComponent implements OnInit {
     mycategory = this.categories;
     public filteredproducts: any
     public items: any
-    constructor(private http: HttpClient) {}
     public item: Object
-  
+    public cart = [] as string[];
     
+    constructor(private http: HttpClient) {}
 
     onClickMe(category: any)
     {
@@ -58,6 +58,38 @@ export class ItemCategoriesComponent implements OnInit {
         }, error => console.error(error));
     }
 
+
+    GetItem()
+    {
+        this.http.get('/api/ItemCategories/GetItem/').subscribe(data => { this.item = data ; 
+        
+        }, error => console.error(error));
+    }
+
+    SelectedItem(productName: string)
+    {
+        
+        alert( productName + ' was selected');
+        this.cart.push(productName)
+    }
+    
+    SelectedMovie(movie: any)
+    {
+        alert(movie + ' was selected')
+    }
+
+    ngOnInit(): void {
+
+        this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.categories = data ; 
+        
+        }, error => console.error(error));
+
+        //this.http.get('/api/ItemCategories/GetProducts/{name}').subscribe(data => { this.categories = data ; 
+        
+        //}, error => console.error(error));
+    }
+    /*
+    These are all obsolete functions now
     ClickBooks()
     {
         this.http.get('/api/ItemCategories/GetBooks/').subscribe(data => { this.items = data ; 
@@ -93,40 +125,16 @@ export class ItemCategoriesComponent implements OnInit {
         
         }, error => console.error(error));
     }
-
-    GetItem()
-    {
-        this.http.get('/api/ItemCategories/GetItem/').subscribe(data => { this.item = data ; 
-        
-        }, error => console.error(error));
-    }
-
-    SelectedItem(productName: any)
-    {
-        
-        alert( productName + ' was selected');
-    }
-    
-    SelectedMovie(movie: any)
-    {
-        alert(movie + ' was selected')
-    }
-
-    ngOnInit(): void {
-
-        this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.categories = data ; 
-        
-        }, error => console.error(error));
-
-        //this.http.get('/api/ItemCategories/GetProducts/{name}').subscribe(data => { this.categories = data ; 
-        
-        //}, error => console.error(error));
-    }
-    
+    */
 
    
 }
 
+interface ShoppingCartItem
+{
+productID: number;
+quantity: number;
+}
 
 interface ItemsResponse {
     productID: number;

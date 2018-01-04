@@ -82,8 +82,10 @@
         <li>Product Tag: {{ part.productTag }}</li>
         <button type="button" class="btn btn-default" (click)="SelectedItem(part.productName)">Add to Cart</button>
     </ul>
-    <ul *ngFor="let movie of movielist">
-        <li  (click)="SelectedMovie(movie)">{{movie}}</li>
+
+    <p>Items in cart:</p>
+    <ul *ngFor="let piece of cart">
+        <li>{{piece}}</li>
     </ul>
 
     
