@@ -43,18 +43,17 @@ export class ItemCategoriesComponent implements OnInit {
     public categories: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     mycategory = this.categories;
     public filteredproducts: any
-    category: string;
     public items: any
     constructor(private http: HttpClient) {}
     public item: Object
   
     
 
-    onClickMe()
+    onClickMe(category: any)
     {
         //this.category = this.categories.toString();
-        
-        this.http.get('/api/ItemCategories/GetProducts/' + String(this.category) + '/').subscribe(data => { this.filteredproducts = data ; 
+        alert(category + ' was selected')
+        this.http.get('/api/ItemCategories/GetProducts/' + category + '/').subscribe(data => { this.filteredproducts = data ; 
         
         }, error => console.error(error));
     }

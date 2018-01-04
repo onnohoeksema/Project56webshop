@@ -9,9 +9,9 @@
     <p>Category Name</p>
     <nav *ngFor="let category of categories" >
         <!--still needs routerLink to navigate to the right page -->
-        <input type="button" class="btn btn-default"  value="{{category}}" (click)="onClickMe(value)" >
+        <input type="button" class="btn btn-default"  value="{{category}}" (click)="onClickMe(category)" >
             
-        
+        <!-- (click)="onClickMe(category.categoryName)" -->
     </nav>
 You pressed button {{mycategory}}
 </div>
