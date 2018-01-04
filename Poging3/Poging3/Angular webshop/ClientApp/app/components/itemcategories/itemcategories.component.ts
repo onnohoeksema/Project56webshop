@@ -52,7 +52,7 @@ export class ItemCategoriesComponent implements OnInit {
     onClickMe(category: any)
     {
         //this.category = this.categories.toString();
-        alert(category + ' was selected')
+        
         this.http.get('/api/ItemCategories/GetProducts/' + category + '/').subscribe(data => { this.filteredproducts = data ; 
         
         }, error => console.error(error));
@@ -122,9 +122,9 @@ export class ItemCategoriesComponent implements OnInit {
         
         //}, error => console.error(error));
     }
-    myCategory = this.categories;
+    
 
-    public movielist = ["1","2","3"]
+   
 }
 
 

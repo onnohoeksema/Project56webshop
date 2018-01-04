@@ -4,7 +4,7 @@
 
 <p *ngIf="!categories"><em>Loading Items...</em></p>
 <!--<button (click)="onClickMe()">Click me!</button>-->
-<div *ngIf="categories">
+<div *ngIf="categories && !filteredproducts">
 
     <p>Category Name</p>
     <nav *ngFor="let category of categories" >
@@ -13,20 +13,22 @@
             
         <!-- (click)="onClickMe(category.categoryName)" -->
     </nav>
-You pressed button {{mycategory}}
-</div>
-<div *ngIf="categories">
-
-    <p>Category Name2</p>
-    <nav *ngFor="let category of categories">
-        <!--still needs routerLink to navigate to the right page -->
-        <button ng-click="category='Book'" (click)="onClickMe(category.category)">
-            {{ category }}
-        </button>
-    </nav>
 
 </div>
+<div *ngIf="filteredproducts">
 
+        <p>Item name</p>
+        <nav *ngFor="let product of filteredproducts">
+            <!--still needs routerLink to navigate to the right page -->
+            <button ng-click="category='Book'" (click)="onClickMe(category.category)">
+                {{ product.productName }}
+            </button>
+        </nav>
+    
+    </div>
+
+
+<!-- This was old, may be removed when everything is done
 <div>
     
     <p>Category Names hardcoded, to see if this works</p>
@@ -40,7 +42,7 @@ You pressed button {{mycategory}}
     </nav>
 
 </div>
-
+-->
 <!--
 <div *ngIf"categoryproducts">
         <nav *ngFor="let product of categoryproducts"> -->
