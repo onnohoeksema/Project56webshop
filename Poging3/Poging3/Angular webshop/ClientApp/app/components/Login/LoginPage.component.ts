@@ -43,10 +43,6 @@ export class LoginPageComponent implements OnInit {
                 if (result) {
                     location.href = "UserDashBoard";
                 }
-                // Doesn't work
-                else {
-                    location.href = "LoginPage";
-                }
             }
         )
 
@@ -55,10 +51,11 @@ export class LoginPageComponent implements OnInit {
             location.href = "AdminDashBoard";
         }
 
-
-        //else if (this.res != null && this.res.length > 0) {
-        //    location.href = "UserDashBoard";
-        //}
+        // Redirects to login page when incorrect credentials
+        else {
+            location.href = "LoginPage";
+            // Missing error message
+        }
     }
 }
 
