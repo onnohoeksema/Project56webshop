@@ -8,6 +8,12 @@
     <input type="radio" name="dcDiceType" [(ngModel)]="mydcDiceType" value="{{ dcdicetype }}" />
     {{ dcdicetype }}
 </ul>
+<div *ngIf="dcdicetypesoutofstock"></div>
+<ul>
+<li *ngFor="let dcdicetypeoutofstock of dcdicetypesoutofstock">
+    <input type="radio" name="dcDiceTypeOutOfStock" [(ngModel)]="mydcDiceTypeOutOfStock" value="{{ dcdicetypeoutofstock }}" disabled="disabled"/>
+    {{ dcdicetypeoutofstock }} (currently out of stock)
+</ul>
 
 <div *ngIf="dcdicecolors"></div>
 
@@ -16,6 +22,12 @@
     <li *ngFor="let dcdicecolor of dcdicecolors">
         <input type="radio" name="dcDiceColor" [(ngModel)]="mydcDiceColor" value="{{ dcdicecolor }}" />
         {{ dcdicecolor }}
+</ul>
+<div *ngIf="dcdicecolorsoutofstock"></div>
+<ul>
+<li *ngFor="let dcdicecoloroutofstock of dcdicecolorsoutofstock">
+    <input type="radio" name="dcDiceColorOutOfStock" [(ngModel)]="mydcDiceColorOutOfStock" value="{{ dcdicecoloroutofstock }}" disabled="disabled"/>
+    {{ dcdicecoloroutofstock }} (currently out of stock)
 </ul>
 
 <p *ngIf="!dcnumbercolors"><em>Loading Items...</em></p>
@@ -27,6 +39,12 @@
         <input type="radio" name="dcNumberColor" [(ngModel)]="mydcNumberColor" value="{{ dcnumbercolor }}" />
         {{ dcnumbercolor }}
 </ul>
+<div *ngIf="dcnumbercolorsoutofstock"></div>
+<ul>
+<li *ngFor="let dcnumbercoloroutofstock of dcnumbercolorsoutofstock">
+    <input type="radio" name="dcNumberColorOutOfStock" [(ngModel)]="mydcNumberColorOutOfStock" value="{{ dcnumbercoloroutofstock }}" disabled="disabled"/>
+    {{ dcnumbercoloroutofstock }} (currently out of stock)
+</ul>
 
 <p *ngIf="!dcdicepatterns"><em>Loading Items...</em></p>
 <div *ngIf="dcdicepatterns"></div>
@@ -37,7 +55,12 @@
         <input type="radio" name="dcDicePattern" [(ngModel)]="mydcDicePattern" value="{{ dcdicepattern }}" />
         {{ dcdicepattern }}
 </ul>
-
+<div *ngIf="dcdicepatternsoutofstock"></div>
+<ul>
+<li *ngFor="let dcdicepatternoutofstock of dcdicepatternsoutofstock">
+    <input type="radio" name="dcDicePatternOutOfStock" [(ngModel)]="mydcDicePatternOutOfStock" value="{{ dcdicepatternoutofstock }}" disabled="disabled"/>
+    {{ dcdicepatternoutofstock }} (currently out of stock)
+</ul>
 <p> You have selected:<br />
      Dice type: <strong>{{ mydcDiceType }}</strong> <br />
      Dice color: <strong>{{ mydcDiceColor }}</strong> <br />
