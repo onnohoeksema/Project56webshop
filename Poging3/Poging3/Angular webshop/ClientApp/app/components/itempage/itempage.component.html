@@ -2,14 +2,14 @@
 
 <p>This is a simple example of the category page.</p>
 
-<p *ngIf="!products"><em>Loading 1231Items...</em></p>
+<p *ngIf="!filteredproducts"><em>Loading 1231Items...</em></p>
 
-<div *ngIf="products">
+<div *ngIf="filteredproducts">
 
     <p>Item Name</p>
     <nav>
         <!--Dumps all of the items in the database, just because we can -->
-        <a *ngFor="let product of products" class="btn btn-default">
+        <a *ngFor="let product of filteredproducts" class="btn btn-default">
             {{ product.productName }}
             <br>
         </a>

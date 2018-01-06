@@ -34,6 +34,8 @@ export class AdminProductsComponent {
     public sortType     = 'name'; // set the default sort type
     public sortReverse  = false;  // set the default sort order
     public searchFish   = '';     // set the default search/filter term
+    ShowEditTable: boolean = false;
+    EditRowID: any = '';
 
     constructor(private http: HttpClient) { }
 
@@ -43,5 +45,19 @@ export class AdminProductsComponent {
         this.products = data;
 
         }, error => console.error(error));
+
+
+    }
+
+    SaveNewData(productID: any, productName: any, productPrice: any, productStock: any, productCategory: any, productTag: any){
+        this.http.get('/api/AdminPage/SaveData/' + productID + '/' + productName + '/' + productPrice + '/' + productStock + '/' + productCategory + '/' + productTag + '/' ).subscribe(result => {
+            if(result){
+                location.href = "AdminDashBoard"
+            }
+        })
+    }
+
+    Edit(val:any){
+        this.EditRowID = val;
     }
 }

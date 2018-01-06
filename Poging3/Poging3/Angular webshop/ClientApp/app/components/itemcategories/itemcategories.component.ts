@@ -56,12 +56,22 @@ export class ItemCategoriesComponent implements OnInit {
         this.http.get('/api/ItemCategories/GetProducts/' + category + '/').subscribe(data => { this.filteredproducts = data ; 
         
         }, error => console.error(error));
+        location.href = "itempage"
+
+        }
+
+
+    
+    GetCategories()
+    {
+        this.http.get('/api/ItemCategories/GetCategories').subscribe(data => { this.categories = data ; 
+        
+        }, error => console.error(error));
     }
 
-
-    GetItem()
+    GetItem(itemName: any)
     {
-        this.http.get('/api/ItemCategories/GetItem/').subscribe(data => { this.item = data ; 
+        this.http.get('/api/ItemCategories/GetItem/'+ itemName+ '/').subscribe(data => { this.item = data ; 
         
         }, error => console.error(error));
     }

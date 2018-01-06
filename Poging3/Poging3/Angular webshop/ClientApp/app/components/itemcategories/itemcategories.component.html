@@ -2,6 +2,11 @@
 
 <p>This is a simple example of the category page.</p>
 
+<div *ngIf="filteredproducts">
+        <input type ="button" class="btn btn-default" value="Return to categories" (click)="GetCategories()" >
+        
+        </div>
+
 <p *ngIf="!categories"><em>Loading Items...</em></p>
 <!--<button (click)="onClickMe()">Click me!</button>-->
 <div *ngIf="categories && !filteredproducts">
@@ -9,12 +14,13 @@
     <p>Category Name</p>
     <nav *ngFor="let category of categories" >
         <!--still needs routerLink to navigate to the right page -->
-        <input type="button" class="btn btn-default"  value="{{category}}" (click)="onClickMe(category)" >
+        <input type="button" class="btn btn-default"  routerLink="/itempage" value="{{category}}" (click)="onClickMe(category)" >
             
         <!-- (click)="onClickMe(category.categoryName)" -->
     </nav>
 
 </div>
+
 <div *ngIf="filteredproducts">
 
         <p>Item name</p>
@@ -82,12 +88,12 @@
         <li>Product Tag: {{ part.productTag }}</li>
         <button type="button" class="btn btn-default" (click)="SelectedItem(part.productName)">Add to Cart</button>
     </ul>
-
-    <p>Items in cart:</p>
-    <ul *ngFor="let piece of cart">
-        <li>{{piece}}</li>
-    </ul>
-
-    
-       
+      
    </div>
+
+<div>
+        <p>Items in cart:</p>
+        <ul *ngFor="let piece of cart">
+            <li>{{piece}}</li>
+        </ul>
+</div>

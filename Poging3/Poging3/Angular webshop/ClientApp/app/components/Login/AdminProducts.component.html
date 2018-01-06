@@ -119,18 +119,22 @@ parameters als update table query uitgestuurd -->
         <tr *ngFor="let product of products"> 
             <!-- also contains | orderBy:sortType:sortReverse | filter:searchFish, but not yet implemented, so errors -->
            
-           
-            <td>{{ product.productName }}</td>
-            <td>{{ product.productPrice }}</td>
-            <td>{{ product.productStock }}</td>
-            <td>{{ product.productCategory }}</td>
-            <td>{{ product.productTag }}</td>
-
+           <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productName"> </td>
+            <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productName }}</td>
+            <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productPrice"> </td>
+            <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productPrice }}</td>
+            <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productStock"> </td>
+            <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productStock }}</td>
+            <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productCategory"> </td>
+            <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productCategory }}</td>
+            <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productTag"> </td>
+            <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productTag }}</td>
+            <td *ngIf="product.productID === EditRowID"><input type="button"(click)="SaveNewData(product.productID, product.productName, product.productPrice, product.productStock, product.productCategory, product.productTag)" [(ngModel)]="product.productEdit">Save</td>
         </tr>
       </tbody>
       
     </table>
-    
+
     <div>
         <nav>
             <!--Dit Veranderen naar je desbetreffende router link.-->
