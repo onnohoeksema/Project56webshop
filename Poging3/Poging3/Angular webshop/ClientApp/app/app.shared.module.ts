@@ -28,6 +28,9 @@ import { AdminProductsComponent } from './components/Login/AdminProducts.compone
 import { AdminStatisticsComponent } from './components/Login/AdminStatistics.component';
 import { ItemCategoriesComponent } from './components/itemcategories/itemcategories.component';
 
+import { NavbarService } from './components/navmenu/navmenu.service';
+import { AuthGuard } from './guards/auth.guard';
+
 
 @NgModule({
     declarations: [
@@ -69,7 +72,7 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
             { path: 'Register', component: RegisterComponent },
-            { path: 'UserDashBoard', component: UserDashBoardComponent },
+            { path: 'UserDashBoard', component: UserDashBoardComponent/*, canActivate: [AuthGuard] */},
             { path: 'MyOrder', component: MyOrderComponent },
             { path: 'PurchaseHistory', component: PurchaseHistoryComponent },
             { path: 'itempage', component: ItemPageComponent },
@@ -84,6 +87,10 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
             { path: 'itemcategories', component: ItemCategoriesComponent },
             { path: '**', redirectTo: 'home' }
         ])
+    ],
+    providers: [
+        AuthGuard,
+        NavbarService
     ]
 })
 export class AppModuleShared {

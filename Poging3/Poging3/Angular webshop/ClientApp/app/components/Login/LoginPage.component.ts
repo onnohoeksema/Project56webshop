@@ -10,6 +10,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserDashBoardComponent } from './UserDashBoard.component';
 import { RegisterComponent } from './Register.component';
+import { NavbarService } from '../navmenu/navmenu.service';
 
 const routes: Routes = [
     { path: 'UserDashBoard', component: UserDashBoardComponent },
@@ -34,22 +35,24 @@ export class LoginPageComponent implements OnInit {
     res: any;
     loading: boolean = false;
 
-    constructor(private http: Http) { }
+    constructor(private http: Http, public nav: NavbarService) { }
 
-    ngOnInit(): void { }
+    ngOnInit(): void { this.check() }
 
     public login() {
         // Loading animation lol
-        this.loading = true;
+         this.loading = true;
 
         // User
         this.http.get('/api/Login/GetUser/' + this.username + '/' + this.password).subscribe(
             result => {
                 if (result) {
                     location.href = "UserDashBoard";
+                    localStorage.setItem('currentUser', JSON.stringify(result));
                 }
             }
         )
+
 
         // Admin
         if (this.username == "admin" && this.password == "admin") {
@@ -63,5 +66,16 @@ export class LoginPageComponent implements OnInit {
             // Missing error message
         }
     }
+
+    check(){
+        if (localStorage.getItem('currentUser')) {
+            this.loggy = "YES";
+        }
+        else {
+            this.loggy = "NO"
+        }
+    }
+
+    public loggy = ""
 }
 
