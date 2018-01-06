@@ -9,9 +9,11 @@ import { Http } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 
 import { UserDashBoardComponent } from './UserDashBoard.component';
+import { RegisterComponent } from './Register.component';
 
 const routes: Routes = [
-    { path: 'UserDashBoard', component: UserDashBoardComponent }
+    { path: 'UserDashBoard', component: UserDashBoardComponent },
+    { path: 'Register', component: RegisterComponent }
 ];
 
 @NgModule({
@@ -30,12 +32,15 @@ export class LoginPageComponent implements OnInit {
     username: string;
     password: string;
     res: any;
+    loading: boolean = false;
 
     constructor(private http: Http) { }
 
     ngOnInit(): void { }
 
     public login() {
+        // Loading animation lol
+        this.loading = true;
 
         // User
         this.http.get('/api/Login/GetUser/' + this.username + '/' + this.password).subscribe(
@@ -49,6 +54,7 @@ export class LoginPageComponent implements OnInit {
         // Admin
         if (this.username == "admin" && this.password == "admin") {
             location.href = "AdminDashBoard";
+
         }
 
         // Redirects to login page when incorrect credentials

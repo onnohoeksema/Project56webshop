@@ -16,10 +16,13 @@ import { Http } from '@angular/http/src/http';
 export class DiceCustomizerComponent implements OnInit {
     
         public dcdicetypes: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+        public dcdicetypesoutofstock: any
         public dcdicecolors: any
         public dcnumbercolors: any
         public dcdicepatterns: any
-
+        public dcdicecolorsoutofstock: any
+        public dcnumbercolorsoutofstock: any
+        public dcdicepatternsoutofstock: any
         constructor(private http: HttpClient) {}
         
        
@@ -29,16 +32,26 @@ export class DiceCustomizerComponent implements OnInit {
             this.http.get('/api/DiceCustomizer/GetdcDiceTypes').subscribe(data => { this.dcdicetypes = data ; 
                 
                 }, error => console.error(error));
-    
+                this.http.get('/api/DiceCustomizer/GetdcDiceTypesOutOfStock').subscribe(data => { this.dcdicetypesoutofstock = data ; 
+                
+                }, error => console.error(error));
+
                 this.http.get('/api/DiceCustomizer/GetdcDiceColors').subscribe(data1 => { this.dcdicecolors = data1 ; 
                     
                     }, error => console.error(error));
+                this.http.get('/api/DiceCustomizer/GetdcDiceColorsOutOfStock').subscribe(data1 => { this.dcdicecolorsoutofstock = data1 ; 
                 
+                }, error => console.error(error));
                 this.http.get('/api/DiceCustomizer/GetdcNumberColors').subscribe(data2 => { this.dcnumbercolors = data2 ; 
                         
                     }, error => console.error(error));
-    
+                this.http.get('/api/DiceCustomizer/GetdcNumberColorsOutOfStock').subscribe(data2 => { this.dcnumbercolorsoutofstock = data2 ; 
+                        
+                    }, error => console.error(error));
                 this.http.get('/api/DiceCustomizer/GetdcDicePatterns').subscribe(data3 => { this.dcdicepatterns = data3 ; 
+                        
+                    }, error => console.error(error));
+                this.http.get('/api/DiceCustomizer/GetdcDicePatternsOutOfStock').subscribe(data3 => { this.dcdicepatternsoutofstock = data3 ; 
                         
                     }, error => console.error(error));
         }

@@ -13,6 +13,7 @@ import { FetchDataComponent } from './components/fetchdata/fetchdata.component';
 import { CounterComponent } from './components/counter/counter.component';
 import { DiceCustomizerComponent } from './components/DiceCustomizer/DiceCustomizer.component';
 import { LoginPageComponent } from './components/Login/LoginPage.component';
+import { RegisterComponent } from './components/Login/Register.component';
 import { UserDashBoardComponent } from './components/Login/UserDashBoard.component';
 import { MyOrderComponent } from './components/Login/MyOrder.component';
 import { PurchaseHistoryComponent } from './components/Login/PurchaseHistory.component';
@@ -37,6 +38,7 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
         DiceCustomizerComponent,
         HomeComponent,
         LoginPageComponent,
+        RegisterComponent,
         UserDashBoardComponent,
         PurchaseHistoryComponent,
         MyOrderComponent,
@@ -66,6 +68,7 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
             { path: 'fetch-data', component: FetchDataComponent },
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
+            { path: 'Register', component: RegisterComponent },
             { path: 'UserDashBoard', component: UserDashBoardComponent },
             { path: 'MyOrder', component: MyOrderComponent },
             { path: 'PurchaseHistory', component: PurchaseHistoryComponent },
