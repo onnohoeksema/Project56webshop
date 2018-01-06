@@ -52,7 +52,7 @@ export class AdminProductsComponent {
     SaveNewData(productID: any, productName: any, productPrice: any, productStock: any, productCategory: any, productTag: any){
         this.http.get('/api/AdminPage/SaveData/' + productID + '/' + productName + '/' + productPrice + '/' + productStock + '/' + productCategory + '/' + productTag + '/' ).subscribe(result => {
             if(result){
-                location.href = "AdminDashBoard"
+                location.href = "AdminProducts"
             }
         })
     }
