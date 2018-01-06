@@ -32,6 +32,8 @@
     <None Remove="ClientApp\app\components\Login\MyOrder.component.ts" />
     <None Remove="ClientApp\app\components\Login\Register.component.ts" />
     <None Remove="ClientApp\app\components\Login\WatchList.component.ts" />
+    <None Remove="ClientApp\app\components\navmenu\navmenu.service.ts" />
+    <None Remove="ClientApp\app\guards\auth.guard.ts" />
   </ItemGroup>
 
   <ItemGroup>
@@ -51,6 +53,8 @@
     <TypeScriptCompile Include="ClientApp\app\components\Login\Register.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\UserDashBoard.component.ts" />
     <TypeScriptCompile Include="ClientApp\app\components\Login\WatchList.component.ts" />
+    <TypeScriptCompile Include="ClientApp\app\components\navmenu\navmenu.service.ts" />
+    <TypeScriptCompile Include="ClientApp\app\guards\auth.guard.ts" />
   </ItemGroup>
 
   <Target Name="DebugRunWebpack" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('wwwroot\dist') ">

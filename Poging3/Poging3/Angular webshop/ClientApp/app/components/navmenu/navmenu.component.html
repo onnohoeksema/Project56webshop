@@ -35,6 +35,11 @@
                         <span class='glyphicon glyphicon-expand'></span> Login
                     </a>
                 </li>
+                <li *ngIf="nav.visible" [routerLinkActive]="['link-active']">
+                    <a [routerLink]="['/UserDashBoard']">
+                        <span class='glyphicon glyphicon-expand'></span> Dashboard
+                    </a>
+                </li>
                 <li [routerLinkActive]="['link-active']">
                         <a [routerLink]="['/itemcategories']">
                             <span class='glyphicon glyphicon-option-horizontal'></span> Browse Categories

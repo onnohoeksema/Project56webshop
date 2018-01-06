@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule, Routes, Router } from '@angular/router';
+import { NavbarService } from '../navmenu/navmenu.service';
 
 import { LoginPageComponent } from './LoginPage.component';
 
@@ -25,4 +26,11 @@ const routes: Routes = [
 })
 
 export class UserDashBoardComponent {
+    constructor(private router: Router, public nav: NavbarService) { }
+
+    logout() {
+        localStorage.removeItem('currentUser');
+        this.router.navigate(['LoginPage']);
+        this.nav.hide();
+    }
 }
