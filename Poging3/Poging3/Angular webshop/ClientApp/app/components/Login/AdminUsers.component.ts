@@ -27,22 +27,34 @@ const routes: Routes = [
 })
 
 export class AdminUsersComponent {
+    ShowEditTable: boolean = false;
+    EditRowID: any = '';
 
-
-    public Users: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+    public users: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
 
     constructor(private http: HttpClient) { }
 
     ngOnInit(): void {
 
-        this.http.get('/api/Login/GetUsers').subscribe(data => {
-            this.Users = data;
+        this.http.get('/api/AdminPage/GetUsers').subscribe(data => {
+            this.users = data;
 
         }, error => console.error(error));
 
     }
 
+    ChangeUserData(UserID: any, UserName: any, Password: any, FirstName: any, LastName: any, Street: any, HouseNumber: any, ZipCode: any, City: any)
+    {
+        this.http.get('/api/AdminPage/ChangeUserData/' + UserID + '/' + UserName + '/' + Password + '/' + FirstName + '/' + LastName + '/' + Street + '/' + HouseNumber + '/' + ZipCode + '/' + City + '/').subscribe(result => {
+            if(result){
+                location.href = "AdminDashBoard"
+            }
+        })
+    }
     
+    Edit(val:any){
+        this.EditRowID = val;
+    } 
 }
 
 interface UserResponds {

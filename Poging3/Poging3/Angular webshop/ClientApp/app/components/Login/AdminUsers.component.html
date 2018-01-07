@@ -8,8 +8,8 @@
     <h1>User Details</h1>
     <div>
             <!--Dumps all of the items in the database, just because we can -->
-            <a *ngFor="let User of Users" class="btn btn-default">
-                {{ User }}
+            <a *ngFor="let User of users" class="btn btn-default">
+                {{ User.street }}
                 <br>
             </a>
         
@@ -23,4 +23,118 @@
     </div>
 
 </body>
+<h1>User Details poging 2</h1>
+<table class="table table-bordered table-striped">
+      
+        <thead>
+          <tr>
+            <td>
+              <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                Email Address
+                <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+              <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+              Username 
+                <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+            <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+              Password 
+                <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+              <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+              First Name
+                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+              <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+              Last Name
+                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+              <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+              Street
+                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+              <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+              House Number
+                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+              <td>
+              <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+              Zip Code
+                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            <td>
+              <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+              City
+                <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+              </a>
+            </td>
+            
+          </tr>
+        </thead>
+        
+        <tbody>
+          <tr *ngFor="let user of users"> 
+              <!-- also contains | orderBy:sortType:sortReverse | filter:searchFish, but not yet implemented, so errors -->
+             
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.email"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.email }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.username"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.username }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.password"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.password }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.firstName"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.firstName }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.lastName"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.lastName }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.street"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.street }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.houseNumber"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.houseNumber }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.zipcode"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.zipcode }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.city"> </td>
+              <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.city }}</td>
+
+              <td *ngIf="user.userId === EditRowID"><input type="button" routerLink="/AdminDashBoard" (click)="ChangeUserData(user.userId, user.email, user.username, user.password, user.firstName, user.lastName, user.street, user.houseNumber, user.zipcode, user.city)" [(ngModel)]="user.userEdit">Save</td>
+          </tr>
+        </tbody>
+        
+      </table>
+      <div>
+            <nav>
+                <!--Dit Veranderen naar je desbetreffende router link.-->
+                <a routerLink="/AdminDashBoard" class="btn btn-default">Back to Dashboard</a>
+            </nav>
+        </div>
 </html>

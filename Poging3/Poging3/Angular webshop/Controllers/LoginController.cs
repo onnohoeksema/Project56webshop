@@ -75,7 +75,27 @@ namespace Angular_webshop.Controllers
             return Ok(user);
         }
 
-
+        [HttpGet("CreateUser/{mail}/{uname}/{passw}/{fname}/{lname}/{strt}/{houseno}/{zip}/{city}/")]
+        public IActionResult CreateUser(string mail, string uname, string passw, string fname, string lname, string strt, string houseno, string zip, string city)
+        {
+            var user = new User();
+            
+            user.Email = mail;
+            user.Username = uname;
+            user.Password = passw;
+            user.FirstName = fname;
+            user.LastName = lname;
+            user.Street = strt;
+            user.HouseNumber = houseno;
+            user.Zipcode = zip;
+            user.City = city;
+            
+            _context.Users.Add(user);
+            _context.SaveChanges();
+            Console.WriteLine("user should be created");
+            
+            return Ok();
+        }
 
     }
 }
