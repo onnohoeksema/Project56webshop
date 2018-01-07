@@ -1,5 +1,6 @@
-<h1>Hello, world!</h1>
-<p>Welcome to your new single-page application, built with:</p>
+<h1>Hello, visitor!</h1>
+<p>Welcome to our webshop</p>
+<!--
 <ul>
     <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
     <li><a href='https://angular.io/'>Angular</a> and <a href='http://www.typescriptlang.org/'>TypeScript</a> for client-side code</li>
@@ -15,3 +16,18 @@
     <li><strong>Efficient production builds</strong>. In production mode, development-time features are disabled, and the <code>webpack</code> build tool produces minified static CSS and JavaScript files.</li>
     <li><strong>Placeholder</strong>. This is a second test</li>
 </ul>
+-->
+<div *ngIf="!featureditem" >
+<p>Sorry, we have no featured item for you at the moment</p>
+
+</div>
+
+<div *ngIf="featureditem" >
+    <p>Here is one of our featured items:</p>
+    <ul *ngFor="let item of featureditem">
+        <li>{{ item.productName }} </li>
+        <li>Price: {{ item.productPrice }}</li>
+    </ul>
+    <input type="button" value="More information">
+    <!--button still needs a function -->
+</div>

@@ -24,6 +24,7 @@ namespace Models
         public DbSet<DCdicecolor> dcDiceColor { get; set; }
         public DbSet<DCnumbercolor> dcNumberColor { get; set; }
         public DbSet<DCdicepattern> dcDicePattern { get; set; }
+        public DbSet<Comment> Comments { get; set; }
         
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
@@ -94,6 +95,15 @@ namespace Models
         public int dcdicepatternID { get; set; }
         public string dcdicepatternName { get; set; }
         public int dcdicepatternStock { get; set; }
+    }
+
+    public class Comment
+    {
+        public int commentID { get; set; }
+        public int productID { get; set; }
+        public string user { get; set; }
+        public string comment { get; set; }
+        public int rating { get; set; }
     }
 /* 
 

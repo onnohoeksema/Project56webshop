@@ -54,6 +54,50 @@ namespace Angular_webshop.Controllers
             return Ok(filteredproducts);
         }
 
+        [HttpGet("GetComments/{productID}")]
+        public IActionResult Getcomments(int productID)
+        {
+            var comments = _context.Comments.Where(comment => comment.productID == productID);
+
+            return Ok(comments);
+        }
+
+        [HttpGet("SubmitComment/{productID}/{user}/{rating}/{comment}")]
+        public IActionResult SubmitComment(int productID, string user, int rating, string comment)
+        {
+
+            var newcomment = new Comment();
+
+            newcomment.productID = productID;
+            newcomment.user = user;
+            newcomment.rating = rating;
+            newcomment.comment = comment;
+            
+            _context.Comments.Add(newcomment);
+            _context.SaveChanges();
+
+            Console.WriteLine("comment should be created");
+            return Ok();
+        }
+        
+        [HttpGet("GetRandomItem")]
+        public IActionResult GetRandomItem()
+        {
+            Console.WriteLine("starting randomizing");
+            var query = from productID in _context.Products
+                        select productID;
+            
+            int count = query.Count();
+            Console.WriteLine("the count is " + count);
+            int index = new Random().Next(count);
+            Console.WriteLine("The index is " + index );
+
+            var featureditem = from p in _context.Products.Where(p => p.productID == index)
+                                select p;
+
+            Console.WriteLine("Should have a random item now");
+            return Ok(featureditem);
+        }
 
 public class Product
     {

@@ -9,6 +9,7 @@ namespace Angular_webshop.Controllers
 {
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
             return View();
@@ -19,5 +20,8 @@ namespace Angular_webshop.Controllers
             ViewData["RequestId"] = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
             return View();
         }
+
+
     }
+
 }
