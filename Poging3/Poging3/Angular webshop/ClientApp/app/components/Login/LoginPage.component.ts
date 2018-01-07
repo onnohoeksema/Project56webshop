@@ -1,5 +1,6 @@
 ﻿import { NgModule } from '@angular/core';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
@@ -10,7 +11,6 @@ import { RouterModule, Routes } from '@angular/router';
 
 import { UserDashBoardComponent } from './UserDashBoard.component';
 import { RegisterComponent } from './Register.component';
-import { NavbarService } from '../navmenu/navmenu.service';
 
 const routes: Routes = [
     { path: 'UserDashBoard', component: UserDashBoardComponent },
@@ -34,10 +34,16 @@ export class LoginPageComponent implements OnInit {
     password: string;
     res: any;
     loading: boolean = false;
+    testBrowser: boolean;
 
-    constructor(private http: Http, public nav: NavbarService) { }
+    constructor(private http: Http, @Inject(PLATFORM_ID) private platformId: string) { }
 
-    ngOnInit(): void { this.check() }
+    ngOnInit(): void {
+        this.testBrowser = isPlatformBrowser(this.platformId);
+        if (this.testBrowser) {
+            this.isLoggedIn();
+        }
+    }
 
     public login() {
         // Loading animation lol
@@ -53,7 +59,6 @@ export class LoginPageComponent implements OnInit {
             }
         )
 
-
         // Admin
         if (this.username == "admin" && this.password == "admin") {
             location.href = "AdminDashBoard";
@@ -67,15 +72,15 @@ export class LoginPageComponent implements OnInit {
         }
     }
 
-    check(){
+    isLoggedIn() {
         if (localStorage.getItem('currentUser')) {
-            this.loggy = "YES";
+            this.currentLogin = "YES"
         }
         else {
-            this.loggy = "NO"
+            this.currentLogin = "NO"
         }
     }
 
-    public loggy = ""
+    public currentLogin = ""
 }
 
