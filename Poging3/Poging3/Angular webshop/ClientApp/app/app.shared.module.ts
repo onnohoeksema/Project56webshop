@@ -71,7 +71,7 @@ import { AuthGuard } from './guards/auth.guard';
             { path: 'DiceCustomizer', component: DiceCustomizerComponent },
             { path: 'LoginPage', component: LoginPageComponent },
             { path: 'Register', component: RegisterComponent },
-            { path: 'UserDashBoard', component: UserDashBoardComponent/*, canActivate: [AuthGuard]*/ },
+            { path: 'UserDashBoard', component: UserDashBoardComponent, canActivate: [AuthGuard] },
             { path: 'MyOrder', component: MyOrderComponent },
             { path: 'PurchaseHistory', component: PurchaseHistoryComponent },
             { path: 'itempage', component: ItemPageComponent },

@@ -1,19 +1,28 @@
-﻿import { Injectable } from '@angular/core';
+﻿import { Injectable, Inject, PLATFORM_ID } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
 export class AuthGuard implements CanActivate {
+    constructor( @Inject(PLATFORM_ID) private platformId: string, private router: Router) { }
 
-    constructor(private router: Router) { }
+    canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-        if (localStorage.getItem('currentUser')) {
-            // logged in so return true
-            return true;
+        if (isPlatformBrowser(this.platformId)) {
+            if (localStorage.getItem('currentUser')) {
+                // logged in so return true
+                return true;
+            }
+            else {
+                // not logged so return false
+                this.router.navigate(['/LoginPage']);
+                return false;
+            }
         }
 
-        // not logged return false
-        this.router.navigate(['']);
+
+        // not logged so return false
+        this.router.navigate(['/LoginPage']);
         return false;
     }
 }
