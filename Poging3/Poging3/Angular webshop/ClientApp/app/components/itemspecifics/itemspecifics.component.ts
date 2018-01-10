@@ -18,6 +18,7 @@ export class ItemSpecificsComponent implements OnInit {
 
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public finalitem: any
+    public itemcomments: any
     chosenitem: any
 
     constructor(@Inject(PLATFORM_ID) private platformId: string, private http: HttpClient) {}
@@ -35,6 +36,10 @@ export class ItemSpecificsComponent implements OnInit {
         this.http.get('/api/ItemPage/GetItem/' + this.chosenitem + '/').subscribe(data => { this.finalitem = data ; 
         
         }, error => console.error(error));
+
+        this.http.get('/api/ItemPage/GetItemComments/' + this.chosenitem + '/').subscribe(data => { this.itemcomments = data ; 
+        
+        }, error => console.error(error));
         
     }
 
@@ -44,9 +49,7 @@ export class ItemSpecificsComponent implements OnInit {
             localStorage.setItem('currentItem', chosenitem);
             location.href = "itemspecifics";
         }
-        
-        
-        
+            
     }
     
 }

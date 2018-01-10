@@ -107,6 +107,21 @@ namespace Angular_webshop.Controllers
 
                 return Ok(finalitem);
         }
+
+        [HttpGet("GetItemComments/{itemID}")]
+        public IActionResult GetItemComments(int itemID)
+        {
+           
+            var itemcomments = _context.Comments.Where(a => a.productID == itemID);
+
+            Console.WriteLine("Should have loaded comments");
+                foreach (var comment in itemcomments)
+            {
+                Console.WriteLine("{0}. {1}", comment.user, comment.comment);
+            }
+                return Ok(itemcomments);
+        }
+
 public class Product
     {
         public int productID { get; set; }
