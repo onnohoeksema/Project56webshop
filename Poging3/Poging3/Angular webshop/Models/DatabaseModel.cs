@@ -25,7 +25,8 @@ namespace Models
         public DbSet<DCnumbercolor> dcNumberColor { get; set; }
         public DbSet<DCdicepattern> dcDicePattern { get; set; }
         public DbSet<Comment> Comments { get; set; }
-        
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<Wishlists> Wishlist { get; set; }
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
@@ -104,6 +105,21 @@ namespace Models
         public string user { get; set; }
         public string comment { get; set; }
         public int rating { get; set; }
+    }
+
+    public class Order
+    {
+        public int OrderID { get; set; }
+        public int UserID { get; set; } 
+        public int ProductID { get; set; }
+        public string OrderDate { get; set; }
+    }
+
+    public class Wishlists
+    {
+        public int WishlistID { get; set; }
+        public int UserID { get; set; } 
+        public int ProductID { get; set; }
     }
 /* 
 
