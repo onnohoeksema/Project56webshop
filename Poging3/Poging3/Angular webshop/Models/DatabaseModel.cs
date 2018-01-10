@@ -26,7 +26,7 @@ namespace Models
         public DbSet<DCdicepattern> dcDicePattern { get; set; }
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Order> Orders { get; set; }
-        public DbSet<Wishlists> Wishlist { get; set; }
+        public DbSet<Wishlist> Wishlist { get; set; }
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
@@ -115,7 +115,7 @@ namespace Models
         public string OrderDate { get; set; }
     }
 
-    public class Wishlists
+    public class Wishlist
     {
         public int WishlistID { get; set; }
         public int UserID { get; set; } 
