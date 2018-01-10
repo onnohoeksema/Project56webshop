@@ -20,7 +20,7 @@ import { PurchaseHistoryComponent } from './components/Login/PurchaseHistory.com
 import { ItemPageComponent } from './components/itempage/itempage.component';
 import { ShoppingCartComponent } from './components/shoppingcart/shoppingcart.component';
 import { PaymentRedirectComponent } from './components/paymentredirect/paymentredirect.component';
-import { WatchListComponent } from './components/Login/WatchList.component';
+import { WishlistComponent } from './components/Login/Wishlist.component';
 import { AccountSettingsComponent } from './components/Login/AccountSettings.component';
 import { AdminDashBoardComponent } from './components/Login/AdminDashBoard.component';
 import { AdminUsersComponent } from './components/Login/AdminUsers.component';
@@ -50,7 +50,7 @@ import { AuthGuard } from './guards/auth.guard';
         ItemPageComponent,
         ShoppingCartComponent,
         PaymentRedirectComponent,
-        WatchListComponent,
+        WishlistComponent,
         AccountSettingsComponent,
         AdminDashBoardComponent,
         AdminUsersComponent,
@@ -82,7 +82,7 @@ import { AuthGuard } from './guards/auth.guard';
             { path: 'itempage', component: ItemPageComponent },
             { path: 'shoppingcart', component: ShoppingCartComponent },
             { path: 'paymentredirect', component: PaymentRedirectComponent },
-            { path: 'WatchList', component: WatchListComponent },
+            { path: 'Wishlist', component: WishlistComponent },
             { path: 'AccountSettings', component: AccountSettingsComponent },
             { path: 'AdminDashBoard', component: AdminDashBoardComponent },
             { path: 'AdminUsers', component: AdminUsersComponent },
