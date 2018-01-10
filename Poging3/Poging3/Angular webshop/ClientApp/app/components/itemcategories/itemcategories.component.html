@@ -2,16 +2,12 @@
 
 <p>This is a simple example of the category page.</p>
 
-<div *ngIf="filteredproducts">
-        <input type ="button" class="btn btn-default" value="Return to categories" (click)="GetCategories()" >
-        
-        </div>
 
 <p *ngIf="!categories"><em>Loading Items...</em></p>
 <!--<button (click)="onClickMe()">Click me!</button>-->
-<div *ngIf="categories && !filteredproducts">
+<div *ngIf="categories">
 
-    <p>Category Name</p>
+    <h2>Category Name</h2>
     <nav *ngFor="let category of categories" >
         <!--still needs routerLink to navigate to the right page -->
         <input type="button" class="btn btn-default"  routerLink="/itempage" value="{{category}}" (click)="onClickMe(category)" >
@@ -21,79 +17,3 @@
 
 </div>
 
-<div *ngIf="filteredproducts">
-
-        <p>Item name</p>
-        <nav *ngFor="let product of filteredproducts">
-            <!--still needs routerLink to navigate to the right page -->
-            <button ng-click="category='Book'" (click)="onClickMe(category.category)">
-                {{ product.productName }}
-            </button>
-        </nav>
-    
-    </div>
-
-
-<!-- This was old, may be removed when everything is done
-<div>
-    
-    <p>Category Names hardcoded, to see if this works</p>
-    <nav>
-        
-        <button type="button" (click)="ClickBooks()" class="btn btn-default">Books</button>
-        <button type="button" (click)="ClickAccessories()" class="btn btn-default">Accessories</button>
-        <button type="button" (click)="ClickDice()" class="btn btn-default">Dice</button>
-        <button type="button" (click)="ClickExtras()" class="btn btn-default">Extras</button>
-        <button type="button" (click)="ClickMiniatures()" class="btn btn-default">Miniatures</button>
-    </nav>
-
-</div>
--->
-<!--
-<div *ngIf"categoryproducts">
-        <nav *ngFor="let product of categoryproducts"> -->
-                <!--still needs routerLink to navigate to the right page -->
-                <!--
-                <a class="btn btn-default" (click)="onClickMe()" id="Category" [(ngModel)]="Category">
-                    {{ product.ProductName }}
-                </a>
-            </nav>
-</div>
--->
-<!--
-<h1>Drop-down List</h1>
-    <select #select name="category" [(ngModel)]="category" (change)="onClickMe()">
-        <option *ngFor="let category of categories" [value]="category">{{category}}</option>
-    </select>
--->
-
-<div *ngIf="items">
- <p>Detailed itempage</p>
-    <nav *ngFor="let item of items">
-        <button>{{ item.productName }}</button>
-    </nav>
-</div>
-<br><br>
-<div>
-    <button type="button" (click)="GetItem()" class="btn btn-default">Get Item Info</button>
-
-</div>
-<div *ngIf="item">
-    <p>Item Details</p>
-
-    <ul *ngFor="let part of item">
-        <li>Product Name: {{ part.productName }}</li>
-        <li>Product Price: {{ part.productPrice }}</li>
-        <li>Product Stock: {{ part.productStock }}</li>
-        <li>Product Tag: {{ part.productTag }}</li>
-        <button type="button" class="btn btn-default" (click)="SelectedItem(part.productName)">Add to Cart</button>
-    </ul>
-      
-   </div>
-
-<div>
-        <p>Items in cart:</p>
-        <ul *ngFor="let piece of cart">
-            <li>{{piece}}</li>
-        </ul>
-</div>
