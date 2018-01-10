@@ -20,6 +20,11 @@ export class ItemSpecificsComponent implements OnInit {
     public finalitem: any
     public itemcomments: any
     chosenitem: any
+    public productID: any;
+    public user: string;
+    public rating: number;
+    public comment: string;
+    public loading: boolean;
 
     constructor(@Inject(PLATFORM_ID) private platformId: string, private http: HttpClient) {}
 
@@ -41,6 +46,17 @@ export class ItemSpecificsComponent implements OnInit {
         
         }, error => console.error(error));
         
+    }
+
+    public submitComment()
+    {
+        this.productID = localStorage.getItem('currentItem');
+        this.loading = true;
+        this.http.get('/api/ItemPage/SubmitComment/' + this.productID + '/' + this.user + '/' + this.rating + '/' + this.comment +'/').subscribe(result => {
+            if(result){
+                location.href = "/Home";
+            }
+        })
     }
 
     GoToItem(chosenitem:any)
