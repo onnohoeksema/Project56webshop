@@ -99,6 +99,14 @@ namespace Angular_webshop.Controllers
             return Ok(featureditem);
         }
 
+        [HttpGet("GetItem/{itemname}")]
+        public IActionResult GetItem(string itemname)
+        {
+           
+            var finalitem = _context.Products.Where(a => a.productName == itemname);      
+
+                return Ok(finalitem);
+        }
 public class Product
     {
         public int productID { get; set; }

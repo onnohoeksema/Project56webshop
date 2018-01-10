@@ -26,9 +26,12 @@ import { AdminDashBoardComponent } from './components/Login/AdminDashBoard.compo
 import { AdminUsersComponent } from './components/Login/AdminUsers.component';
 import { AdminProductsComponent } from './components/Login/AdminProducts.component';
 import { AdminStatisticsComponent } from './components/Login/AdminStatistics.component';
+import { AdminCommentsComponent } from './components/Login/AdminComments.component';
 import { ItemCategoriesComponent } from './components/itemcategories/itemcategories.component';
+import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics.component';
 
 import { AuthGuard } from './guards/auth.guard';
+
 
 
 @NgModule({
@@ -53,7 +56,9 @@ import { AuthGuard } from './guards/auth.guard';
         AdminUsersComponent,
         AdminProductsComponent,
         AdminStatisticsComponent,
-        ItemCategoriesComponent
+        AdminCommentsComponent,
+        ItemCategoriesComponent,
+        ItemSpecificsComponent
     ],
     imports: [
         CommonModule,
@@ -83,7 +88,9 @@ import { AuthGuard } from './guards/auth.guard';
             { path: 'AdminUsers', component: AdminUsersComponent },
             { path: 'AdminProducts', component: AdminProductsComponent },
             { path: 'AdminStatistics', component: AdminStatisticsComponent },
+            { path: 'AdminComments', component: AdminCommentsComponent},
             { path: 'itemcategories', component: ItemCategoriesComponent },
+            { path: 'itemspecifics', component: ItemSpecificsComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],

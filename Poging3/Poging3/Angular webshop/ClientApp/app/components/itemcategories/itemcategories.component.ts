@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { Inject } from '@angular/core';
+import { Inject, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http/src/http';
+import { isPlatformBrowser } from '@angular/common/';
 
 
 
@@ -47,17 +48,21 @@ export class ItemCategoriesComponent implements OnInit {
     public item: Object
     public cart = [] as string[];
     
-    constructor(private http: HttpClient) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: string, private http: HttpClient) {}
 
-    onClickMe(category: any)
+    onClickMe(chosencategory: any)
     {
         //this.category = this.categories.toString();
         
-        this.http.get('/api/ItemCategories/GetProducts/' + category + '/').subscribe(data => { this.filteredproducts = data ; 
+        //this.http.get('/api/ItemCategories/GetProducts/' + category + '/').subscribe(data => { this.filteredproducts = data ; 
         
-        }, error => console.error(error));
-        location.href = "itempage"
-
+        //}, error => console.error(error));
+        if(isPlatformBrowser(this.platformId)){
+            localStorage.setItem('currentCategory', chosencategory);
+            location.href = "itempage";
+        }
+        
+        
         }
 
 
@@ -98,44 +103,7 @@ export class ItemCategoriesComponent implements OnInit {
         
         //}, error => console.error(error));
     }
-    /*
-    These are all obsolete functions now
-    ClickBooks()
-    {
-        this.http.get('/api/ItemCategories/GetBooks/').subscribe(data => { this.items = data ; 
-        
-        }, error => console.error(error));
-        
-    }
 
-    ClickAccessories()
-    {
-        this.http.get('/api/ItemCategories/GetAccessories/').subscribe(data => { this.items = data ; 
-        
-        }, error => console.error(error));
-    }
-
-    ClickDice()
-    {
-        this.http.get('/api/ItemCategories/GetDice/').subscribe(data => { this.items = data ; 
-        
-        }, error => console.error(error)); 
-    }
-
-    ClickExtras()
-    {
-        this.http.get('/api/ItemCategories/GetExtras/').subscribe(data => { this.items = data ; 
-        
-        }, error => console.error(error));
-    }
-
-    ClickMiniatures()
-    {
-        this.http.get('/api/ItemCategories/GetMiniatures/').subscribe(data => { this.items = data ; 
-        
-        }, error => console.error(error));
-    }
-    */
 
    
 }

@@ -1,0 +1,24 @@
+<h1>Item Details Page</h1>
+
+<p>This is a simple example of the item details page.</p>
+
+<p *ngIf="!finalitem"><em>Loading Item details...</em></p>
+
+<div *ngIf="finalitem">
+
+    <p>Item Name</p>
+    <nav>
+        <!--still needs routerLink="/specificItem" -->
+        <a *ngFor="let item of finalitem">
+                
+            <li>Product Name: {{ item.productName }}</li>
+            <li>Product Price: {{ item.productPrice }}</li>
+            <li>Product Stock: {{ item.productStock }}</li>
+            <li>Product Tag: {{ item.productTag }}</li>
+            <button type="button" class="btn btn-default" (click)="SelectedItem(part.productName)">Add to Cart</button>
+            <!--<input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >-->
+            <br>
+        </a>
+    </nav>
+
+</div>

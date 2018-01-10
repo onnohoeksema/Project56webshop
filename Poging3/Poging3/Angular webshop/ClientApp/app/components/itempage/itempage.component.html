@@ -8,20 +8,12 @@
 
     <p>Item Name</p>
     <nav>
-        <!--Dumps all of the items in the database, just because we can -->
-        <a *ngFor="let product of filteredproducts" class="btn btn-default">
-            {{ product.productName }}
+        <!--still needs routerLink="/specificItem" -->
+        <a *ngFor="let product of filteredproducts">
+            
+            <input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >
             <br>
         </a>
     </nav>
-<br><br><br><br><br>
-    <!--Here a selection of items should be shown, for now it will be all of the available books  -->
-    <h2>Item Name filtered</h2>
-    <nav>
-        <!--Dumps all of the items in the database, just because we can -->
-        <a *ngFor="let product of filteredproducts" class="btn btn-default">
-            {{ product.productName }}
-            <br>
-        </a>
-    </nav>
+
 </div>

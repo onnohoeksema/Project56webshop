@@ -4,8 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
-import { Inject } from '@angular/core';
+import { Inject, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http/src/http';
+import { isPlatformBrowser } from '@angular/common/';
 
 
 @Component({
@@ -41,22 +42,39 @@ export class ItemPageComponent implements OnInit {
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredproducts: any
     category: string
-    
-    constructor(private http: HttpClient) {}
+    //currentcategory = localStorage.currentCategory;
+    currentcategory: any
+    constructor(@Inject(PLATFORM_ID) private platformId: string, private http: HttpClient) {}
 
     ngOnInit(): void {
         /*
         this.http.get('/api/ItemPage/GetAll').subscribe(data => { this.products = data ; 
         
         }, error => console.error(error));
-        
-        this.http.get('/api/ItemPage/GetProducts/' + this.category + '/').subscribe(data => { this.filteredproducts = data ; 
+        */
+        if(isPlatformBrowser(this.platformId)){
+            this.currentcategory = localStorage.getItem('currentCategory');
+        }
+
+        this.http.get('/api/ItemPage/GetProducts/' + this.currentcategory + '/').subscribe(data => { this.filteredproducts = data ; 
         
         }, error => console.error(error));
-        */
+        
+    }
+
+    GotoItem(chosenitem:any)
+    {
+        if(isPlatformBrowser(this.platformId)){
+            localStorage.setItem('currentItem', chosenitem);
+            location.href = "itemspecifics";
+        }
+        
+        
+        
     }
     
 }
+
 //Did not test if this was actually nescesary
 interface ItemsResponse {
     productID: number;
