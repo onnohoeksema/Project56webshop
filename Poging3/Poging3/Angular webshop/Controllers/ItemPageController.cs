@@ -99,11 +99,11 @@ namespace Angular_webshop.Controllers
             return Ok(featureditem);
         }
 
-        [HttpGet("GetItem/{itemname}")]
-        public IActionResult GetItem(string itemname)
+        [HttpGet("GetItem/{itemID}")]
+        public IActionResult GetItem(int itemID)
         {
            
-            var finalitem = _context.Products.Where(a => a.productName == itemname);      
+            var finalitem = _context.Products.Where(a => a.productID == itemID);      
 
                 return Ok(finalitem);
         }

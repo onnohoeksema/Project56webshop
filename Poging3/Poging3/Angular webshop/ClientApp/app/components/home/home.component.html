@@ -27,7 +27,7 @@
     <ul *ngFor="let item of featureditem">
         <li>{{ item.productName }} </li>
         <li>Price: {{ item.productPrice }}</li>
-        <input type="button" (click)="GotoItem(item.productName)" value="More information">
+        <input type="button" (click)="GotoItem(item.productID)" value="More information">
     </ul>
     
     <!--button still needs a function -->

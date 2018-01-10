@@ -11,7 +11,7 @@
         <!--still needs routerLink="/specificItem" -->
         <a *ngFor="let product of filteredproducts">
             
-            <input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >
+            <input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productID)" >
             <br>
         </a>
     </nav>
