@@ -70,6 +70,15 @@ namespace Angular_webshop.Controllers
             return Ok();
         }
 
+        [HttpGet("GetComments")]
+        public IActionResult GetComments()
+        {
+            var comments = from c in _context.Comments
+                    select c;
+
+            return Ok(comments);
+        }
+
 public class Product
     {
         public int productID { get; set; }

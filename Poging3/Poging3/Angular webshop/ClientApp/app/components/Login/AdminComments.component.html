@@ -1,4 +1,84 @@
 <!DOCTYPE html>
 <html>
 <h1>Work in progress</h1>
+
+<div class="container" ng-app="AdminProducts" ng-controller="mainController">
+  
+        <div class="alert alert-info">
+          <p>Sort Type: {{ sortType }}</p>
+          <p>Sort Reverse: {{ sortReverse }}</p>
+          <p>Search Query: {{ searchFish }}</p>
+        </div>
+        
+        <form>
+          <div class="form-group">
+            <div class="input-group">
+              <div class="input-group-addon"><i class="fa fa-search"></i></div>
+              <input type="text" class="form-control" placeholder="Search Items" ng-model="searchFish">
+            </div>      
+          </div>
+        </form>
+        
+        <table class="table table-bordered table-striped">
+          
+          <thead>
+            <tr>
+              <td>
+                <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
+                  Product ID
+                  <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
+                  <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+              </td>
+              <td>
+                <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+                User Name
+                  <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                  <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+              </td>
+              <td>
+              <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
+                Comment 
+                  <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
+                  <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+              </td>
+              <td>
+                <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                Rating
+                  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                  <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+              </td>
+            
+            </tr>
+          </thead>
+          
+          <tbody>
+            <tr *ngFor="let comment of comments"> 
+                <!-- also contains | orderBy:sortType:sortReverse | filter:searchFish, but not yet implemented, so errors -->
+               
+               <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.productID"> </td>
+                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.productID }}</td>
+                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.user"> </td>
+                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.user }}</td>
+                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.comment"> </td>
+                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.comment }}</td>
+                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.rating"> </td>
+                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.rating }}</td>
+                <td *ngIf="comment.commentID === EditRowID"><input type="button" routerLink="/AdminDashBoard" (click)="SaveNewData(comment.commentID, comment.productID, comment.user, comment.comment, comment.rating)" [(ngModel)]="comment.productEdit">Save</td>
+            </tr>
+          </tbody>
+          
+        </table>
+    
+        <div>
+            <nav>
+                <!--Dit Veranderen naar je desbetreffende router link.-->
+                <a routerLink="/AdminDashBoard" class="btn btn-default">Back to Dashboard</a>
+            </nav>
+        </div>
+    
+      </div>
 </html>
