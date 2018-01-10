@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { isPlatformBrowser } from '@angular/common/';
+import { Inject, PLATFORM_ID } from '@angular/core';
 
 @Component({
     selector: 'home',
@@ -9,11 +11,18 @@ export class HomeComponent implements OnInit{
 
     public featureditem: any
 
-    constructor(private http: HttpClient) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: string, private http: HttpClient) {}
 
     ngOnInit(): void
     {
         this. http.get('/api/ItemPage/GetRandomItem/').subscribe(data => { this.featureditem = data ;
         }, error => console.error(error));
+    }
+
+    GotoItem(chosenitem:any){
+        if(isPlatformBrowser(this.platformId)){
+            localStorage.setItem('currentItem', chosenitem);
+            location.href = "itemspecifics";
+        }
     }
 }
