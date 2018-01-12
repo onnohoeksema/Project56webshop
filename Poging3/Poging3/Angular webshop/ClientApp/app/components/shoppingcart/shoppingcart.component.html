@@ -1,0 +1,39 @@
+<style>
+    .spaghet {
+        font-size: 100px;
+    }
+
+    .col-sm-2 {
+        margin-bottom: 10px;
+    }
+    .col-sm-3 {
+        margin-bottom: 10px;
+    }
+    .col-sm-5 {
+        margin-bottom: 10px;
+    }
+
+</style>
+
+<div *ngIf="cart">
+    <div class="div_products" *ngFor="let product of cart">
+
+            <div class="col-sm-3">
+                <p>PRODUCT IMAGE???</p>
+            </div>
+
+            <div class="col-sm-5">
+                <p>{{ product.productName }}</p>
+            </div>
+
+            <div class="col-sm-2">
+                <p>{{ product.productPrice | currency: 'EUR'}}</p>
+            </div>
+
+            <div class="col-sm-2">
+                <button type="button" class="btn btn-default" (click)="removeProduct(product)"> REMOVE</button>
+            </div>
+    </div>
+</div>
+
+<p class="spaghet" *ngIf="cartIsEmpty()">SOMEBODY TOUCHA MY SPAGHET!</p>

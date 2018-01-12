@@ -1,3 +1,39 @@
+<style>
+
+    h3, h5 {
+        font-family: 'Montserrat', sans-serif;
+    }
+
+    .btnCheckout {
+        border-radius: 4px;
+        background-color: darkgreen;
+        padding: 1rem 3rem;
+        color: #fff;
+    }
+    .btnCheckout:hover:enabled {
+        background-color: forestgreen;
+    }
+    .btnCheckout:disabled {
+        opacity: 0.5;
+    }
+
+    .btnEmpty {
+        background-color: grey;
+        color: #fff;
+        padding: 0.5rem 3rem;
+        border-radius: 4px;
+    }
+    .btnEmpty:hover:enabled {
+        background-color: lightgrey;
+    }
+
+    .btnEmpty:disabled {
+        opacity: 0.5;
+    }
+    
+</style>
+
+
 <h1>Item Details Page</h1>
 
 <p>This is a simple example of the item details page.</p>
@@ -6,21 +42,46 @@
 
 <div *ngIf="finalitem">
 
-    <p>Item Name</p>
-    <nav>
-       
-        <a *ngFor="let item of finalitem">
-                
-            <li>Product Name: {{ item.productName }}</li>
-            <li>Product Price: {{ item.productPrice }}</li>
-            <li>Product Stock: {{ item.productStock }}</li>
-            <li>Product Tag: {{ item.productTag }}</li>
+    <div class="row" *ngFor="let item of finalitem">
+        <div class="col-sm-8">
+            <p>Item Name</p>
+            <a>Product Name: {{ item.productName }}</a>
+            <br />
+            <a>Product Price: {{ item.productPrice }}</a>
+            <br />
+            <a>Product Stock: {{ item.productStock }}</a>
+            <br />
+            <a>Product Tag: {{ item.productTag }}</a>
+            <br />
+
+
             <br>
-            <button type="button" class="btn btn-default" (click)="SelectedItem(part.productName)">Add to Cart</button>
+            <button type="button" class="btn btn-default" (click)="addProduct(item)">Add to cart</button>
+            <button type="button" class="btn btn-default" *ngIf="productInCart(item) > -1" (click)="removeProduct(item)"> Remove from cart</button>
             <!--<input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >-->
             <br>
-        </a>
-    </nav>
+        </div>
+
+        <div class="col-sm-4">
+            <div class="row">
+                <h2>Your shopping cart</h2>
+            </div>
+
+            <div class="row">
+                <h3>Sub total ({{itemCount}} items): {{ totalPrice | currency: 'EUR'}}</h3>
+            </div>
+
+            <div class="row">
+                <button class="btnCheckout" (click)="checkout()" [disabled]="itemCount === 0 ? true : null">Proceed to checkout</button>
+            </div>
+
+            <div class="row">
+                <button class="btnEmpty" (click)="emptyCart()" [disabled]="itemCount == 0">Empty cart</button>
+            </div>
+        </div>
+
+    </div>    
+
 <br>
 <div *ngIf="!itemcomments"><h3>There are currently no comments available for this product</h3></div>
 <div *ngIf="itemcomments">

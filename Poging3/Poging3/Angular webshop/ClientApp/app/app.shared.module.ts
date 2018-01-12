@@ -31,6 +31,7 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
 import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics.component';
 
 import { AuthGuard } from './guards/auth.guard';
+import { ShoppingCartService} from './services/shoppingcart.service';
 
 
 
@@ -95,7 +96,8 @@ import { AuthGuard } from './guards/auth.guard';
         ])
     ],
     providers: [
-        AuthGuard
+        AuthGuard,
+        ShoppingCartService
     ]
 })
 export class AppModuleShared {
