@@ -87,11 +87,7 @@ export class ItemSpecificsComponent implements OnInit {
 
     // Add product to cart
     addProduct(product: Product): void {
-        // Add product to array this.cart
-        this.cart.push(product);
-
-        // Save cart
-        this.shoppingCartService.save(this.cart);
+        this.shoppingCartService.addProduct(product);
 
         // Update cart
         this.updateCart();
@@ -99,14 +95,7 @@ export class ItemSpecificsComponent implements OnInit {
 
     // Remove product from cart
     removeProduct(product: Product) {
-        var index: number = this.productInCart(product);
-        if (index > -1) {
-            // Remove product from shopping cart
-            this.cart.splice(index, 1);
-
-            // Save cart
-            this.shoppingCartService.save(this.cart);
-        }
+        this.shoppingCartService.removeProduct(product);
 
         //// Update cart
         this.updateCart();
@@ -128,20 +117,12 @@ export class ItemSpecificsComponent implements OnInit {
 
     // Show/hide remove from cart button
     productInCart(product: Product): number{
-        // Let's check if product is in this.cart
-        var index: number = -1;
-        this.cart.forEach(function (findYo, eyoo) {
-            if (findYo.productName == product.productName) {
-                // Set index to the product's index
-                index = eyoo;
-            }
-        })
-        return index;
+        return this.shoppingCartService.productInCart(product);
     }
 
     // Update cart
     updateCart() {
-        // Get cart from shopping cart sevice
+        // Retrieve stored cart in order to update the rest
         this.cart = this.shoppingCartService.retrieve();
 
         // Set item count

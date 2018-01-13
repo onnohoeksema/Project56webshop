@@ -22,6 +22,7 @@
             <h2>
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 <span>Shopping Cart</span>
+                <span>({{ itemCount }})</span>
             </h2>
         </div>
         <hr />
@@ -37,7 +38,7 @@
                     <span>{{item.productName}}</span>
                 </div>
                 <div class="col-lg-2">
-                    <p>QUANTITY x {{item.productPrice | currency:'EUR'}}</p>
+                    <p>1 x {{item.productPrice | currency:'EUR'}}</p>
                 </div>
                 <div class="col-lg-2">
                     <p>{{ item.productPrice | currency:'EUR'}}</p>

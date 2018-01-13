@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Inject, PLATFORM_ID  } from '@angular/core';
+import { isPlatformBrowser } from '@angular/common';
 import { Product } from '../../models/product.model';
 import { ShoppingCartService } from '../../services/shoppingcart.service';
 
@@ -10,23 +11,22 @@ import { ShoppingCartService } from '../../services/shoppingcart.service';
 export class ShoppingCartComponent implements OnInit {
     public cart: Array<Product>;
     public totalPrice: number;
-    public itemQuantity: number;
+    public itemCount: number;
+    public productQuantity: number;
 
-    constructor(private shoppingCartService: ShoppingCartService) { }   
+    constructor( @Inject(PLATFORM_ID) private platformId: string, private shoppingCartService: ShoppingCartService) { }   
 
     ngOnInit() {
-        // Retrieve shopping cart
-        this.cart = this.shoppingCartService.retrieve();
-        this.totalPrice = this.shoppingCartService.calculateCart();
+        // Update cart
+        if (isPlatformBrowser(this.platformId)) {
+            this.updateCart();
+        }
     }
 
     // Add product to cart
     addProduct(product: Product): void {
-        // Add product to array this.cart
-        this.cart.push(product);
-
-        // Save cart
-        this.shoppingCartService.save(this.cart);
+        // Add product to shopping cart
+        this.shoppingCartService.addProduct(product);
 
         // Update cart
         this.updateCart();
@@ -34,14 +34,8 @@ export class ShoppingCartComponent implements OnInit {
 
     // Remove product from shopping cart
     removeProduct(product: Product) {
-        var index: number = this.productInCart(product);
-        if (index > -1) {
-            // Remove product from shopping cart
-            this.cart.splice(index, 1);
-
-            // Save cart
-            this.shoppingCartService.save(this.cart);
-        }
+        // Remove product from shopping cart
+        this.shoppingCartService.removeProduct(product);
 
         //// Update cart
         this.updateCart();
@@ -49,15 +43,7 @@ export class ShoppingCartComponent implements OnInit {
 
     // Show/hide remove from cart button
     productInCart(product: Product): number {
-        // Let's check if product is in this.cart
-        var index: number = -1;
-        this.cart.forEach(function (findYo, eyoo) {
-            if (findYo.productName == product.productName) {
-                // Set index to the product's index
-                index = eyoo;
-            }
-        })
-        return index;
+        return this.shoppingCartService.productInCart(product);
     }
 
     // Update cart
@@ -67,12 +53,17 @@ export class ShoppingCartComponent implements OnInit {
 
         // Set total price
         this.totalPrice = this.shoppingCartService.calculateCart();
+
+        // Get total items
+        this.itemCount = this.cart.length;
     }
 
     // Cart is empty show spaghet
     cartIsEmpty(): boolean {
-        if (this.cart.length > 0) {
-            return false;
+        if (isPlatformBrowser(this.platformId)) {
+            if (this.cart.length > 0) {
+                return false;
+            }
         }
         return true;
     }
