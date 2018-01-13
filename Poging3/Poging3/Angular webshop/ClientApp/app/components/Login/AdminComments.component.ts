@@ -35,8 +35,8 @@ export class AdminCommentsComponent implements OnInit{
 
    ngOnInit():void{
     this.http.get('/api/AdminPage/GetComments').subscribe(data => { this.comments = data;
-    })
-   }
+    }, error => console.error(error))
+   };
 
     Edit(val:any){
         this.EditRowID = val;
