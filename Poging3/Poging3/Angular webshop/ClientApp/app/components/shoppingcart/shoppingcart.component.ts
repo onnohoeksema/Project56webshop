@@ -9,12 +9,27 @@ import { ShoppingCartService } from '../../services/shoppingcart.service';
 
 export class ShoppingCartComponent implements OnInit {
     public cart: Array<Product>;
+    public totalPrice: number;
+    public itemQuantity: number;
 
     constructor(private shoppingCartService: ShoppingCartService) { }   
 
     ngOnInit() {
         // Retrieve shopping cart
         this.cart = this.shoppingCartService.retrieve();
+        this.totalPrice = this.shoppingCartService.calculateCart();
+    }
+
+    // Add product to cart
+    addProduct(product: Product): void {
+        // Add product to array this.cart
+        this.cart.push(product);
+
+        // Save cart
+        this.shoppingCartService.save(this.cart);
+
+        // Update cart
+        this.updateCart();
     }
 
     // Remove product from shopping cart
@@ -50,11 +65,8 @@ export class ShoppingCartComponent implements OnInit {
         // Get cart from shopping cart sevice
         this.cart = this.shoppingCartService.retrieve();
 
-        //// Set item count
-        //this.itemCount = this.cart.length;
-
-        //// Set total price
-        //this.totalPrice = this.shoppingCartService.calculateCart();
+        // Set total price
+        this.totalPrice = this.shoppingCartService.calculateCart();
     }
 
     // Cart is empty show spaghet

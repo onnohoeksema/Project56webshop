@@ -112,9 +112,9 @@ export class ItemSpecificsComponent implements OnInit {
         this.updateCart();
     }
 
-    // Proceed to checkout
-    checkout() {
-
+    // View shopping cart
+    viewCart() {
+        location.href = "shoppingcart";
     }
 
     // Empty shopping cart

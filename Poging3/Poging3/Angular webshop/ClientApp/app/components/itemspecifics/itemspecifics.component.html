@@ -4,16 +4,21 @@
         font-family: 'Montserrat', sans-serif;
     }
 
-    .btnCheckout {
+    .myCart {
+        text-align: center;
+    }
+
+    .btnCart {
         border-radius: 4px;
         background-color: darkgreen;
         padding: 1rem 3rem;
         color: #fff;
+        width: 80%;
     }
-    .btnCheckout:hover:enabled {
+    .btnCart:hover:enabled {
         background-color: forestgreen;
     }
-    .btnCheckout:disabled {
+    .btnCart:disabled {
         opacity: 0.5;
     }
 
@@ -22,6 +27,7 @@
         color: #fff;
         padding: 0.5rem 3rem;
         border-radius: 4px;
+        width: 80%;
     }
     .btnEmpty:hover:enabled {
         background-color: lightgrey;
@@ -62,7 +68,7 @@
             <br>
         </div>
 
-        <div class="col-sm-4">
+        <div class="myCart col-sm-4">
             <div class="row">
                 <h2>Your shopping cart</h2>
             </div>
@@ -72,7 +78,7 @@
             </div>
 
             <div class="row">
-                <button class="btnCheckout" (click)="checkout()" [disabled]="itemCount === 0 ? true : null">Proceed to checkout</button>
+                <button class="btnCart" (click)="viewCart()">View cart</button>
             </div>
 
             <div class="row">
