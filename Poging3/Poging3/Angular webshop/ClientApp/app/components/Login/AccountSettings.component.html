@@ -5,21 +5,31 @@
     <title></title>
 </head>
 <body>
+    <h2>Change your account settings</h2>
     <div>
+        <div>
+        <p *ngFor="let user of userdata">Current Email Adress: {{ user.email }}</p>
         <input class="form-control" type="text" id="Username" name="Username" placeholder="Email-Adress" />
-    </div>
-    <div>
+        </div>
+        <div>
         <input class="form-control" type="password" id="Password" name="Password" placeholder="Password" />
-    </div>
-    <div>
+        </div>
+        <div>
+        <p *ngFor="let user of userdata">Current Street: {{ user.street }}</p>
         <input class="form-control" type="password" id="Password" name="Password" placeholder="Adress" />
-    </div>
-    <div>
+        </div>
+        <div>
+        <p *ngFor="let user of userdata">Current House number: {{ user.houseNumber }}</p>
+        <input class="form-control" type="password" id="Password" name="Password" placeholder="Adress" />
+        </div>
+        <div>
         <input type="submit" value="Submit Changes" class="btn btn-default" />
+    </div>
     </div>
     <nav>
         <!--Dit Veranderen naar je desbetreffende router link.-->
         <a routerLink="/UserDashBoard" class="btn btn-default">Back to dashboard</a>
     </nav>
+    
 </body>
 </html>

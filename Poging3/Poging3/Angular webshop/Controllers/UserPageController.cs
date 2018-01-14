@@ -59,8 +59,16 @@ namespace Angular_webshop.Controllers
             return Ok();
         }
 
-[HttpGet("SaveData/{wishID}/{userID}/{prodID}/")]
+        [HttpGet("GetUserData/{uname}")]
+        public  IActionResult GetUserData(string uname){
+            var userdata = from u in _context.Users.Where(u => u.Username == uname)
+                        select u;
+                        
+            return Ok(userdata);
+    
+        }
 
+        [HttpGet("SaveData/{wishID}/{userID}/{prodID}/")]
         public IActionResult SaveData(int wishID, int userID, int prodID)
         {
          var wish = _context.Wishlist.FirstOrDefault(w => w.WishlistID == wishID);
