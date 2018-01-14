@@ -9,27 +9,36 @@
     <div>
         <div>
         <p *ngFor="let user of userdata">Current Email Adress: {{ user.email }}</p>
-        <input class="form-control" type="text" id="Username" name="Username" placeholder="Email-Adress" />
+        <input class="form-control" type="text" id="Username" name="Username" placeholder="Enter your new email Adress" />
+        <input type="submit" value="Change Email Adress" class="btn btn-default" />
         </div>
+        <br>
         <div>
-        <input class="form-control" type="password" id="Password" name="Password" placeholder="Password" />
+        <input class="form-control" type="password" id="Password" name="Password" placeholder="Enter your new password" />
+        <input type="submit" value="Change Password" class="btn btn-default" />
         </div>
+        <br>
         <div>
         <p *ngFor="let user of userdata">Current Street: {{ user.street }}</p>
-        <input class="form-control" type="password" id="Password" name="Password" placeholder="Adress" />
+        <input class="form-control" type="password" id="Password" name="Password" placeholder="Enter your new adress" />
+        <input type="submit" value="Change street" class="btn btn-default" />
         </div>
+        <br>
         <div>
         <p *ngFor="let user of userdata">Current House number: {{ user.houseNumber }}</p>
-        <input class="form-control" type="password" id="Password" name="Password" placeholder="Adress" />
+        <input class="form-control" type="password" id="Password" name="Password" placeholder="Enter your new house number" />
+        <input type="submit" value="Change house number" class="btn btn-default" />
         </div>
         <div>
-        <input type="submit" value="Submit Changes" class="btn btn-default" />
+        
     </div>
     </div>
+    <br>
+    <div>
     <nav>
         <!--Dit Veranderen naar je desbetreffende router link.-->
         <a routerLink="/UserDashBoard" class="btn btn-default">Back to dashboard</a>
     </nav>
-    
+</div>
 </body>
 </html>
