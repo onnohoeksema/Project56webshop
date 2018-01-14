@@ -55,7 +55,7 @@
             <p>Product Price: {{ item.productPrice }}</p>            
             <p>Product Stock: {{ item.productStock }}</p>            
             <p>Product Tag: {{ item.productTag }}</p>
-            <p>Average Rating: {{ rating }}</p>
+            <p>Average Rating: {{ averagerating }}</p>
             <br />
 
 
@@ -93,7 +93,7 @@
     <h2>Comments on item</h2>
     <nav>
        
-        <a *ngFor="let comment of itemcomments">
+        <p *ngFor="let comment of itemcomments">
                 
             <li>User Name: {{ comment.user }}</li>
             <li>Product rating: {{ comment.rating }}</li>
@@ -102,7 +102,7 @@
             
             <!--<input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >-->
             <br>
-        </a>
+        </p>
 
         
     </nav>

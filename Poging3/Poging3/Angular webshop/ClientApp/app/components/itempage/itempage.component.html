@@ -2,18 +2,18 @@
 
 <p>This is a simple example of the category page.</p>
 
-<p *ngIf="!filteredproducts"><em>Loading 1231Items...</em></p>
+<p *ngIf="!filteredproducts"><em>Loading Items...</em></p>
 
 <div *ngIf="filteredproducts">
 
     <p>Item Name</p>
     <nav>
         
-        <a *ngFor="let product of filteredproducts">
+        <p *ngFor="let product of filteredproducts">
             
             <input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productID)" >
-            <br>
-        </a>
+            
+        </p>
     </nav>
 
 </div>

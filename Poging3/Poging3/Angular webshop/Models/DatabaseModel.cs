@@ -104,7 +104,7 @@ namespace Models
         public int productID { get; set; }
         public string user { get; set; }
         public string comment { get; set; }
-        public int rating { get; set; }
+        public double rating { get; set; }
         public string approved { get; set; }
     }
 

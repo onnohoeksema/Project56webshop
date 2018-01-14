@@ -135,12 +135,18 @@ namespace Angular_webshop.Controllers
             return Ok();
         }
 
-        [HttpGet("AverageRating{prodID}")]
+        [HttpGet("AverageRating/{prodID}")]
 
         public IActionResult AverageRating(int prodID)
         {
-            var averagerating = (from c in _context.Comments.Where(c => c.productID == prodID)
-                select c.rating).Average();
+            var ratingsum = (from c in _context.Comments.Where(c => c.productID == prodID)
+                select c.rating).Sum();
+            var ratingcount = (from c in _context.Comments.Where(c => c.productID == prodID)
+                select c.rating).Count();
+
+            double averagerating = Math.Round((ratingsum / ratingcount),2);
+             
+            //var averagerating = _context.Comments.Where(c => c.productID == prodID).Average(c => c.rating);
             Console.WriteLine("Rating should have loaded");
             Console.WriteLine(averagerating);
 
