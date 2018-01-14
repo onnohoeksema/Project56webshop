@@ -29,7 +29,9 @@ export class ItemSpecificsComponent implements OnInit {
     public loading: boolean;
     public averagerating: any
     public currentLogin = ""
-    
+    public loggedinuser: any
+    testBrowser: boolean;
+
     // Shopping cart //
     public itemCount: number;
     public totalPrice: number;
@@ -137,8 +139,14 @@ export class ItemSpecificsComponent implements OnInit {
         this.totalPrice = this.shoppingCartService.calculateCart();
     }
         // Add to wishlist
-    addtoWishlist(){
-        this.http.get('/api/Itempage/AddToWishlist/'+ this.productID + '/' + this.user + '/').subscribe(result => {
+    addtoWishlist(productID: any){
+
+        this.testBrowser = isPlatformBrowser(this.platformId);
+        if (this.testBrowser) {
+        this.loggedinuser = localStorage.getItem('nameofUser')
+        }
+
+        this.http.get('/api/Itempage/AddToWishlist/'+ productID + '/' + this.loggedinuser + '/').subscribe(result => {
             if (result){}
 
         })

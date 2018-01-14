@@ -51,6 +51,7 @@
     <div class="row" *ngFor="let item of finalitem">
         <div class="col-sm-8">
             <p>Item Name</p>
+            
             <p>Product Name: {{ item.productName }}</p>            
             <p>Product Price: {{ item.productPrice }}</p>            
             <p>Product Stock: {{ item.productStock }}</p>            
@@ -64,7 +65,7 @@
             <button type="button" class="btn btn-default" (click)="addProduct(item)">Add to cart</button>
             <button type="button" class="btn btn-default" *ngIf="productInCart(item) > -1" (click)="removeProduct(item)"> Remove from cart</button>
             <!--<input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >-->
-            <button type="button" class="btn btn-default" *ngIf="isLoggedIn()" (click)="addtoWishlist(item)">Add to Wishlist</button>
+            <button type="button" class="btn btn-default" *ngIf="isLoggedIn()" (click)="addtoWishlist(item.productID)">Add to Wishlist</button>
             <br>
         </div>
 

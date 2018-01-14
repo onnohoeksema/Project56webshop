@@ -122,8 +122,12 @@ namespace Angular_webshop.Controllers
                 return Ok(itemcomments);
         }
 
-        [HttpGet("AddToWishlist/{itemID}/{userID}")]
-        public IActionResult AddToWishlist(int itemID, int userID){
+        [HttpGet("AddToWishlist/{itemID}/{uname}")]
+        public IActionResult AddToWishlist(int itemID, string uname){
+            
+            var userID = (from u in _context.Users.Where(u => u.Username == uname)
+                        select u.UserId).FirstOrDefault();
+
             var wishlistitem = new Wishlist();
 
             wishlistitem.ProductID = itemID;
