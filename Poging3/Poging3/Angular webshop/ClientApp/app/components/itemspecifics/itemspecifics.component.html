@@ -55,7 +55,8 @@
             <p>Product Price: {{ item.productPrice }}</p>            
             <p>Product Stock: {{ item.productStock }}</p>            
             <p>Product Tag: {{ item.productTag }}</p>
-            <p>Average Rating: {{ averagerating }}</p>
+            <p *ngIf="averagerating !=0">Average Rating: {{ averagerating }}</p>
+            <p *ngIf="averagerating ==0">No ratings available for this product</p>
             <br />
 
 
@@ -88,8 +89,8 @@
     </div>    
 
 <br>
-<div *ngIf="!itemcomments"><h3>There are currently no comments available for this product</h3></div>
-<div *ngIf="itemcomments">
+<div *ngIf="averagerating ==0"><h3>There are currently no comments available for this product</h3></div>
+<div *ngIf="averagerating !=0">
     <h2>Comments on item</h2>
     <nav>
        

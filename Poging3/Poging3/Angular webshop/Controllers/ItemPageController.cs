@@ -144,13 +144,17 @@ namespace Angular_webshop.Controllers
             var ratingcount = (from c in _context.Comments.Where(c => c.productID == prodID)
                 select c.rating).Count();
 
-            double averagerating = Math.Round((ratingsum / ratingcount),2);
-             
-            //var averagerating = _context.Comments.Where(c => c.productID == prodID).Average(c => c.rating);
-            Console.WriteLine("Rating should have loaded");
-            Console.WriteLine(averagerating);
-
-            return Ok(averagerating);
+            if (ratingcount == 0)
+            {
+                var averagerating = 0;
+                return Ok(averagerating);
+            }
+            else
+            {
+                var averagerating = Math.Round((ratingsum / ratingcount),2);
+                return Ok(averagerating);
+            }
+                        
         }
 
 public class Product
