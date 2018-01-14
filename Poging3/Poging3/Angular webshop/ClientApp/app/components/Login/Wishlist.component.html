@@ -12,10 +12,10 @@
   <thead>
     <tr>
       <td>
-        Wishlist ID       
+        Product Name      
       </td>
       <td>
-        User ID
+        Product Price
       </td>
       <td>
         Product ID 
@@ -27,7 +27,7 @@
     <tr *ngFor="let item of wishlistuserproducts"> 
         <td>{{ item.productName }}</td>
         <td>{{ item.productPrice }}</td>
-        <td>{{ item.ProductID }}</td>
+        <td>{{ item.productName }}</td>
 
     </tr>
   </tbody>
