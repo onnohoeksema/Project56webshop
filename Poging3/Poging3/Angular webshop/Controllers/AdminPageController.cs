@@ -113,6 +113,22 @@ namespace Angular_webshop.Controllers
 
             return Ok();
         }
+
+        [HttpGet("CommentNotApproved/{cID}/")]
+        public IActionResult CommentNotApproved(int cID)
+        {
+            var comment = _context.Comments.FirstOrDefault(c => c.commentID == cID);
+            Console.WriteLine("comment will be modified");
+            if (comment != null)
+            {
+                comment.approved = 2;
+                
+                _context.SaveChanges();
+                Console.WriteLine("comment should be modified");
+            }
+
+            return Ok();
+        }
 public class Product
     {
         public int productID { get; set; }

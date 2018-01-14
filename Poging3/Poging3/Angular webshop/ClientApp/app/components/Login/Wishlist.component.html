@@ -49,6 +49,35 @@
         </tr>
     </tbody>
       
+
+<h2>New wishlist:</h2>
+<table class="table table-bordered table-striped">
+          
+  <thead>
+    <tr>
+      <td>
+        Wishlist ID       
+      </td>
+      <td>
+        User ID
+      </td>
+      <td>
+        Product ID 
+      </td>  
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let item of wishlists"> 
+        <td>{{ item.WishlistID }}</td>
+        <td>{{ item.UserID }}</td>
+        <td>{{ item.ProductID }}</td>
+
+    </tr>
+  </tbody>
+  
+</table>
+
     <div>
         <nav>
             <!--Dit Veranderen naar je desbetreffende router link.-->
