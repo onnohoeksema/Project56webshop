@@ -105,7 +105,7 @@ namespace Models
         public string user { get; set; }
         public string comment { get; set; }
         public double rating { get; set; }
-        public string approved { get; set; }
+        public int approved { get; set; }
     }
 
     public class Order

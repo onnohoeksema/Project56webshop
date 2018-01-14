@@ -73,7 +73,7 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetComments")]
         public IActionResult GetComments()
         {
-            var comments = from c in _context.Comments
+            var comments = from c in _context.Comments.Where(c => c.approved == 0)
                     select c;
 
             return Ok(comments);
@@ -90,7 +90,7 @@ namespace Angular_webshop.Controllers
                 comment.user = uname;
                 comment.comment = commenttext;
                 comment.rating = prodrating;
-                comment.approved = appr;
+                
                 
                 _context.SaveChanges();
                 Console.WriteLine("comment should be modified");
@@ -98,6 +98,21 @@ namespace Angular_webshop.Controllers
             return Ok();
         }
 
+        [HttpGet("CommentToApproved/{cID}/")]
+        public IActionResult CommentToApproved(int cID)
+        {
+            var comment = _context.Comments.FirstOrDefault(c => c.commentID == cID);
+            Console.WriteLine("comment will be modified");
+            if (comment != null)
+            {
+                comment.approved = 1;
+                
+                _context.SaveChanges();
+                Console.WriteLine("comment should be modified");
+            }
+
+            return Ok();
+        }
 public class Product
     {
         public int productID { get; set; }

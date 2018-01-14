@@ -45,10 +45,15 @@ export class AdminCommentsComponent implements OnInit{
                 
         }
     })
-    location.reload();
-
     }
 
+    CommentApproved(commentid: any)
+    {
+        this.http.get('/api/AdminPage/CommentToApproved/' + commentid + '/').subscribe(data => { if(data){}
+        })
+        location.reload();
+    }
+        
     ApproveComment()
     {
 

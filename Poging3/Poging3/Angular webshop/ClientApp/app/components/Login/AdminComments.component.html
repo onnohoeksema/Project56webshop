@@ -1,87 +1,41 @@
 <!DOCTYPE html>
 <html>
-<h1>Work in progress</h1>
-
-<div class="container" ng-app="AdminProducts" ng-controller="mainController">
+<!-- Time for a new and simplified table -->
+<div>
+<h2>Comments to be approved:</h2>
+<table class="table table-bordered table-striped">
+          
+  <thead>
+    <tr>
+      <td>
+        Product ID       
+      </td>
+      <td>
+        User Name
+      </td>
+      <td>
+        Comment 
+      </td>
+      <td>
+        Rating
+      </td>   
+    </tr>
+  </thead>
   
-        <div class="alert alert-info">
-          <p>Sort Type: {{ sortType }}</p>
-          <p>Sort Reverse: {{ sortReverse }}</p>
-          <p>Search Query: {{ searchFish }}</p>
-        </div>
-        
-        <form>
-          <div class="form-group">
-            <div class="input-group">
-              <div class="input-group-addon"><i class="fa fa-search"></i></div>
-              <input type="text" class="form-control" placeholder="Search Items" ng-model="searchFish">
-            </div>      
-          </div>
-        </form>
-        
-        <table class="table table-bordered table-striped">
-          
-          <thead>
-            <tr>
-              <td>
-                <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
-                  Product ID
-                  <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </td>
-              <td>
-                <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
-                User Name
-                  <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </td>
-              <td>
-              <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
-                Comment 
-                  <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </td>
-              <td>
-                <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
-                Rating
-                  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </td>
-              <td>
-                <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
-                Approved?
-                  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
-                  <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
-                </a>
-              </td>
-            
-            </tr>
-          </thead>
-          
-          <tbody>
-            <tr *ngFor="let comment of comments"> 
-                <!-- also contains | orderBy:sortType:sortReverse | filter:searchFish, but not yet implemented, so errors -->
-               
-               <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.productID"> </td>
-                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.productID }}</td>
-                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.user"> </td>
-                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.user }}</td>
-                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.comment"> </td>
-                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.comment }}</td>
-                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.rating"> </td>
-                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.rating }}</td>
-                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.approved"> </td>
-                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.approved }}</td>
-                <td *ngIf="comment.commentID === EditRowID"><input type="button" (click)="UpdateComment(comment.commentID, comment.productID, comment.user, comment.comment, comment.rating, comment.approved)" [(ngModel)]="comment.productEdit">Save</td>
-            </tr>
-          </tbody>
-          
-        </table>
-    
+  <tbody>
+    <tr *ngFor="let comment of comments"> 
+        <td>{{ comment.productID }}</td>
+        <td>{{ comment.user }}</td>
+        <td>{{ comment.comment }}</td>
+        <td>{{ comment.rating }}</td>
+        <td><input type="button" (click)="CommentApproved(comment.commentID)" [(ngModel)]="comment.commentEdit">Approve</td>
+        <td><input type="button" (click)="CommentNotApproved(comment.commentID)" [(ngModel)]="comment.commentEdit">Delete</td>
+
+    </tr>
+  </tbody>
+  
+</table>
+
         <div>
             <nav>
                 <!--Dit Veranderen naar je desbetreffende router link.-->

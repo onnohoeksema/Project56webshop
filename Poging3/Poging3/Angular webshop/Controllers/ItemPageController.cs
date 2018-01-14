@@ -112,7 +112,7 @@ namespace Angular_webshop.Controllers
         public IActionResult GetItemComments(int itemID)
         {
            
-            var itemcomments = _context.Comments.Where(a => a.productID == itemID);
+            var itemcomments = _context.Comments.Where(a => a.productID == itemID && a.approved ==1);
 
             Console.WriteLine("Should have loaded comments");
                 foreach (var comment in itemcomments)
@@ -139,9 +139,9 @@ namespace Angular_webshop.Controllers
 
         public IActionResult AverageRating(int prodID)
         {
-            var ratingsum = (from c in _context.Comments.Where(c => c.productID == prodID)
+            var ratingsum = (from c in _context.Comments.Where(c => c.productID == prodID && c.approved == 1)
                 select c.rating).Sum();
-            var ratingcount = (from c in _context.Comments.Where(c => c.productID == prodID)
+            var ratingcount = (from c in _context.Comments.Where(c => c.productID == prodID && c.approved == 1)
                 select c.rating).Count();
 
             if (ratingcount == 0)
