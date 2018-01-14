@@ -55,6 +55,7 @@ export class LoginPageComponent implements OnInit {
                 if (result) {
                     location.href = "UserDashBoard";
                     localStorage.setItem('currentUser', JSON.stringify(result));
+                    localStorage.setItem('nameofUser', this.username);
                 }
             }
         )

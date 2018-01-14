@@ -17,9 +17,7 @@
       <td>
         Product Price
       </td>
-      <td>
-        Product ID 
-      </td>  
+ 
     </tr>
   </thead>
   
@@ -27,7 +25,8 @@
     <tr *ngFor="let item of wishlistuserproducts"> 
         <td>{{ item.productName }}</td>
         <td>{{ item.productPrice }}</td>
-        <td>{{ item.productName }}</td>
+        <td><input type="button" (click)="AddtoCart(item.productName)" [(ngModel)]="item.Addtocart">Add to cart</td>
+        <td><input type="button" (click)="DeleteFromWishlist(item.productName)" [(ngModel)]="item.removefromlist">Delete from wishlist</td>
 
     </tr>
   </tbody>

@@ -30,7 +30,7 @@ const routes: Routes = [
 export class WishlistComponent {
     public wishlistuserproducts: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredwishlists: any
-
+    public loggedinuser: any
     public sortType     = 'name'; // set the default sort type
     public sortReverse  = false;  // set the default sort order
     public searchFish   = '';     // set the default search/filter term
@@ -39,12 +39,24 @@ export class WishlistComponent {
 
     ngOnInit(): void {
 
-        this.http.get('/api/UserPage/GetAll').subscribe(data => {
+        this.loggedinuser = localStorage.getItem('nameofUser')
+        this.http.get('/api/UserPage/GetAll/'+ this.loggedinuser + '/' ).subscribe(data => {
         this.wishlistuserproducts = data;
 
         }, error => console.error(error));
 
 
+    }
+
+    AddToCart()
+    {
+
+    }
+
+    DeleteFromWishlist()
+    {
+
+        location.href = "shoppingcart"
     }
 
     SaveNewData(WishlistID: any, ProductID: any, UserID: any){

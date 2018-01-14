@@ -17,10 +17,13 @@ namespace Angular_webshop.Controllers
             _context = context;
         }
 
-        [HttpGet("GetAll")]
-        public IActionResult GetAll()
+        [HttpGet("GetAll/{username}")]
+        public IActionResult GetAll(string username)
         {
-            var wishlistuserproducts = (from a in _context.Wishlist
+
+            Console.WriteLine(username);
+            var wishlistuserproducts = (from u in _context.Users.Where(u => u.Username == username)
+                                        from a in _context.Wishlist.Where(a => a.UserID == u.UserId)
                                         from b in _context.Products.Where(b => a.ProductID == b.productID)
                                         select new { b.productName, b.productPrice});
             //var wishlists = from p in _context.Wishlist
