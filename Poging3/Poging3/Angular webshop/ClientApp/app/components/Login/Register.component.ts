@@ -44,8 +44,9 @@ export class RegisterComponent {
 
         this.http.get('/api/Login/CreateUser/' + this.email + '/' + this.username + '/' + this.password + '/' + this.firstname + '/' + this.lastname + '/' + this.street + '/' + this.housenumber + '/' + this.zipcode + '/' + this.city + '/').subscribe(result => {
             if(result){
-                location.href = "/Register";
+                alert("Your registration is succesful")
             }
+            location.href = "LoginPage"
         })
 
     

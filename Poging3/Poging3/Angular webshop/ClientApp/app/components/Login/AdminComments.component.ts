@@ -38,6 +38,22 @@ export class AdminCommentsComponent implements OnInit{
     }, error => console.error(error))
    };
 
+    UpdateComment(commentid: any, productID: any, userName: any, comment: any, rating: any, approved: any)
+    {
+        this.http.get('/api/AdminPage/UpdateComment/'+ commentid + '/' + productID + '/' + userName + '/' + comment + '/' + rating + '/' + approved + '/').subscribe(data =>     {
+            if(data){
+                
+        }
+    })
+    location.reload();
+
+    }
+
+    ApproveComment()
+    {
+
+    }
+
     Edit(val:any){
         this.EditRowID = val;
     }

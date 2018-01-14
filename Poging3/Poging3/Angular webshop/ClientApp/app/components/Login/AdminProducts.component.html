@@ -129,7 +129,7 @@ parameters als update table query uitgestuurd -->
             <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productCategory }}</td>
             <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productTag"> </td>
             <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productTag }}</td>
-            <td *ngIf="product.productID === EditRowID"><input type="button" routerLink="/AdminDashBoard" (click)="SaveNewData(product.productID, product.productName, product.productPrice, product.productStock, product.productCategory, product.productTag)" [(ngModel)]="product.productEdit">Save</td>
+            <td *ngIf="product.productID === EditRowID"><input type="button" (click)="SaveNewData(product.productID, product.productName, product.productPrice, product.productStock, product.productCategory, product.productTag)" [(ngModel)]="product.productEdit">Save</td>
         </tr>
       </tbody>
       

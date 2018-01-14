@@ -122,6 +122,31 @@ namespace Angular_webshop.Controllers
                 return Ok(itemcomments);
         }
 
+        [HttpGet("AddToWishlist/{itemID}/{userID}")]
+        public IActionResult AddToWishlist(int itemID, int userID){
+            var wishlistitem = new Wishlist();
+
+            wishlistitem.ProductID = itemID;
+            wishlistitem.UserID = userID;
+
+            _context.Wishlist.Add(wishlistitem);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
+        [HttpGet("AverageRating{prodID}")]
+
+        public IActionResult AverageRating(int prodID)
+        {
+            var averagerating = (from c in _context.Comments.Where(c => c.productID == prodID)
+                select c.rating).Average();
+            Console.WriteLine("Rating should have loaded");
+            Console.WriteLine(averagerating);
+
+            return Ok(averagerating);
+        }
+
 public class Product
     {
         public int productID { get; set; }

@@ -79,6 +79,25 @@ namespace Angular_webshop.Controllers
             return Ok(comments);
         }
 
+        [HttpGet("UpdateComment/{cID}/pID/{uname}/{commenttext}/{prodrating}/{appr}/")]
+        public IActionResult UpdateComment(int cID, int pID, string uname, string commenttext, int prodrating, string appr)
+        {
+            var comment = _context.Comments.FirstOrDefault(c => c.commentID == cID);
+            Console.WriteLine("comment will be modified");
+            if (comment != null)
+            {
+                comment.productID = pID;
+                comment.user = uname;
+                comment.comment = commenttext;
+                comment.rating = prodrating;
+                comment.approved = appr;
+                
+                _context.SaveChanges();
+                Console.WriteLine("comment should be modified");
+            }
+            return Ok();
+        }
+
 public class Product
     {
         public int productID { get; set; }

@@ -27,6 +27,7 @@ export class ItemSpecificsComponent implements OnInit {
     public rating: number;
     public comment: string;
     public loading: boolean;
+    public averagerating: any
 
     // Shopping cart //
     public itemCount: number;
@@ -55,6 +56,8 @@ export class ItemSpecificsComponent implements OnInit {
         
         }, error => console.error(error));
 
+        this.http.get('/api/ItemPage/AverageRating/' + this.chosenitem + '/').subscribe(data => {this.averagerating = data ;
+        }, error => console.error(error));
 
         // Shopping cart //
         // Somebody toucha my spaghet!
@@ -131,5 +134,12 @@ export class ItemSpecificsComponent implements OnInit {
         // Set total price
         this.totalPrice = this.shoppingCartService.calculateCart();
     }
-    
+        // Add to wishlist
+    addtoWishlist(){
+        this.http.get('/api/Itempage/AddToWishlist/'+ this.productID + '/' + this.user + '/').subscribe(result => {
+            if (result){}
+
+        })
+        location.reload()
+    }
 }

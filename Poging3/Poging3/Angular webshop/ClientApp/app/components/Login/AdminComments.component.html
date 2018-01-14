@@ -51,6 +51,13 @@
                   <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
                 </a>
               </td>
+              <td>
+                <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
+                Approved?
+                  <span ng-show="sortType == 'tastiness' && !sortReverse" class="fa fa-caret-down"></span>
+                  <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
+                </a>
+              </td>
             
             </tr>
           </thead>
@@ -67,7 +74,9 @@
                 <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.comment }}</td>
                 <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.rating"> </td>
                 <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.rating }}</td>
-                <td *ngIf="comment.commentID === EditRowID"><input type="button" routerLink="/AdminDashBoard" (click)="SaveNewData(comment.commentID, comment.productID, comment.user, comment.comment, comment.rating)" [(ngModel)]="comment.productEdit">Save</td>
+                <td *ngIf="comment.commentID === EditRowID"><input type="text" [(ngModel)]="comment.approved"> </td>
+                <td *ngIf="comment.commentID !== EditRowID" (click)="Edit(comment.commentID)">{{ comment.approved }}</td>
+                <td *ngIf="comment.commentID === EditRowID"><input type="button" (click)="UpdateComment(comment.commentID, comment.productID, comment.user, comment.comment, comment.rating, comment.approved)" [(ngModel)]="comment.productEdit">Save</td>
             </tr>
           </tbody>
           
