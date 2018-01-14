@@ -28,7 +28,7 @@ const routes: Routes = [
 })
 
 export class WishlistComponent {
-    public wishlists: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+    public wishlistuserproducts: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredwishlists: any
 
     public sortType     = 'name'; // set the default sort type
@@ -40,7 +40,7 @@ export class WishlistComponent {
     ngOnInit(): void {
 
         this.http.get('/api/UserPage/GetAll').subscribe(data => {
-        this.wishlists = data;
+        this.wishlistuserproducts = data;
 
         }, error => console.error(error));
 

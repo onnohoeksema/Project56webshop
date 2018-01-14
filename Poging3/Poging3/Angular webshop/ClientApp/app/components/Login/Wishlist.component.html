@@ -1,54 +1,10 @@
 ﻿<!DOCTYPE html>
 <html>
+<div>
 <head>
     <meta charset="utf-8" />
     <title></title>
 </head>
-<body>
-    <br>
-    <h2>Wishlist</h2>
-</body>
-<div class="container" ng-app="Wishlist" ng-controller="mainController">
-
-    <table class="table table-bordered table-striped">
-      
-      <thead>
-        <tr>
-          <td>
-            <a href="#" ng-click="sortType = 'name'; sortReverse = !sortReverse">
-              WishlistID
-              <span ng-show="sortType == 'name' && !sortReverse" class="fa fa-caret-down"></span>
-              <span ng-show="sortType == 'name' && sortReverse" class="fa fa-caret-up"></span>
-            </a>
-          </td>
-          <td>
-            <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
-            UserID
-              <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
-              <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
-            </a>
-          </td>
-          <td>
-          <a href="#" ng-click="sortType = 'fish'; sortReverse = !sortReverse">
-            ProductID 
-              <span ng-show="sortType == 'fish' && !sortReverse" class="fa fa-caret-down"></span>
-              <span ng-show="sortType == 'fish' && sortReverse" class="fa fa-caret-up"></span>
-            </a>
-        </td>
-        </tr>
-      </thead>
-      
-    <tbody>
-        <tr *ngFor="let wishlist of wishlists">         
-           <td input type="text" [(ngModel)]="wishlist.WishlistID"> {{ wishlist.WishlistID }} </td>
-            
-            <td input type="text" [(ngModel)]="wishlist.UserID"> {{ wishlist.UserID }} </td>
-           
-            <td input type="text" [(ngModel)]="wishlist.ProductID"> {{ wishlist.ProductID }} </td>
-           
-        </tr>
-    </tbody>
-      
 
 <h2>New wishlist:</h2>
 <table class="table table-bordered table-striped">
@@ -68,9 +24,9 @@
   </thead>
   
   <tbody>
-    <tr *ngFor="let item of wishlists"> 
-        <td>{{ item.WishlistID }}</td>
-        <td>{{ item.UserID }}</td>
+    <tr *ngFor="let item of wishlistuserproducts"> 
+        <td>{{ item.productName }}</td>
+        <td>{{ item.productPrice }}</td>
         <td>{{ item.ProductID }}</td>
 
     </tr>
@@ -84,6 +40,6 @@
             <a routerLink="/UserDashBoard" class="btn btn-default">Back to dashboard</a>
         </nav>
     </div>
-    </table>
+
     </div>
 </html>

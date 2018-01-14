@@ -20,12 +20,14 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {
-            
-            var wishlists = from p in _context.Wishlist
-                select p;
+            var wishlistuserproducts = (from a in _context.Wishlist
+                                        from b in _context.Products.Where(b => a.ProductID == b.productID)
+                                        select new {b = b.productName, b.productPrice});
+            //var wishlists = from p in _context.Wishlist
+                //select p;
             
            
-            return Ok(wishlists);
+            return Ok(wishlistuserproducts);
             
         }
 
