@@ -28,7 +28,8 @@ export class ItemSpecificsComponent implements OnInit {
     public comment: string;
     public loading: boolean;
     public averagerating: any
-
+    public currentLogin = ""
+    
     // Shopping cart //
     public itemCount: number;
     public totalPrice: number;
@@ -44,6 +45,7 @@ export class ItemSpecificsComponent implements OnInit {
         
         }, error => console.error(error));
         */
+    
         if(isPlatformBrowser(this.platformId)){
             this.chosenitem = localStorage.getItem('currentItem');
         }
@@ -142,4 +144,14 @@ export class ItemSpecificsComponent implements OnInit {
         })
         location.reload()
     }
+
+    isLoggedIn() {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
 }
