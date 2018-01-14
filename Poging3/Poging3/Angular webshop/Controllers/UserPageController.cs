@@ -31,7 +31,19 @@ namespace Angular_webshop.Controllers
             
            
             return Ok(wishlistuserproducts);
-            
+        }
+        
+        [HttpGet("GetOrders/{username}")]
+        public IActionResult GetOrders(string username)
+        {
+
+            Console.WriteLine(username);
+            var orderuserproducts = (from a in _context.Users.Where(a => a.Username == username)
+                                        from b in _context.Orders.Where(b => b.UserID == a.UserId)
+                                        from c in _context.Products.Where(c => c.productID == b.ProductID)
+                                        
+                                        select new { b.OrderID, c.productName, c.productPrice, b.OrderDate });    
+            return Ok(orderuserproducts);
         }
 
         [HttpGet("RemoveFromWishlist/{userID}/{prodID}/")]
