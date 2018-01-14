@@ -8,6 +8,7 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 import { RouterModule, Routes } from '@angular/router';
 import { Pipe, PipeTransform } from '@angular/core'; 
+import { isPlatformBrowser } from '@angular/common';
 
 import { UserDashBoardComponent } from './UserDashBoard.component';
 import {Product } from '../../models/product.model';
@@ -33,7 +34,7 @@ export class WishlistComponent {
     public wishlistuserproducts: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredwishlists: any
     public loggedinuser: any
- 
+    testBrowser: boolean;
     public productID: any;
     public user: string;
 
@@ -46,7 +47,10 @@ export class WishlistComponent {
 
     ngOnInit(): void {
 
+        this.testBrowser = isPlatformBrowser(this.platformId);
+        if (this.testBrowser) {
         this.loggedinuser = localStorage.getItem('nameofUser')
+        }
         this.http.get('/api/UserPage/GetAll/'+ this.loggedinuser + '/' ).subscribe(data => {
         this.wishlistuserproducts = data;
 
@@ -55,9 +59,11 @@ export class WishlistComponent {
 
     }
 
-    DeleteFromWishlist(ProductID: any)
+    RemoveFromWishlist(ProductID: any)
     {
-
+        this.http.get('/api/UserPage/RemoveFromWishlist/'+ this.loggedinuser + '/' + ProductID + '/').subscribe(data => {
+            
+        })
         location.reload();
     }
 

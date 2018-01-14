@@ -28,8 +28,8 @@
         <td>{{ item.productName }}</td>
         <td>{{ item.productPrice }}</td>
         <td>{{ item.productID }}</td>
-        <td><input type="button" (click)="AddtoCart(item.productName)" [(ngModel)]="item.Addtocart">Add to cart</td>
-        <td><input type="button" (click)="DeleteFromWishlist(item.productName)" [(ngModel)]="item.removefromlist">Delete from wishlist</td>
+        <td><input type="button" (click)="AddtoCart(item.productID)" [(ngModel)]="item.Addtocart">Add to cart</td>
+        <td><input type="button" (click)="RemoveFromWishlist(item.productID)" [(ngModel)]="item.removefromlist">Delete from wishlist</td>
 
     </tr>
   </tbody>

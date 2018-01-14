@@ -34,6 +34,19 @@ namespace Angular_webshop.Controllers
             
         }
 
+        [HttpGet("RemoveFromWishlist/{userID}/{prodID}/")]
+        public IActionResult RemoveFromWishlist(string userID, int prodID)
+        {
+            var deleteitem = (from u in _context.Users.Where(u => u.Username == userID)
+                                from w in _context.Wishlist.Where(w => w.UserID == u.UserId && w.ProductID == prodID)
+                                select w);
+                   
+            _context.Wishlist.RemoveRange(deleteitem);
+            _context.SaveChanges();
+
+            return Ok();
+        }
+
 [HttpGet("SaveData/{wishID}/{userID}/{prodID}/")]
 
         public IActionResult SaveData(int wishID, int userID, int prodID)
