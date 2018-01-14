@@ -25,7 +25,7 @@ namespace Angular_webshop.Controllers
             var wishlistuserproducts = (from u in _context.Users.Where(u => u.Username == username)
                                         from a in _context.Wishlist.Where(a => a.UserID == u.UserId)
                                         from b in _context.Products.Where(b => a.ProductID == b.productID)
-                                        select new { b.productName, b.productPrice});
+                                        select new { b.productID, b.productName, b.productPrice});
             //var wishlists = from p in _context.Wishlist
                 //select p;
             
