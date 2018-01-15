@@ -9,26 +9,32 @@
     <div>
         <div>
         <p *ngFor="let user of userdata">Current Email Adress: {{ user.email }}</p>
-        <input class="form-control" type="text" id="Username" name="Username" placeholder="Enter your new email Adress" />
-        <input type="submit" value="Change Email Adress" class="btn btn-default" />
+        <input class="form-control" type="text" id="email" name="email" [(ngModel)]="email" placeholder="Enter your new email Adress" />
+        <input type="submit" value="Change Email Adress" class="btn btn-default" (click)="ChangeMail()"/>
         </div>
         <br>
         <div>
-        <input class="form-control" type="password" id="Password" name="Password" placeholder="Enter your new password" />
-        <input type="submit" value="Change Password" class="btn btn-default" />
+        <input class="form-control" type="password" id="password" name="password" [(ngModel)]="password" placeholder="Enter your new password" />
+        <input type="submit" value="Change Password" class="btn btn-default" (click)="ChangePassword()"/>
         </div>
         <br>
         <div>
         <p *ngFor="let user of userdata">Current Street: {{ user.street }}</p>
-        <input class="form-control" type="password" id="Password" name="Password" placeholder="Enter your new adress" />
-        <input type="submit" value="Change street" class="btn btn-default" />
+        <input class="form-control" type="text" id="street" name="street" [(ngModel)]="street" placeholder="Enter your new adress" />
+        <input type="submit" value="Change street" class="btn btn-default" (click)="ChangeAddress()"/>
         </div>
         <br>
         <div>
         <p *ngFor="let user of userdata">Current House number: {{ user.houseNumber }}</p>
-        <input class="form-control" type="password" id="Password" name="Password" placeholder="Enter your new house number" />
-        <input type="submit" value="Change house number" class="btn btn-default" />
+        <input class="form-control" type="text" id="housenumber" name="housenumber" [(ngModel)]="housenumber" placeholder="Enter your new house number" />
+        <input type="submit" value="Change house number" class="btn btn-default"(click)="ChangeHousenumber()" />
+        <br>
         </div>
+        <div>
+            <p *ngFor="let user of userdata">Current City: {{ user.city }}</p>
+            <input class="form-control" type="text" id="city" name="city" [(ngModel)]="city" placeholder="Enter your new city" />
+            <input type="submit" value="Change house number" class="btn btn-default"(click)="ChangeHousenumber()" />
+            </div>
         <div>
         
     </div>

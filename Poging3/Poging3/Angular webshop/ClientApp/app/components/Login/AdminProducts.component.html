@@ -56,6 +56,53 @@ parameters als update table query uitgestuurd -->
 -->
 <!-- Let's paste some template over here to see what it is all about -->
 </body>
+
+<div class="container">
+<table class="table table-bordered table-striped">
+<thead>
+  <tr>
+    <td>
+      Product Name       
+    </td>
+    <td>
+      Product Price
+     </td>
+    <td>
+      Product Stock 
+    </td>
+    <td>
+      Product Category
+    </td>
+    <td>
+      Product Tag
+    </td>   
+  </tr>
+</thead>
+<tbody>
+  <tr> 
+      <!-- also contains | orderBy:sortType:sortReverse | filter:searchFish, but not yet implemented, so errors -->
+     
+     <td><input type="text" [(ngModel)]="productName"> </td>
+      
+      <td><input type="text" [(ngModel)]="productPrice"> </td>
+      
+      <td><input type="text" [(ngModel)]="productStock"> </td>
+     
+      <td><input type="text" [(ngModel)]="productCategory"> </td>
+    
+      <td><input type="text" [(ngModel)]="productTag"> </td>
+    
+     <!-- <td *ngIf="product.productID === EditRowID"><input type="button" (click)="SaveNewData(product.productID, product.productName, product.productPrice, product.productStock, product.productCategory, product.productTag)" [(ngModel)]="product.productEdit">Save</td>
+     -->
+    </tr>
+</tbody>
+</table>
+<button type="button" (click)="AddNewProduct()" class="btn btn-default">Add New Product</button>
+
+</div>
+
+<p></p>
+<br>
 <div class="container">
   
     <div class="alert alert-info">
@@ -130,7 +177,8 @@ parameters als update table query uitgestuurd -->
             <td *ngIf="product.productID === EditRowID"><input type="text" [(ngModel)]="product.productTag"> </td>
             <td *ngIf="product.productID !== EditRowID" (click)="Edit(product.productID)">{{ product.productTag }}</td>
             <td *ngIf="product.productID === EditRowID"><input type="button" (click)="SaveNewData(product.productID, product.productName, product.productPrice, product.productStock, product.productCategory, product.productTag)" [(ngModel)]="product.productEdit">Save</td>
-        </tr>
+            <td><input type="button" (click)="RemoveProduct(product.productID)"[(ngModel)]="product.productDelete">Delete product</td>
+          </tr>
       </tbody>
       
     </table>

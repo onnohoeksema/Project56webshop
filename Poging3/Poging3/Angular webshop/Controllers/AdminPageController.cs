@@ -129,16 +129,35 @@ namespace Angular_webshop.Controllers
 
             return Ok();
         }
-public class Product
-    {
-        public int productID { get; set; }
-        public string productName { get; set; }
-        public float productPrice { get; set; }
-        public int productStock { get; set; }
-        public string productCategory { get; set; }
-        public string productTag { get; set; }
-    }
+        
+        [HttpGet("AddNewProduct/{prodName}/{prodPrice}/{prodStock}/{prodCategory}/{prodTag}/")]
+        public IActionResult AddNewProduct(string prodName, float prodPrice, int prodStock, string prodCategory, string prodTag)
+        {
+              var newproduct = new Product();
+            Console.WriteLine("Product will be created");
+       
+            newproduct.productName = prodName;
+            newproduct.productPrice = prodPrice;
+            newproduct.productStock = prodStock;
+            newproduct.productCategory = prodCategory;
+            newproduct.productTag = prodTag;
+            _context.Products.Add(newproduct);
+            _context.SaveChanges();
+            Console.WriteLine("Product should be created");
+         
+         
+            return Ok();
+        }
 
-    
+        [HttpGet("RemoveProduct/prodID")]  
+        public IActionResult RemoveProduct(int prodID)
+        {
+            var deleteproduct = _context.Products.FirstOrDefault(p => p.productID == prodID);
+
+            _context.Products.Remove(deleteproduct);
+            _context.SaveChanges();
+
+            return Ok();
+        }
     }
 }

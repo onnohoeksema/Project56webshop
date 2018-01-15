@@ -57,7 +57,29 @@ export class AdminProductsComponent {
         })
         location.reload();
     }
+    
+    AddNewProduct(productName: any, productPrice: any, productStock: any, productCategory: any, productTag: any)
+    {
+        this.http.get('/api/AdminPage/AddNewProduct/' + productName + '/' + productPrice + '/' + productStock + '/' + productCategory + '/' + productTag + '/' ).subscribe(result => {
+            if(result){
+                
+            }
+        })
+        location.reload();
+        alert("A new product has been succesfully created")
+    }
 
+    RemoveProduct(productID: any)
+    {
+        this.http.get('/api/AdminPage/RemoveProduct/' + productID + '/').subscribe(result => {
+            if(result){
+
+            }
+        })
+        location.reload();
+        alert("Product succesfully removed")
+    }
+    
     Edit(val:any){
         this.EditRowID = val;
     }

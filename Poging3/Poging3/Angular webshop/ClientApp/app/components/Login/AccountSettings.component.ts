@@ -29,9 +29,14 @@ const routes: Routes = [
 
 export class AccountSettingsComponent implements OnInit {
 
-    public userdata: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
-    public filteredwishlists: any
-    public loggedinuser: any
+    public city: string;
+    public email: string;
+    public password: string;
+    public street: string;
+    public housenumber: number;
+    public userdata: any; //this used to be string[] //= ["Test1", "Test2", "Test3"];
+    public filteredwishlists: any;
+    public loggedinuser: any;
     testBrowser: boolean;
     public productID: any;
     public user: string;
@@ -50,4 +55,37 @@ export class AccountSettingsComponent implements OnInit {
         }, error => console.error(error));
     }
 
+    ChangeMail()
+    {
+        this.http.get('/api/UserPage/ChangeMail/'+ this.email + '/' + this.loggedinuser + '/').subscribe(data => {});
+        location.reload();
+        alert("Email Address has been changed");
+    }
+
+    ChangePassword()
+    {
+        this.http.get('/api/UserPage/ChangePassword/'+ this.password +'/' + this.loggedinuser + '/').subscribe(data => {});
+        location.reload();
+        alert("Password has been changed");
+    }
+
+    ChangeAddress()
+    {
+        this.http.get('/api/UserPage/ChangeAddress/'+ this.street + '/' + this.loggedinuser + '/').subscribe(data => {});
+        location.reload();
+        alert("Home Address has been changed");
+    }
+
+    ChangeHousenumber()
+    {
+        this.http.get('/api/UserPage/ChangeHousenumber/' + this.housenumber + '/' + this.loggedinuser + '/').subscribe(data => {});
+        location.reload();
+        alert("House number has been changed");
+    }
+    ChangeCity()
+    {
+        this.http.get('/api/UserPage/ChangeHousenumber/' + this.city + '/' + this.loggedinuser + '/').subscribe(data => {});
+        location.reload();
+        alert("City has been changed");
+    }
 }

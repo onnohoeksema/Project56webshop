@@ -86,5 +86,75 @@ namespace Angular_webshop.Controllers
             
             return Ok();
         }
+
+        [HttpGet("ChangeMail/{email}/{uname}")]
+        public IActionResult ChangeMail(string email, string uname)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Username == uname);
+
+            if (user != null)
+            {
+                user.Email = email;
+
+                _context.SaveChanges();
+            }
+            return Ok();
+        }
+
+        [HttpGet("ChangePassword/{passw}/{uname}")]
+        public IActionResult ChangePassword(string passw, string uname)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Username == uname);
+
+            if (user != null)
+            {
+                user.Password = passw;
+
+                _context.SaveChanges();
+            }
+            return Ok();
+        }
+
+        [HttpGet("ChangeAddress/{street}/{uname}")]
+        public IActionResult ChangeAddress(string street, string uname)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Username == uname);
+
+            if (user != null)
+            {
+                user.Street = street;
+
+                _context.SaveChanges();
+            }
+            return Ok();
+        }
+
+        [HttpGet("ChangeHousenumber/{housenumber}/{uname}")]
+        public IActionResult ChangeHousenumber(string housenumber, string uname)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Username == uname);
+
+            if (user != null)
+            {
+                user.HouseNumber = housenumber;
+
+                _context.SaveChanges();
+            }
+            return Ok();
+        }
+
+        [HttpGet("ChangeCity/{city}/{uname}")]
+        public IActionResult ChangeCity(string city, string uname)
+        {
+            var user = _context.Users.FirstOrDefault(u => u.Username == uname);
+
+            if (user != null)
+            {
+                user.City = city;
+
+                _context.SaveChanges();
+            }
+            return Ok();
+        }
     }
 }
