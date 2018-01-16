@@ -149,7 +149,7 @@ namespace Angular_webshop.Controllers
             return Ok();
         }
 
-        [HttpGet("RemoveProduct/prodID")]  
+        [HttpGet("RemoveProduct/{prodID}")]  
         public IActionResult RemoveProduct(int prodID)
         {
             var deleteproduct = _context.Products.FirstOrDefault(p => p.productID == prodID);
@@ -157,6 +157,7 @@ namespace Angular_webshop.Controllers
             _context.Products.Remove(deleteproduct);
             _context.SaveChanges();
 
+            Console.WriteLine("Product should be removed");
             return Ok();
         }
     }
