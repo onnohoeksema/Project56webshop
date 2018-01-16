@@ -1,0 +1,13 @@
+<p>Search Results</p>
+<h5>You searched for: {{ itemtosearch }} </h5>
+
+<div>
+    <ul *ngFor="let item of searchitem">
+        <li>{{ item.productName }} </li>
+    </ul>
+</div>
+
+<nav>
+            <!--Dit Veranderen naar je desbetreffende router link.-->
+            <a routerLink="/Home" class="btn btn-default">Back to home </a>
+        </nav>

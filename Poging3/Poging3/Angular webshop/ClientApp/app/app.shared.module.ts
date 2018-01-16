@@ -29,6 +29,7 @@ import { AdminStatisticsComponent } from './components/Login/AdminStatistics.com
 import { AdminCommentsComponent } from './components/Login/AdminComments.component';
 import { ItemCategoriesComponent } from './components/itemcategories/itemcategories.component';
 import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics.component';
+import { SearchResultsComponent } from './components/searchresults/searchresults.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartService} from './services/shoppingcart.service';
@@ -59,7 +60,8 @@ import { ShoppingCartService} from './services/shoppingcart.service';
         AdminStatisticsComponent,
         AdminCommentsComponent,
         ItemCategoriesComponent,
-        ItemSpecificsComponent
+        ItemSpecificsComponent,
+        SearchResultsComponent
     ],
     imports: [
         CommonModule,
@@ -92,6 +94,7 @@ import { ShoppingCartService} from './services/shoppingcart.service';
             { path: 'AdminComments', component: AdminCommentsComponent},
             { path: 'itemcategories', component: ItemCategoriesComponent },
             { path: 'itemspecifics', component: ItemSpecificsComponent },
+            { path: 'searchresults', component: SearchResultsComponent},
             { path: '**', redirectTo: 'home' }
         ])
     ],

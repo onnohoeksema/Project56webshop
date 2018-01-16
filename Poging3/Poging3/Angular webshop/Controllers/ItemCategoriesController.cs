@@ -143,6 +143,18 @@ namespace Angular_webshop.Controllers
 
                 return Ok(item);
         }
+
+        [HttpGet("GetSearch/{item}")]
+        public IActionResult GetSearch(string item)
+        {
+            
+            var search = _context.Products.Where(a => a.productName.Contains(item));
+            foreach(var product in search)
+            {
+                Console.WriteLine("{0}", product.productName);
+            }
+            return Ok(search);
+        }
 public class Product
     {
         public int productID { get; set; }

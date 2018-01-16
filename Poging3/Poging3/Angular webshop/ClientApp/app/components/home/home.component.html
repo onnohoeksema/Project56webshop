@@ -1,5 +1,10 @@
 <h1>Hello, visitor!</h1>
 <p>Welcome to our webshop</p>
+<div class="form-group">
+    <input class="form-control" type="text" id="SearchItem" [(ngModel)]="SearchItem" placeholder="Search items" />
+    <input type="button" (click)="search(SearchItem)" value="Search">
+</div>
+
 <!--
 <ul>
     <li><a href='https://get.asp.net/'>ASP.NET Core</a> and <a href='https://msdn.microsoft.com/en-us/library/67ef8sbd.aspx'>C#</a> for cross-platform server-side code</li>
@@ -29,6 +34,7 @@
         <li>Price: {{ item.productPrice }}</li>
         <input type="button" (click)="GotoItem(item.productID)" value="More information">
     </ul>
+    
     
     <!--button still needs a function -->
 </div>
