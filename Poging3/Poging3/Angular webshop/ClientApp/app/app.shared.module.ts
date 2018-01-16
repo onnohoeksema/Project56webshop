@@ -30,10 +30,11 @@ import { AdminCommentsComponent } from './components/Login/AdminComments.compone
 import { ItemCategoriesComponent } from './components/itemcategories/itemcategories.component';
 import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics.component';
 import { SearchResultsComponent } from './components/searchresults/searchresults.component';
+import { LocationComponent } from './components/location/location.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartService} from './services/shoppingcart.service';
-
+import { AgmCoreModule } from '@agm/core';
 
 
 @NgModule({
@@ -61,9 +62,13 @@ import { ShoppingCartService} from './services/shoppingcart.service';
         AdminCommentsComponent,
         ItemCategoriesComponent,
         ItemSpecificsComponent,
-        SearchResultsComponent
+        SearchResultsComponent,
+        LocationComponent
     ],
     imports: [
+        AgmCoreModule.forRoot({
+            apiKey: 'AIzaSyDfLHLvsm822_pI3gw8xaV4zEMgpGtdj-Y'
+          }),
         CommonModule,
         HttpModule,
         FormsModule,
@@ -95,6 +100,7 @@ import { ShoppingCartService} from './services/shoppingcart.service';
             { path: 'itemcategories', component: ItemCategoriesComponent },
             { path: 'itemspecifics', component: ItemSpecificsComponent },
             { path: 'searchresults', component: SearchResultsComponent},
+            { path: 'location', component: LocationComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],

@@ -36,5 +36,14 @@ export class SearchResultsComponent implements OnInit {
             }, error => console.error(error));
     }
 
-    
+    GotoItem(chosenitem:any)
+    {
+        if(isPlatformBrowser(this.platformId)){
+            localStorage.setItem('currentItem', chosenitem);
+            location.href = "itemspecifics";
+        }
+        
+        
+        
+    }
 }

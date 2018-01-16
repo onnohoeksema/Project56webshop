@@ -2,8 +2,9 @@
 <h5>You searched for: {{ itemtosearch }} </h5>
 
 <div>
-    <ul *ngFor="let item of searchitem">
+    <ul *ngFor="let item of searchItems">
         <li>{{ item.productName }} </li>
+        <input type="button" class="btn btn-default" value="Go to Item" (click)="GotoItem(item.productID)" >
     </ul>
 </div>
 
