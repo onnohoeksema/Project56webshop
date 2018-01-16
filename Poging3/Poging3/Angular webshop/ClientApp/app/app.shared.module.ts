@@ -36,6 +36,7 @@ import { AuthGuardAd } from './guards/auth.guard.admin';
 import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartService} from './services/shoppingcart.service';
 import { AgmCoreModule } from '@agm/core';
+import { PagerService } from './services/PagerService.service';
 
 
 @NgModule({
@@ -108,7 +109,8 @@ import { AgmCoreModule } from '@agm/core';
     providers: [
         AuthGuard,
         AuthGuardAd,
-        ShoppingCartService
+        ShoppingCartService,
+        PagerService
     ]
 })
 export class AppModuleShared {

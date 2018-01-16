@@ -17,6 +17,7 @@ namespace Angular_webshop.Controllers
             _context = context;
         }
 
+
         [HttpGet("GetAll")]
         public IActionResult GetAll()
         {

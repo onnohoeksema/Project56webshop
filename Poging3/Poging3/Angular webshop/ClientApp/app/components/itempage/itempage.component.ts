@@ -8,7 +8,7 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 import { isPlatformBrowser } from '@angular/common/';
 
-
+import { PagerService } from '../../services/PagerService.service';
 @Component({
     selector: "itempage",
     templateUrl: "./itempage.component.html"
@@ -44,7 +44,10 @@ export class ItemPageComponent implements OnInit {
     category: string
     //currentcategory = localStorage.currentCategory;
     currentcategory: any
-    constructor(@Inject(PLATFORM_ID) private platformId: string, private http: HttpClient) {}
+    constructor(@Inject(PLATFORM_ID) private platformId: string, private pagerService: PagerService, private http: HttpClient) {}
+     // pager object
+    pager: any = {};
+    pagedItems: any[];
 
     ngOnInit(): void {
         /*
@@ -57,8 +60,9 @@ export class ItemPageComponent implements OnInit {
         }
 
         this.http.get('/api/ItemPage/GetProducts/' + this.currentcategory + '/').subscribe(data => { this.filteredproducts = data ; 
-        
+            this.setPage(1);
         }, error => console.error(error));
+       
         
     }
 
@@ -72,7 +76,18 @@ export class ItemPageComponent implements OnInit {
         
         
     }
-    
+
+    setPage(page: number) {
+        if (page < 1 || page > this.pager.totalPages) {
+            return;
+        }
+ 
+        // get pager object from service
+        this.pager = this.pagerService.getPager(this.filteredproducts.length, page);
+ 
+        // get current page of items
+        this.pagedItems = this.filteredproducts.slice(this.pager.startIndex, this.pager.endIndex + 1);
+    }
 }
 
 //Did not test if this was actually nescesary
