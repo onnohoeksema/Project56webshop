@@ -43,9 +43,9 @@ export class AdminUsersComponent {
 
     }
 
-    ChangeUserData(UserID: any, UserName: any, Password: any, FirstName: any, LastName: any, Street: any, ZipCode: any, City: any)
+    ChangeUserData(UserID: any, Password: any, UserName: any, Email: any, FirstName: any, LastName: any, Street: any, ZipCode: any, City: any)
     {
-        this.http.get('/api/AdminPage/ChangeUserData/' + UserID + '/' + UserName + '/' + Password + '/' + FirstName + '/' + LastName + '/' + Street + '/' + ZipCode + '/' + City + '/').subscribe(result => {
+        this.http.get('/api/AdminPage/ChangeUserData/' + UserID + '/' + Password + '/' + UserName + '/' + Email + '/' + FirstName + '/' + LastName + '/' + Street + '/' + ZipCode + '/' + City + '/').subscribe(result => {
             if(result){
                
             }
