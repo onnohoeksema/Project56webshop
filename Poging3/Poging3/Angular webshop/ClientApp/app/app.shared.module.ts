@@ -32,6 +32,7 @@ import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics
 import { SearchResultsComponent } from './components/searchresults/searchresults.component';
 import { LocationComponent } from './components/location/location.component';
 
+import { AuthGuardAd } from './guards/auth.guard.admin';
 import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartService} from './services/shoppingcart.service';
 import { AgmCoreModule } from '@agm/core';
@@ -85,6 +86,7 @@ import { AgmCoreModule } from '@agm/core';
             { path: 'LoginPage', component: LoginPageComponent },
             { path: 'Register', component: RegisterComponent },
             { path: 'UserDashBoard', component: UserDashBoardComponent, canActivate: [AuthGuard] },
+            { path: 'AdminDashBoard', component: AdminDashBoardComponent, canActivate: [AuthGuardAd] },
             { path: 'MyOrder', component: MyOrderComponent },
             { path: 'PurchaseHistory', component: PurchaseHistoryComponent },
             { path: 'itempage', component: ItemPageComponent },
@@ -92,7 +94,6 @@ import { AgmCoreModule } from '@agm/core';
             { path: 'paymentredirect', component: PaymentRedirectComponent },
             { path: 'Wishlist', component: WishlistComponent },
             { path: 'AccountSettings', component: AccountSettingsComponent },
-            { path: 'AdminDashBoard', component: AdminDashBoardComponent },
             { path: 'AdminUsers', component: AdminUsersComponent },
             { path: 'AdminProducts', component: AdminProductsComponent },
             { path: 'AdminStatistics', component: AdminStatisticsComponent },
@@ -106,6 +107,7 @@ import { AgmCoreModule } from '@agm/core';
     ],
     providers: [
         AuthGuard,
+        AuthGuardAd,
         ShoppingCartService
     ]
 })

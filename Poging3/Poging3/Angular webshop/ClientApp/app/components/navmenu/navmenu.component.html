@@ -31,7 +31,13 @@
             -->
 
                 <li [routerLinkActive]="['link-active']">
-                    <a [routerLink]="['/UserDashBoard']">
+                    <a *ngIf="loggedInUser && !loggedInAd" [routerLink]="['/UserDashBoard']">
+                        <span class='glyphicon glyphicon-expand'></span> Account
+                    </a>
+                    <a *ngIf="loggedInAd && !loggedInUser" [routerLink]="['/AdminDashBoard']">
+                        <span class='glyphicon glyphicon-expand'></span> Account
+                    </a>
+                    <a *ngIf="!loggedInAd && !loggedInUser" [routerLink]="['/UserDashBoard']">
                         <span class='glyphicon glyphicon-expand'></span> Account
                     </a>
                 </li>

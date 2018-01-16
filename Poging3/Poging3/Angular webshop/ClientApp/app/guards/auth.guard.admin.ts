@@ -3,13 +3,13 @@ import { isPlatformBrowser } from '@angular/common';
 import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 
 @Injectable()
-export class AuthGuard implements CanActivate {
+export class AuthGuardAd implements CanActivate {
     constructor( @Inject(PLATFORM_ID) private platformId: string, private router: Router) { }
 
     canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
 
         if (isPlatformBrowser(this.platformId)) {
-            if (localStorage.getItem('currentUser')) {
+            if (localStorage.getItem('currentAdmin')) {
                 // logged in so return true
                 return true;
             }

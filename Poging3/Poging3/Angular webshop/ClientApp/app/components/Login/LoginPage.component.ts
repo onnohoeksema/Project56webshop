@@ -47,27 +47,27 @@ export class LoginPageComponent implements OnInit {
 
     public login() {
         // Loading animation lol
-         this.loading = true;
-
-        // User
-        this.http.get('/api/Login/GetUser/' + this.username + '/' + this.password).subscribe(
-            result => {
-                if (result) {
-                    location.href = "UserDashBoard";
-                    localStorage.setItem('currentUser', JSON.stringify(result));
-                    localStorage.setItem('nameofUser', this.username);
-                }
-            }
-        )
+        this.loading = true;
 
         // Admin
         if (this.username == "admin" && this.password == "admin") {
             location.href = "AdminDashBoard";
-
+            localStorage.setItem('currentAdmin', 'admin');
         }
-
-        // Redirects to login page when incorrect credentials
+        else if (this.username != "admin" && this.password != "admin") {
+            // User
+            this.http.get('/api/Login/GetUser/' + this.username + '/' + this.password).subscribe(
+                result => {
+                    if (result) {
+                        location.href = "UserDashBoard";
+                        localStorage.setItem('currentUser', JSON.stringify(result));
+                        localStorage.setItem('nameofUser', this.username);
+                    }
+                }
+            )
+        }
         else {
+            //Redirects to login page when incorrect credentials
             location.href = "LoginPage";
             // Missing error message
         }
