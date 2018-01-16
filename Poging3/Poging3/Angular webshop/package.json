@@ -60,7 +60,7 @@
     "zone.js": "0.8.12"
   },
   "dependencies": {
-    "@agm/core": "^1.0.0-beta.2",
+    "@agm/core": "https://registry.npmjs.org/@agm/core/-/core-1.0.0-beta.2.tgz",
     "angular": "^1.6.7",
     "angular-router-loader": "^0.8.0",
     "braintree-web": "^3.26.0"

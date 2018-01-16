@@ -77,9 +77,9 @@ export class MyOrderComponent {
     }
 
     // Show/hide remove from cart button
-    productInCart(product: Product): number{
-        return this.shoppingCartService.productInCart(product);
-    }
+    //productInCart(product: Product): number{
+    //    return this.shoppingCartService.productInCart(product);
+    //}
 
     // Update cart
     updateCart() {

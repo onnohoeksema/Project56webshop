@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 import { HttpModule } from '@angular/http';
 import { Inject } from '@angular/core';
 import { Http } from '@angular/http/src/http';
+import { CartItem } from '../../models/cart.model';
+import { Product } from '../../models/product.model';
+import { ShoppingCartService } from '../../services/shoppingcart.service';
 
 
 @Component({
@@ -23,10 +26,10 @@ export class DiceCustomizerComponent implements OnInit {
         public dcdicecolorsoutofstock: any
         public dcnumbercolorsoutofstock: any
         public dcdicepatternsoutofstock: any
-        constructor(private http: HttpClient) {}
-        
-       
-        
+        public shoppingCart: Array<CartItem>;
+
+        constructor(private http: HttpClient, private shoppingCartService: ShoppingCartService) { }
+
         ngOnInit(): void {
 
             this.http.get('/api/DiceCustomizer/GetdcDiceTypes').subscribe(data => { this.dcdicetypes = data ; 
@@ -53,12 +56,33 @@ export class DiceCustomizerComponent implements OnInit {
                     }, error => console.error(error));
                 this.http.get('/api/DiceCustomizer/GetdcDicePatternsOutOfStock').subscribe(data3 => { this.dcdicepatternsoutofstock = data3 ; 
                         
-                    }, error => console.error(error));
+                }, error => console.error(error));
+
+                this.shoppingCart = this.shoppingCartService.retrieveNew();
         }
         mydcDiceType = this.dcdicetypes;
         mydcDiceColor = this.dcdicecolors;
         mydcNumberColor = this.dcnumbercolors;
         mydcDicePattern = this.dcdicepatterns;
+
+        addDice() {
+            var item = new CartItem();
+            item.product = {
+                productID: 72,
+                productName: 'Custom Dice: ' + this.mydcDiceType + ', ' + this.mydcDiceColor + ', ' + this.mydcNumberColor + ', ' + this.mydcDicePattern,
+                productPrice: 1.49,
+                productStock: 69,
+                productCategory: 'Dice',
+                productTag: this.mydcDiceType
+            };
+
+            this.shoppingCartService.addProductNew(item.product, 1);
+
+            this.mydcDiceType = undefined;
+            this.mydcDiceColor = undefined;
+            this.mydcNumberColor = undefined;
+            this.mydcDicePattern = undefined;
+        }
     }
     
     

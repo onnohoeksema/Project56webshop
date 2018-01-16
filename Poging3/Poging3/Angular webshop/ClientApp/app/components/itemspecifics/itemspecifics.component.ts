@@ -8,7 +8,8 @@ import { Inject, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 import { isPlatformBrowser } from '@angular/common/';
 
-import {Product } from '../../models/product.model';
+import { Product } from '../../models/product.model';
+import { CartItem } from '../../models/cart.model';
 import { ShoppingCartService } from '../../services/shoppingcart.service';
 
 @Component({
@@ -36,6 +37,7 @@ export class ItemSpecificsComponent implements OnInit {
     public itemCount: number;
     public totalPrice: number;
     public cart: Array<Product>;
+    public shoppingCart: Array<CartItem>;
 
 
     constructor( @Inject(PLATFORM_ID) private platformId: string, private http: HttpClient, private shoppingCartService: ShoppingCartService) { }
@@ -65,9 +67,13 @@ export class ItemSpecificsComponent implements OnInit {
 
         // Shopping cart //
         // Somebody toucha my spaghet!
-        this.cart = this.shoppingCartService.retrieve();
-        this.itemCount = this.cart.length;
-        this.totalPrice = this.shoppingCartService.calculateCart();
+        //this.cart = this.shoppingCartService.retrieve();
+        //this.itemCount = this.cart.length;
+        //this.totalPrice = this.shoppingCartService.calculateCart();
+
+        ///TEST///
+        this.updateCart();
+        this.http.get('/api/ItemPage/GetAll').subscribe(data => { this.products = data; })
     }
 
     public submitComment()
@@ -93,17 +99,9 @@ export class ItemSpecificsComponent implements OnInit {
     /// SHOPPING CART ///
 
     // Add product to cart
-    addProduct(product: Product): void {
-        this.shoppingCartService.addProduct(product);
-
-        // Update cart
-        this.updateCart();
-    }
-
-    // Remove product from cart
-    removeProduct(product: Product) {
-        this.shoppingCartService.removeProduct(product);
-
+    addProduct(product: Product, quantity: number): void {
+        this.shoppingCartService.addProductNew(product, quantity);
+        
         //// Update cart
         this.updateCart();
     }
@@ -123,20 +121,20 @@ export class ItemSpecificsComponent implements OnInit {
     }
 
     // Show/hide remove from cart button
-    productInCart(product: Product): number{
+    productInCart(product: Product): boolean{
         return this.shoppingCartService.productInCart(product);
     }
 
     // Update cart
     updateCart() {
         // Retrieve stored cart in order to update the rest
-        this.cart = this.shoppingCartService.retrieve();
+        this.shoppingCart = this.shoppingCartService.retrieveNew();
 
-        // Set item count
-        this.itemCount = this.cart.length;
+        //// Set item count
+        this.itemCount = this.shoppingCart.map((x) => x.quantity).reduce((p, n) => p + n, 0);
 
         // Set total price
-        this.totalPrice = this.shoppingCartService.calculateCart();
+        this.totalPrice = this.shoppingCart.map((p) => p.quantity * p.product.productPrice).reduce((p,c)=>p+c,0);
     }
         // Add to wishlist
     addtoWishlist(productID: any){

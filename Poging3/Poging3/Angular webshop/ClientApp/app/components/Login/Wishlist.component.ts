@@ -107,10 +107,10 @@ export class WishlistComponent {
         this.updateCart();
     }
 
-    // Show/hide remove from cart button
-    productInCart(product: Product): number{
-        return this.shoppingCartService.productInCart(product);
-    }
+    //// Show/hide remove from cart button
+    //productInCart(product: Product): number{
+    //    return this.shoppingCartService.productInCart(product);
+    //}
 
     // Update cart
     updateCart() {

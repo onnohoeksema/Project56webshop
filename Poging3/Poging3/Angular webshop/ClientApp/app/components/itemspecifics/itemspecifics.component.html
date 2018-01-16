@@ -62,8 +62,8 @@
 
 
             <br>
-            <button type="button" class="btn btn-default" (click)="addProduct(item)">Add to cart</button>
-            <button type="button" class="btn btn-default" *ngIf="productInCart(item) > -1" (click)="removeProduct(item)"> Remove from cart</button>
+            <button type="button" class="btn btn-default" (click)="addProduct(item, 1)">Add to cart</button>
+            <button type="button" class="btn btn-default" *ngIf="productInCart(item)" (click)="addProduct(item, -1)"> Remove from cart</button>
             <!--<input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productName)" >-->
             <button type="button" class="btn btn-default" *ngIf="isLoggedIn()" (click)="addtoWishlist(item.productID)">Add to Wishlist</button>
             <br>
@@ -83,7 +83,7 @@
             </div>
 
             <div class="row">
-                <button class="btnEmpty" (click)="emptyCart()" [disabled]="itemCount == 0">Empty cart</button>
+                <button class="btnEmpty" (click)="emptyCart()" [attr.disabled]="itemCount === 0 ? true : null">Empty cart</button>
             </div>
         </div>
 

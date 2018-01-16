@@ -1,8 +1,8 @@
 ﻿export class Product {
-    public productId: number;
+    public productID: number;
     public productName: string;
     public productPrice: number;
-    public prductStock: number;
+    public productStock: number;
     public productCategory: string;
     public productTag: string;
 

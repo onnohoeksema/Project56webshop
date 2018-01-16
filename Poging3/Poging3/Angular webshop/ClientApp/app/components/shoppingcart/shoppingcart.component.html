@@ -12,10 +12,13 @@
         font-size: 70px;
         font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
+    .checkO {
+        font-size: large;
+    }
     
 </style>
 
-<div class="myCart" *ngIf="!cartIsEmpty()">
+<div class="myCart" *ngIf="shoppingCart && !cartIsEmpty()">
     <div class="row">
 
         <div class="columns">
@@ -30,22 +33,32 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="row products_row" *ngFor="let item of cart">
+            <div class="row products_row" *ngFor="let item of shoppingCart">
                 <div class="col-lg-2">
                     <img src="../../../assets/UNoDaWey.jpg" class="product_image" />
                 </div>
-                <div class="col-lg-5">
-                    <span>{{item.productName}}</span>
+                <div class="col-lg-4">
+                    <span>{{item.product.productName}}</span>
                 </div>
                 <div class="col-lg-2">
-                    <p>1 x {{item.productPrice | currency:'EUR'}}</p>
+                    <p>{{ item.quantity }} x {{item.product.productPrice | currency:'EUR'}}</p>
                 </div>
                 <div class="col-lg-2">
-                    <p>{{ item.productPrice | currency:'EUR'}}</p>
+                    <p>{{ calcProdCost(item) | currency:'EUR'}}</p>
                 </div>
-                <div class="col-lg-1">
-                    <a (click)="removeProduct(item)"><span class="glyphicon glyphicon-trash"></span></a>
-                    <a (click)="addProduct(item)"><span class="glyphicon glyphicon-plus-sign"></span></a>
+                <div class="col-lg-2">
+                    <!--<a (click)="addProduct(item.product, -1)"><span class="glyphicon glyphicon-minus-sign"></span></a>
+                    <a (click)=""><span class="glyphicon glyphicon-trash"></span></a>
+                    <a (click)="addProduct(item.product,1)"><span class="glyphicon glyphicon-plus-sign"></span></a>-->
+                    <a class="btn" (click)="addProduct(item.product, -1)">
+                        <span class="glyphicon glyphicon-minus-sign"></span>
+                    </a>
+                    <a class="btn" (click)="trashProduct(item.product)">
+                        <span class="glyphicon glyphicon-trash"></span>
+                    </a>
+                    <a class="btn" (click)="addProduct(item.product, 1)">
+                        <span class="glyphicon glyphicon-plus-sign"></span>
+                    </a>
                 </div>
             </div>
         </div>
@@ -59,6 +72,12 @@
                 Order Total
                 <b><span>{{ totalPrice | currency:'EUR'}}</span></b>
             </h4>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-lg-11 text-right">
+            <button class="checkO btn btn-default">Checkout</button>
         </div>
     </div>
 </div>

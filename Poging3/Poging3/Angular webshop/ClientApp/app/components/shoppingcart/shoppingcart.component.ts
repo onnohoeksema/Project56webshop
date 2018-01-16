@@ -1,6 +1,7 @@
 import { Component, OnInit, Inject, PLATFORM_ID  } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Product } from '../../models/product.model';
+import { CartItem } from '../../models/cart.model';
 import { ShoppingCartService } from '../../services/shoppingcart.service';
 
 @Component({
@@ -10,7 +11,9 @@ import { ShoppingCartService } from '../../services/shoppingcart.service';
 
 export class ShoppingCartComponent implements OnInit {
     public cart: Array<Product>;
+    public shoppingCart: Array<CartItem>;
     public totalPrice: number;
+    public productPrice: number;
     public itemCount: number;
     public productQuantity: number;
 
@@ -24,9 +27,17 @@ export class ShoppingCartComponent implements OnInit {
     }
 
     // Add product to cart
-    addProduct(product: Product): void {
+    addProduct(product: Product, quantity: number): void {
         // Add product to shopping cart
-        this.shoppingCartService.addProduct(product);
+        this.shoppingCartService.addProductNew(product, quantity);
+
+        // Update cart
+        this.updateCart();
+    }
+
+    // Trash product from shopping cart
+    trashProduct(product: Product) {
+        this.shoppingCartService.trashProduct(product);
 
         // Update cart
         this.updateCart();
@@ -42,26 +53,35 @@ export class ShoppingCartComponent implements OnInit {
     }
 
     // Show/hide remove from cart button
-    productInCart(product: Product): number {
-        return this.shoppingCartService.productInCart(product);
-    }
+    //productInCart(product: Product): number {
+    //    return this.shoppingCartService.productInCart(product);
+    //}
 
     // Update cart
     updateCart() {
         // Get cart from shopping cart sevice
-        this.cart = this.shoppingCartService.retrieve();
+        this.shoppingCart = this.shoppingCartService.retrieveNew();
+
+        // Set product's price
+        this.productPrice = this.shoppingCart.map((p) => p.quantity * p.product.productPrice).reduce((p, n) => p + n, 0);
 
         // Set total price
-        this.totalPrice = this.shoppingCartService.calculateCart();
+        this.totalPrice = this.shoppingCart.map((p) => p.quantity * p.product.productPrice).reduce((p, c) => p + c, 0);
 
         // Get total items
-        this.itemCount = this.cart.length;
+        this.itemCount = this.shoppingCart.map((x) => x.quantity).reduce((p, n) => p + n, 0);
+    }
+    calcProdCost(product: CartItem): number {
+        let index: number;
+        index = this.shoppingCart.indexOf(product);
+
+        return this.shoppingCart[index].quantity * this.shoppingCart[index].product.productPrice;
     }
 
     // Cart is empty show spaghet
     cartIsEmpty(): boolean {
         if (isPlatformBrowser(this.platformId)) {
-            if (this.cart.length > 0) {
+            if (this.shoppingCart.length > 0) {
                 return false;
             }
         }

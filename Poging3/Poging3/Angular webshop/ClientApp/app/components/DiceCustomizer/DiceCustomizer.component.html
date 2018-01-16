@@ -1,68 +1,101 @@
-﻿<h1>Dice Customizer</h1>
-<p *ngIf="!dcdicetypes"><em>Loading Items...</em></p>
-<div *ngIf="dcdicetypes"></div>
+﻿<style>
+    .row {
+        margin: 10px;
+    }
+</style>
 
-<p>Dicetypes:</p>
-<ul>
-<li *ngFor="let dcdicetype of dcdicetypes">
-    <input type="radio" name="dcDiceType" [(ngModel)]="mydcDiceType" value="{{ dcdicetype }}" />
-    {{ dcdicetype }}
-</ul>
-<div *ngIf="dcdicetypesoutofstock"></div>
-<ul>
-<li *ngFor="let dcdicetypeoutofstock of dcdicetypesoutofstock">
-    <input type="radio" name="dcDiceTypeOutOfStock" [(ngModel)]="mydcDiceTypeOutOfStock" value="{{ dcdicetypeoutofstock }}" disabled="disabled"/>
-    {{ dcdicetypeoutofstock }} (currently out of stock)
-</ul>
+<div class="row">
+    <h1>Dice Customizer</h1>
+    <p *ngIf="!dcdicetypes"><em>Loading Items...</em></p>
+    <div *ngIf="dcdicetypes"></div>
+</div>
 
-<div *ngIf="dcdicecolors"></div>
+<div class="row">
+    <div class="col-lg-3">
+        <p>Dicetypes:</p>
+        <ul>
+            <li *ngFor="let dcdicetype of dcdicetypes">
+                <input type="radio" name="dcDiceType" [(ngModel)]="mydcDiceType" value="{{ dcdicetype }}" />
+                {{ dcdicetype }}
+        </ul>
+        <div *ngIf="dcdicetypesoutofstock"></div>
+        <ul>
+            <li *ngFor="let dcdicetypeoutofstock of dcdicetypesoutofstock">
+                <input type="radio" name="dcDiceTypeOutOfStock" [(ngModel)]="mydcDiceTypeOutOfStock" value="{{ dcdicetypeoutofstock }}" disabled="disabled" />
+                {{ dcdicetypeoutofstock }} (currently out of stock)
+        </ul>
 
-<p>Dice colors:</p>
-<ul>
-    <li *ngFor="let dcdicecolor of dcdicecolors">
-        <input type="radio" name="dcDiceColor" [(ngModel)]="mydcDiceColor" value="{{ dcdicecolor }}" />
-        {{ dcdicecolor }}
-</ul>
-<div *ngIf="dcdicecolorsoutofstock"></div>
-<ul>
-<li *ngFor="let dcdicecoloroutofstock of dcdicecolorsoutofstock">
-    <input type="radio" name="dcDiceColorOutOfStock" [(ngModel)]="mydcDiceColorOutOfStock" value="{{ dcdicecoloroutofstock }}" disabled="disabled"/>
-    {{ dcdicecoloroutofstock }} (currently out of stock)
-</ul>
+        <div *ngIf="dcdicecolors"></div>
+    </div>
 
-<p *ngIf="!dcnumbercolors"><em>Loading Items...</em></p>
-<div *ngIf="dcnumbercolors"></div>
 
-<p>Number colors:</p>
-<ul>
-    <li *ngFor="let dcnumbercolor of dcnumbercolors">
-        <input type="radio" name="dcNumberColor" [(ngModel)]="mydcNumberColor" value="{{ dcnumbercolor }}" />
-        {{ dcnumbercolor }}
-</ul>
-<div *ngIf="dcnumbercolorsoutofstock"></div>
-<ul>
-<li *ngFor="let dcnumbercoloroutofstock of dcnumbercolorsoutofstock">
-    <input type="radio" name="dcNumberColorOutOfStock" [(ngModel)]="mydcNumberColorOutOfStock" value="{{ dcnumbercoloroutofstock }}" disabled="disabled"/>
-    {{ dcnumbercoloroutofstock }} (currently out of stock)
-</ul>
+    <div class="col-lg-3">
+        <p>Dice colors:</p>
+        <ul>
+            <li *ngFor="let dcdicecolor of dcdicecolors">
+                <input type="radio" name="dcDiceColor" [(ngModel)]="mydcDiceColor" value="{{ dcdicecolor }}" />
+                {{ dcdicecolor }}
+        </ul>
+        <div *ngIf="dcdicecolorsoutofstock"></div>
+        <ul>
+            <li *ngFor="let dcdicecoloroutofstock of dcdicecolorsoutofstock">
+                <input type="radio" name="dcDiceColorOutOfStock" [(ngModel)]="mydcDiceColorOutOfStock" value="{{ dcdicecoloroutofstock }}" disabled="disabled" />
+                {{ dcdicecoloroutofstock }} (currently out of stock)
+        </ul>
 
-<p *ngIf="!dcdicepatterns"><em>Loading Items...</em></p>
-<div *ngIf="dcdicepatterns"></div>
+        <p *ngIf="!dcnumbercolors"><em>Loading Items...</em></p>
+        <div *ngIf="dcnumbercolors"></div>
+    </div>
 
-<p>Dice patterns:</p>
-<ul>
-    <li *ngFor="let dcdicepattern of dcdicepatterns">
-        <input type="radio" name="dcDicePattern" [(ngModel)]="mydcDicePattern" value="{{ dcdicepattern }}" />
-        {{ dcdicepattern }}
-</ul>
-<div *ngIf="dcdicepatternsoutofstock"></div>
-<ul>
-<li *ngFor="let dcdicepatternoutofstock of dcdicepatternsoutofstock">
-    <input type="radio" name="dcDicePatternOutOfStock" [(ngModel)]="mydcDicePatternOutOfStock" value="{{ dcdicepatternoutofstock }}" disabled="disabled"/>
-    {{ dcdicepatternoutofstock }} (currently out of stock)
-</ul>
-<p> You have selected:<br />
-     Dice type: <strong>{{ mydcDiceType }}</strong> <br />
-     Dice color: <strong>{{ mydcDiceColor }}</strong> <br />
-     Number color: <strong>{{ mydcNumberColor }}</strong> <br />
-     Dice pattern: <strong>{{ mydcDicePattern }}</strong></p>
+
+    <div class="col-lg-3">
+        <p>Number colors:</p>
+        <ul>
+            <li *ngFor="let dcnumbercolor of dcnumbercolors">
+                <input type="radio" name="dcNumberColor" [(ngModel)]="mydcNumberColor" value="{{ dcnumbercolor }}" />
+                {{ dcnumbercolor }}
+        </ul>
+        <div *ngIf="dcnumbercolorsoutofstock"></div>
+        <ul>
+            <li *ngFor="let dcnumbercoloroutofstock of dcnumbercolorsoutofstock">
+                <input type="radio" name="dcNumberColorOutOfStock" [(ngModel)]="mydcNumberColorOutOfStock" value="{{ dcnumbercoloroutofstock }}" disabled="disabled" />
+                {{ dcnumbercoloroutofstock }} (currently out of stock)
+        </ul>
+
+        <p *ngIf="!dcdicepatterns"><em>Loading Items...</em></p>
+        <div *ngIf="dcdicepatterns"></div>
+    </div>
+
+    <div class="col-lg-3">
+        <p>Dice patterns:</p>
+        <ul>
+            <li *ngFor="let dcdicepattern of dcdicepatterns">
+                <input type="radio" name="dcDicePattern" [(ngModel)]="mydcDicePattern" value="{{ dcdicepattern }}" />
+                {{ dcdicepattern }}
+        </ul>
+        <div *ngIf="dcdicepatternsoutofstock"></div>
+        <ul>
+            <li *ngFor="let dcdicepatternoutofstock of dcdicepatternsoutofstock">
+                <input type="radio" name="dcDicePatternOutOfStock" [(ngModel)]="mydcDicePatternOutOfStock" value="{{ dcdicepatternoutofstock }}" disabled="disabled" />
+                {{ dcdicepatternoutofstock }} (currently out of stock)
+        </ul>
+    </div>
+</div>
+
+<div class="row">
+    <p>
+        You have selected:<br />
+        Dice type: <strong>{{ mydcDiceType }}</strong> <br />
+        Dice color: <strong>{{ mydcDiceColor }}</strong> <br />
+        Number color: <strong>{{ mydcNumberColor }}</strong> <br />
+        Dice pattern: <strong>{{ mydcDicePattern }}</strong>
+    </p>
+    <div class="row">
+        <button class="btn btn-default" (click)="addDice()"
+                [disabled]="!(mydcDiceType && mydcDiceColor && mydcNumberColor && mydcDicePattern)">
+            Add to cart
+        </button>
+    </div>
+</div>
+
+
