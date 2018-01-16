@@ -24,12 +24,14 @@
         <input type="submit" value="Change street" class="btn btn-default" (click)="ChangeAddress()"/>
         </div>
         <br>
+        <!--
         <div>
         <p *ngFor="let user of userdata">Current House number: {{ user.houseNumber }}</p>
         <input class="form-control" type="text" id="housenumber" name="housenumber" [(ngModel)]="housenumber" placeholder="Enter your new house number" />
         <input type="submit" value="Change house number" class="btn btn-default"(click)="ChangeHousenumber()" />
         <br>
         </div>
+    -->
         <div>
             <p *ngFor="let user of userdata">Current City: {{ user.city }}</p>
             <input class="form-control" type="text" id="city" name="city" [(ngModel)]="city" placeholder="Enter your new city" />

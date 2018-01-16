@@ -43,12 +43,14 @@ export class AdminUsersComponent {
 
     }
 
-    ChangeUserData(UserID: any, UserName: any, Password: any, FirstName: any, LastName: any, Street: any, HouseNumber: any, ZipCode: any, City: any)
+    ChangeUserData(UserID: any, UserName: any, Password: any, FirstName: any, LastName: any, Street: any, ZipCode: any, City: any)
     {
-        this.http.get('/api/AdminPage/ChangeUserData/' + UserID + '/' + UserName + '/' + Password + '/' + FirstName + '/' + LastName + '/' + Street + '/' + HouseNumber + '/' + ZipCode + '/' + City + '/').subscribe(result => {
+        this.http.get('/api/AdminPage/ChangeUserData/' + UserID + '/' + UserName + '/' + Password + '/' + FirstName + '/' + LastName + '/' + Street + '/' + ZipCode + '/' + City + '/').subscribe(result => {
             if(result){
-                location.href = "AdminDashBoard"
+               
             }
+            alert("User has been modified")
+            location.reload();
         })
     }
     

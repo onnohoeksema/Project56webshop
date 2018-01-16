@@ -48,8 +48,8 @@ namespace Angular_webshop.Controllers
             return Ok();
         }
 
-        [HttpGet("ChangeUserData/{uID}/{mail}/{uname}/{passw}/{fname}/{lname}/{strt}/{houseno}/{zip}/{city}/")]
-        public IActionResult ChangeUserData(int uID, string mail, string uname, string passw, string fname, string lname, string strt, string houseno, string zip, string city)
+        [HttpGet("ChangeUserData/{uID}/{mail}/{uname}/{passw}/{fname}/{lname}/{strt}/{zip}/{city}/")]
+        public IActionResult ChangeUserData(int uID, string mail, string uname, string passw, string fname, string lname, string strt, string zip, string city)
         {
             var user = _context.Users.FirstOrDefault(u => u.UserId == uID);
             Console.WriteLine("User will be modified");
@@ -61,7 +61,7 @@ namespace Angular_webshop.Controllers
                 user.FirstName = fname;
                 user.LastName = lname;
                 user.Street = strt;
-                user.HouseNumber = houseno;
+                //user.HouseNumber = houseno;
                 user.Zipcode = zip;
                 user.City = city;
                 _context.SaveChanges();

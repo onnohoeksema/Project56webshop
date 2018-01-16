@@ -75,8 +75,8 @@ namespace Angular_webshop.Controllers
             return Ok(user);
         }
 
-        [HttpGet("CreateUser/{mail}/{uname}/{passw}/{fname}/{lname}/{strt}/{houseno}/{zip}/{city}/")]
-        public IActionResult CreateUser(string mail, string uname, string passw, string fname, string lname, string strt, string houseno, string zip, string city)
+        [HttpGet("CreateUser/{mail}/{uname}/{passw}/{fname}/{lname}/{strt}/{zip}/{city}/")]
+        public IActionResult CreateUser(string mail, string uname, string passw, string fname, string lname, string strt, string zip, string city)
         {
             var user = new User();
             
@@ -86,7 +86,7 @@ namespace Angular_webshop.Controllers
             user.FirstName = fname;
             user.LastName = lname;
             user.Street = strt;
-            user.HouseNumber = houseno;
+            //user.HouseNumber = houseno;
             user.Zipcode = zip;
             user.City = city;
             

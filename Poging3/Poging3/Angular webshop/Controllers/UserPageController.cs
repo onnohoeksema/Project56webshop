@@ -128,9 +128,9 @@ namespace Angular_webshop.Controllers
             }
             return Ok();
         }
-
+/*
         [HttpGet("ChangeHousenumber/{housenumber}/{uname}")]
-        public IActionResult ChangeHousenumber(string housenumber, string uname)
+        public IActionResult ChangeHousenumber(int housenumber, string uname)
         {
             var user = _context.Users.FirstOrDefault(u => u.Username == uname);
 
@@ -142,7 +142,7 @@ namespace Angular_webshop.Controllers
             }
             return Ok();
         }
-
+*/
         [HttpGet("ChangeCity/{city}/{uname}")]
         public IActionResult ChangeCity(string city, string uname)
         {

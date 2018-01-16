@@ -51,6 +51,7 @@
                 <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </td>
+            <!--
             <td>
               <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
               House Number
@@ -58,6 +59,7 @@
                 <span ng-show="sortType == 'tastiness' && sortReverse" class="fa fa-caret-up"></span>
               </a>
             </td>
+          -->
               <td>
               <a href="#" ng-click="sortType = 'tastiness'; sortReverse = !sortReverse">
               Zip Code
@@ -97,17 +99,17 @@
 
               <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.street"> </td>
               <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.street }}</td>
-
+              <!--
               <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.houseNumber"> </td>
               <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.houseNumber }}</td>
-
+              -->
               <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.zipcode"> </td>
               <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.zipcode }}</td>
 
               <td *ngIf="user.userId === EditRowID"><input type="text" [(ngModel)]="user.city"> </td>
               <td *ngIf="user.userId !== EditRowID" (click)="Edit(user.userId)">{{ user.city }}</td>
 
-              <td *ngIf="user.userId === EditRowID"><input type="button" routerLink="/AdminDashBoard" (click)="ChangeUserData(user.userId, user.email, user.username, user.password, user.firstName, user.lastName, user.street, user.houseNumber, user.zipcode, user.city)" [(ngModel)]="user.userEdit">Save</td>
+              <td *ngIf="user.userId === EditRowID"><input type="button" (click)="ChangeUserData(user.userId, user.email, user.username, user.password, user.firstName, user.lastName, user.street, user.zipcode, user.city)" [(ngModel)]="user.userEdit">Save</td>
           </tr>
         </tbody>
         
