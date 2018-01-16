@@ -73,20 +73,22 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetComments")]
         public IActionResult GetComments()
         {
-            var comments = from c in _context.Comments.Where(c => c.approved == 0)
-                    select c;
+            var comments = (from b in _context.Comments.Where(b => b.approved == 0)
+                            from a in _context.Products.Where(a => a.productID == b.productID)
+                    select new { a.productName, b.commentID, b.user, b.comment, b.rating});
 
             return Ok(comments);
         }
 
-        [HttpGet("UpdateComment/{cID}/pID/{uname}/{commenttext}/{prodrating}/{appr}/")]
-        public IActionResult UpdateComment(int cID, int pID, string uname, string commenttext, int prodrating, string appr)
+        [HttpGet("UpdateComment/{cID}/pname/{uname}/{commenttext}/{prodrating}/{appr}/")]
+        public IActionResult UpdateComment(int cID, string pname, string uname, string commenttext, int prodrating, string appr)
         {
-            var comment = _context.Comments.FirstOrDefault(c => c.commentID == cID);
+            var comment = _context.Comments.FirstOrDefault(b => b.commentID == cID);
+            var product = _context.Products.FirstOrDefault(a => a.productName == pname);
             Console.WriteLine("comment will be modified");
             if (comment != null)
             {
-                comment.productID = pID;
+                product.productName = pname;
                 comment.user = uname;
                 comment.comment = commenttext;
                 comment.rating = prodrating;

@@ -38,9 +38,9 @@ export class AdminCommentsComponent implements OnInit{
     }, error => console.error(error))
    };
 
-    UpdateComment(commentid: any, productID: any, userName: any, comment: any, rating: any, approved: any)
+    UpdateComment(commentid: any, productName: any, userName: any, comment: any, rating: any, approved: any)
     {
-        this.http.get('/api/AdminPage/UpdateComment/'+ commentid + '/' + productID + '/' + userName + '/' + comment + '/' + rating + '/' + approved + '/').subscribe(data =>     {
+        this.http.get('/api/AdminPage/UpdateComment/'+ commentid + '/' + productName + '/' + userName + '/' + comment + '/' + rating + '/' + approved + '/').subscribe(data =>     {
             if(data){
                 
         }
