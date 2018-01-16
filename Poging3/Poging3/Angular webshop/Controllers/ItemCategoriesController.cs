@@ -22,9 +22,9 @@ namespace Angular_webshop.Controllers
         [HttpGet ("GetCategories")]
         public IActionResult GetCategories()
         {
-            var categories = from p in _context.ProductCategories
+            var categories = (from p in _context.Products
                 
-                select p.categoryName;
+                select p.productCategory).Distinct();
 
             foreach (var category in categories)
             {
