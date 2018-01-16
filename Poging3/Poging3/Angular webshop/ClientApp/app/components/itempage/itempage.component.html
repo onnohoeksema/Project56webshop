@@ -2,16 +2,20 @@
 
 <p>This is a simple example of the category page.</p>
 
-<p *ngIf="!filteredproducts"><em>Loading Items...</em></p>
+<p *ngIf="!pagedItems"><em>Loading Items...</em></p>
 
-<div *ngIf="filteredproducts">
+<div *ngIf="pagedItems">
 
     <p>Item Name</p>
-    <nav>
-        
-        <p *ngFor="let product of filteredproducts">
+    <nav><p>
+        <input type="button" class="btn btn-primary" value="Sort by name A-Z" (click)="NameSortAZ()" >
+        <input type="button" class="btn btn-primary" value="Sort by name Z-A" (click)="NameSortZA()" >
+        <input type="button" class="btn btn-primary" value="Sort by price Low-High" (click)="PriceSortLH()" >
+        <input type="button" class="btn btn-primary" value="Sort by price High-Low" (click)="PriceSortHL()" >
+        </p>
+        <p *ngFor="let product of pagedItems">
             
-            <input type="button" class="btn btn-default" value="{{product.productName}}" (click)="GotoItem(product.productID)" >
+            <input type="button" class="btn btn-default" value="{{product.productName}}, Price:{{product.productPrice}}" (click)="GotoItem(product.productID)" >
             
         </p>
                     <!-- pager -->

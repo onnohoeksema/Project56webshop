@@ -43,7 +43,7 @@ namespace Angular_webshop.Controllers
         [HttpGet("GetProducts/{category}")]
         public IActionResult GetProducts(string category)
         {
-            var filteredproducts = _context.Products.Where(a => a.productCategory == category);
+            var filteredproducts = _context.Products.Where(a => a.productCategory == category).OrderBy(a => a.productName);
             if (filteredproducts == null) return NotFound();
 
             Console.WriteLine("\n\n Done with database stuff, these should be the products \n\n");
@@ -161,6 +161,30 @@ namespace Angular_webshop.Controllers
             }
                         
         }
+
+        [HttpGet("NameSortZA/{category}")]
+        public IActionResult NameSortZA(string category)
+        {
+            var filteredproducts = _context.Products.Where(a => a.productCategory == category).OrderByDescending(a => a.productName);
+
+            return Ok(filteredproducts);
+        }
+
+        [HttpGet("PriceSortLH/{category}")]
+         public IActionResult PriceSortLH(string category)
+        {
+            var filteredproducts = _context.Products.Where(a => a.productCategory == category).OrderBy(a => a.productPrice);
+            return Ok(filteredproducts);
+        }
+
+        [HttpGet("PriceSortHL/{category}")]
+          public IActionResult PriceSortHL(string category)
+        {
+            var filteredproducts = _context.Products.Where(a => a.productCategory == category).OrderByDescending(a => a.productPrice);
+            return Ok(filteredproducts);
+        }
+
+
 
 public class Product
     {

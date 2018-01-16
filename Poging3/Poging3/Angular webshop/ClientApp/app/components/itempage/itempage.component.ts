@@ -7,6 +7,9 @@ import { HttpModule } from '@angular/http';
 import { Inject, PLATFORM_ID } from '@angular/core';
 import { Http } from '@angular/http/src/http';
 import { isPlatformBrowser } from '@angular/common/';
+import 'rxjs/add/operator/map'
+import { Observable } from 'rxjs/Observable';
+
 
 import { PagerService } from '../../services/PagerService.service';
 @Component({
@@ -40,7 +43,8 @@ export class ItemPageComponent implements OnInit {
 export class ItemPageComponent implements OnInit {
 
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
-    public filteredproducts: any
+    public filteredproducts: any;
+    public allItems: any[];
     category: string
     //currentcategory = localStorage.currentCategory;
     currentcategory: any
@@ -59,11 +63,12 @@ export class ItemPageComponent implements OnInit {
             this.currentcategory = localStorage.getItem('currentCategory');
         }
 
-        this.http.get('/api/ItemPage/GetProducts/' + this.currentcategory + '/').subscribe(data => { this.filteredproducts = data ; 
+        this.http.get('/api/ItemPage/GetProducts/' + this.currentcategory + '/')
+            .subscribe(data => { 
+            this.filteredproducts = data; 
             this.setPage(1);
         }, error => console.error(error));
        
-        
     }
 
     GotoItem(chosenitem:any)
@@ -72,9 +77,7 @@ export class ItemPageComponent implements OnInit {
             localStorage.setItem('currentItem', chosenitem);
             location.href = "itemspecifics";
         }
-        
-        
-        
+         
     }
 
     setPage(page: number) {
@@ -88,15 +91,56 @@ export class ItemPageComponent implements OnInit {
         // get current page of items
         this.pagedItems = this.filteredproducts.slice(this.pager.startIndex, this.pager.endIndex + 1);
     }
+
+    //Sort functions
+    NameSortAZ(){
+        if(isPlatformBrowser(this.platformId)){
+            this.currentcategory = localStorage.getItem('currentCategory');
+        }
+
+        this.http.get('/api/ItemPage/GetProducts/' + this.currentcategory + '/')
+            .subscribe(data => { 
+            this.filteredproducts = data; 
+            this.setPage(1);
+        }, error => console.error(error));
+
+    }
+
+    NameSortZA(){
+        if(isPlatformBrowser(this.platformId)){
+            this.currentcategory = localStorage.getItem('currentCategory');
+        }
+
+        this.http.get('/api/ItemPage/NameSortZA/' + this.currentcategory + '/')
+            .subscribe(data => { 
+            this.filteredproducts = data; 
+            this.setPage(1);
+        }, error => console.error(error));
+    }
+
+    PriceSortLH(){
+        if(isPlatformBrowser(this.platformId)){
+            this.currentcategory = localStorage.getItem('currentCategory');
+        }
+
+        this.http.get('/api/ItemPage/PriceSortLH/' + this.currentcategory + '/')
+            .subscribe(data => { 
+            this.filteredproducts = data; 
+            this.setPage(1);
+        }, error => console.error(error));
+    }
+
+    PriceSortHL(){
+        if(isPlatformBrowser(this.platformId)){
+            this.currentcategory = localStorage.getItem('currentCategory');
+        }
+
+        this.http.get('/api/ItemPage/PriceSortHL/' + this.currentcategory + '/')
+            .subscribe(data => { 
+            this.filteredproducts = data; 
+            this.setPage(1);
+        }, error => console.error(error));
+    }
 }
 
-//Did not test if this was actually nescesary
-interface ItemsResponse {
-    productID: number;
-    productName: string;
-    productPrice: number;
-    productStock: number;
-    productCategory: string;
-    productTag: string; 
-    
-}
+
