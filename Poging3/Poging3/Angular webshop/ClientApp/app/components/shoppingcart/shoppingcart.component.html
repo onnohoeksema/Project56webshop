@@ -75,7 +75,7 @@
 
     <div class="row">
         <div class="col-lg-11 text-right">
-            <button class="checkO btn btn-default" (click)="OrderItems()">Checkout</button>
+            <button class="checkO btn btn-default" *ngIf="isLoggedIn()" (click)="OrderItems()">Checkout</button>
         </div>
     </div>
 </div>

@@ -117,4 +117,13 @@ export class ShoppingCartComponent implements OnInit {
         this.shoppingCartService.empty();
         this.updateCart();
     }
+
+    isLoggedIn() {
+        if (localStorage.getItem('currentUser')) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
 }
