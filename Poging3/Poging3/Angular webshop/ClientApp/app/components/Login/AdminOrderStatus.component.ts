@@ -31,8 +31,8 @@ const routes: Routes = [
 })
 
 export class AdminOrderStatusComponent {
-    public orderuserproducts: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
-    public filteredorders: any
+    public adminorderstatuses: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
+    public filteradminorderstatuses: any
     public loggedinuser: any
     testBrowser: boolean;
     public productID: any;
@@ -52,8 +52,8 @@ export class AdminOrderStatusComponent {
         if (this.testBrowser) {
         this.loggedinuser = localStorage.getItem('nameofUser')
         }
-        this.http.get('/api/UserPage/GetOrders/'+ this.loggedinuser + '/' ).subscribe(data => {
-        this.orderuserproducts = data;
+        this.http.get('/api/AdminPage/GetOrderStatus/').subscribe(data => {
+        this.adminorderstatuses = data;
 
         }, error => console.error(error));
 
