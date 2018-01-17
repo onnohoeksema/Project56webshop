@@ -1,14 +1,10 @@
 ﻿<h1>Item categories</h1>
 
-<p>This is a simple example of the category page.</p>
-
-
 <p *ngIf="!categories"><em>Loading Items...</em></p>
 <!--<button (click)="onClickMe()">Click me!</button>-->
 <div *ngIf="categories">
 
-    <h2>Category Name</h2>
-    <nav *ngFor="let category of categories" >
+       <nav *ngFor="let category of categories" >
         <!--still needs routerLink to navigate to the right page -->
         <input type="button" class="btn btn-default" value="{{category}}" (click)="onClickMe(category)" >
             
