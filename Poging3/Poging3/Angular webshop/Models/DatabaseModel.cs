@@ -31,13 +31,7 @@ namespace Models
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
-/* 
-        protected override void OnConfiguring(DbContextOptionsBuilder<DatabaseModel> optionsBuilder)
-        {
-            //password needs to be changed to developers password
-            optionsBuilder.UseMySQL(@"User Id = root;Password=root;Host=localhost;Database=Project56test");
-        }
-         */
+
     }
 
     public class User
