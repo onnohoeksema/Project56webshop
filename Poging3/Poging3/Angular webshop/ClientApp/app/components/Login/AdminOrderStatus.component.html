@@ -36,10 +36,11 @@
   <tbody>
     <tr *ngFor="let Orders of orderuserproducts"> 
         <td>{{ Orders.orderID }}</td>
+        <td>{{ Orders.userName }}</td>
         <td>{{ Orders.productName }}</td>
         <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
-        
+        <td>{{ Orders.orderStatus }}</td>
     </tr>
   </tbody>
   

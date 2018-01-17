@@ -25,8 +25,34 @@ export class LocationComponent implements OnInit {
     title: string = "Our Company's location";
     lat: number = 52.0038988;
     lng: number = 4.380904299999997;
+    lati: number = 52.003675;
+    longi: number = 4.380562;
+
+    
     ngOnInit(): void{
 
     }
+    markers: marker[] = [
+        {
+            lat: 52.0038988,
+            lng: 4.380904299999997,
+            label: 'A',
+            draggable: false
+        },
+        {
+            lat: 52.003675,
+            lng: 4.380562,
+            label: 'B',
+            draggable: false
+        }
 
+    ]
+
+    
   }
+  interface marker {
+	lat: number;
+	lng: number;
+	label?: string;
+	draggable: boolean;
+}

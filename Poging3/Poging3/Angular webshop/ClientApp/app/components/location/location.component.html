@@ -7,7 +7,16 @@ Email address: TheLootCrate@gmail.com <br>
 
 <!-- this creates a google map on the page with the given lat/lng from -->
 <!-- the component as the initial center of the map: -->
-<agm-map [zoom]="15" [latitude]="lat" [longitude]="lng">
-    <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+<agm-map [zoom]="16" [latitude]="lat" [longitude]="lng">
+    <agm-marker *ngFor="let m of markers; let i = index"
+    [latitude]="m.lat" 
+    [longitude]="m.lng"
+    [label]="m.label"
+    [markerDraggable]="m.draggable"
+    ></agm-marker>
+    <agm-marker [latitude]="lati" [longitude]="lngi"></agm-marker>
 </agm-map>      
             
+<h2>How can you visit us?</h2>
+<p>The nearest bus station (marked on the map as 'B') is the Prof. Krausstraat.</p>
+<p>From there on it is only a short walk to our store.</p>
