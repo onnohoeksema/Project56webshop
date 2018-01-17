@@ -35,6 +35,7 @@ import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartService} from './services/shoppingcart.service';
 import { AgmCoreModule } from '@agm/core';
 import { PagerService } from './services/PagerService.service';
+import { TopBarComponent } from './components/topbar/topbar.component';
 
 
 @NgModule({
@@ -62,7 +63,8 @@ import { PagerService } from './services/PagerService.service';
         ItemSpecificsComponent,
         SearchResultsComponent,
         LocationComponent,
-        AdminOrderStatusComponent
+        AdminOrderStatusComponent,
+        TopBarComponent
     ],
     imports: [
         AgmCoreModule.forRoot({

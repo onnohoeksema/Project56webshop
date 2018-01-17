@@ -104,14 +104,17 @@ export class ShoppingCartComponent implements OnInit {
 
         this.testBrowser = isPlatformBrowser(this.platformId);
         if (this.testBrowser) {
-        this.loggedinuser = localStorage.getItem('nameofUser')
-        this.cartcontents = JSON.stringify(localStorage.getItem('shoppingCart'));
+            this.loggedinuser = localStorage.getItem('nameofUser')
         }
+        this.cartcontents = JSON.stringify(this.shoppingCart);
 
-        //this.cartcontents = this.shoppingCartService.retrieveNew();
-        //send to db
-        this.http.get('/api/ShoppingCart/' + this.loggedinuser + '/' + this.cartcontents + '/' ).subscribe(data => {})
+
+        // Send to database
+        this.http.get('/api/ShoppingCart/OrderItems/' + this.loggedinuser + '/' + this.cartcontents + '/').subscribe(data => { })
         alert("Your order has been placed")
-        location.reload();
+
+        // Empty chopping cart when ordered
+        this.shoppingCartService.empty();
+        this.updateCart();
     }
 }

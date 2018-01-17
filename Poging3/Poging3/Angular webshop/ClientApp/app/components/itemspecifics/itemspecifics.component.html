@@ -53,7 +53,7 @@
             <p>Item Name</p>
             
             <p>Product Name: {{ item.productName }}</p>            
-            <p>Product Price: {{ item.productPrice }}</p>            
+            <p>Product Price: {{ item.productPrice | currency: 'EUR'}}</p>            
             <p>Product Stock: {{ item.productStock }}</p>            
             <p>Product Tag: {{ item.productTag }}</p>
             <p *ngIf="averagerating !=0">Average Rating: {{ averagerating }}</p>

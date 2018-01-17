@@ -20,17 +20,28 @@ namespace Angular_webshop.Controllers
         [HttpGet("OrderItems/{username}/{products}")]
         public IActionResult OrderItems(string username, string products)
         {
+
             var userid = (from u in _context.Users.Where(u => u.Username == username)
                         select u.UserId).FirstOrDefault();
+            Console.WriteLine("USERID = " + userid);
+            //var neworder = new Order();
+            //neworder.OrderID = 31;
+            //neworder.UserID = userid;
+            //neworder.ProductList = products;
+            //neworder.OrderDate = DateTime.Today.ToString();
+            //neworder.StatusTypeID = 1;
+            Order newOrder = new Order
+            {
+                OrderID = 31,
+                UserID = userid,
+                ProductList = products,
+                OrderDate = DateTime.Today.ToString(),
+                StatusTypeID = 1
+            };
 
-            var neworder = new Order();
-
-            neworder.UserID = userid;
-            neworder.ProductList = products;
-            neworder.OrderDate = DateTime.Today.ToString();
-
-            _context.Orders.Add(neworder);
+            _context.Orders.Add(newOrder);
             _context.SaveChanges();
+            Console.WriteLine("ADDED TO DATABASE??");
             
             return Ok();
         }

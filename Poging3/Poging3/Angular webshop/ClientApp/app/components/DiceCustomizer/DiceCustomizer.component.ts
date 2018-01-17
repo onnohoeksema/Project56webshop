@@ -68,7 +68,7 @@ export class DiceCustomizerComponent implements OnInit {
         addDice() {
             var item = new CartItem();
             item.product = {
-                productID: 73,
+                productID: 0,
                 productName: 'Custom Dice: ' + this.mydcDiceType + ', ' + this.mydcDiceColor + ', ' + this.mydcNumberColor + ', ' + this.mydcDicePattern,
                 productPrice: 1.49,
                 productStock: 69,
