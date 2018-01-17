@@ -162,5 +162,21 @@ namespace Angular_webshop.Controllers
             Console.WriteLine("Product should be removed");
             return Ok();
         }
+        [HttpGet("GetOrderStatus")]
+        public IActionResult GetOrderStatus()
+        {
+
+            Console.WriteLine();
+            var OrderStatusList = (from a in _context.Users
+                                        from b in _context.Orders.Where(b => b.UserID == a.UserId)
+                                        from c in _context.statustypes.Where(c => c.StatusTypeID == b.StatusTypeID)
+                                        // used to include c.productName, c.productPrice
+                                        select new { b.OrderID, b.UserID, b.ProductList, b.OrderDate, c.StatusTypeName }); 
+                                        foreach (var jemoeder in OrderStatusList)
+            {
+                Console.WriteLine("{0}",jemoeder.StatusTypeName);
+            }   
+            return Ok(OrderStatusList);
     }
+}
 }

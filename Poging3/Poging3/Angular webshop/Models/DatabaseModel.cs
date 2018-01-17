@@ -27,7 +27,8 @@ namespace Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Wishlist> Wishlist { get; set; }
-        public DbSet<StatusTypes> StatusType { get; set; }
+        public DbSet<statustype> statustypes { get; set; }
+
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
@@ -119,7 +120,7 @@ namespace Models
         public int ProductID { get; set; }
     }
 
-    public class StatusTypes
+    public class statustype
     {
         public int StatusTypeID { get; set; }
         public string StatusTypeName { get; set; }

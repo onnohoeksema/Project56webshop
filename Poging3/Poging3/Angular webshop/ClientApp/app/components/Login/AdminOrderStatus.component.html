@@ -34,13 +34,13 @@
   </thead>
   
   <tbody>
-    <tr *ngFor="let Orders of orderuserproducts"> 
+    <tr *ngFor="let Orders of adminorderstatuses"> 
         <td>{{ Orders.orderID }}</td>
-        <td>{{ Orders.userName }}</td>
+        <td>{{ Orders.UserName }}</td>
         <td>{{ Orders.productName }}</td>
         <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
-        <td>{{ Orders.orderStatus }}</td>
+        <td>{{ Orders.orderstatus }}</td>
     </tr>
   </tbody>
   
