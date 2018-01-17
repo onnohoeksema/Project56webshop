@@ -27,6 +27,7 @@ namespace Models
         public DbSet<Comment> Comments { get; set; }
         public DbSet<Order> Orders { get; set; }
         public DbSet<Wishlist> Wishlist { get; set; }
+        public DbSet<StatusTypes> StatusType { get; set; }
         public DatabaseModel(DbContextOptions<DatabaseModel> options):base(options)
         {        
         }
@@ -114,6 +115,7 @@ namespace Models
         public int UserID { get; set; } 
         public string ProductList { get; set; }
         public string OrderDate { get; set; }
+        public int StatusTypeID { get; set; }
     }
 
     public class Wishlist
@@ -122,49 +124,10 @@ namespace Models
         public int UserID { get; set; } 
         public int ProductID { get; set; }
     }
-/* 
 
-    public static class FetchData
+    public class StatusTypes
     {
-        public static void Initialize(IServiceProvider serviceProvider)
-        {
-            using (var context = new DatabaseModel())
-            {
-                //Query for selecting all products??
-                var products = from p in context.pro
-                    select p;
-
-            }
-        }
-
+        public int StatusTypeID { get; set; }
+        public string StatusTypeName { get; set; }
     }
-
-    public static class SeedData
-    {
-        public static void Initialize(IServiceProvider serviceProvider)
-        {
-            using (var context = new DatabaseModel())
-            {
-                if (context.Users.Any())
-                {
-                    return; // DB has been seeded
-                }
-
-                context.Users.AddRange(
-                    new User
-                    {
-                        Username = "Shane",
-                        Password = "Shane69"
-                    },
-                    new User
-                    {
-                        Username = "Khanh",
-                        Password = "Khanh69"
-                    }
-                );
-                context.SaveChanges();
-            }
-        }
-    }
-    */
 }
