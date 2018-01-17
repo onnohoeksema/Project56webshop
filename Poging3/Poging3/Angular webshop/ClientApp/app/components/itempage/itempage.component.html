@@ -13,11 +13,11 @@
         <input type="button" class="btn btn-primary" value="Sort by price Low-High" (click)="PriceSortLH()" >
         <input type="button" class="btn btn-primary" value="Sort by price High-Low" (click)="PriceSortHL()" >
         </p>
-        <p *ngFor="let product of pagedItems">
-            
-            <input type="button" class="btn btn-default" value="{{product.productName}}, Price: {{product.productPrice | currency: 'EUR'}}" (click)="GotoItem(product.productID)" >
-            
-        </p>
+        <ul *ngFor="let item of pagedItems">
+                <h5><b>{{ item.productName }} </b></h5>
+                <h5>Price: {{ item.productPrice | currency: 'EUR'}}</h5>
+                <input type="button" class="btn btn-default" value="Go to Item" (click)="GotoItem(item.productID)" >
+                </ul>
                     <!-- pager -->
                     <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
                             <li [ngClass]="{disabled:pager.currentPage === 1}">
