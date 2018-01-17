@@ -43,7 +43,7 @@ namespace Angular_webshop.Controllers
                                         from c in _context.statustypes.Where(c => c.StatusTypeID == b.StatusTypeID)
                                         //from c in _context.Products.Where(c => c.productID == b.ProductID)
                                         // used to include c.productName, c.productPrice
-                                        select new { b.OrderID, b.ProductList, b.OrderPrice, b.OrderDate, c.StatusTypeName });    
+                                        select new { b.OrderID, b.ProductList, b.OrderDate, c.StatusTypeName });    
             return Ok(orderuserproducts);
         }
 
