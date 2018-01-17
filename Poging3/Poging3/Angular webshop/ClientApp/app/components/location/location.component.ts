@@ -25,9 +25,7 @@ export class LocationComponent implements OnInit {
     title: string = "Our Company's location";
     lat: number = 52.0038988;
     lng: number = 4.380904299999997;
-    lati: number = 52.003675;
-    longi: number = 4.380562;
-
+ 
     
     ngOnInit(): void{
 

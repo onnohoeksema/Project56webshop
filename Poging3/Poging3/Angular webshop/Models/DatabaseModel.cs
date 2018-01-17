@@ -111,6 +111,7 @@ namespace Models
         public string ProductList { get; set; }
         public string OrderDate { get; set; }
         public int StatusTypeID { get; set; }
+        public int OrderPrice { get; set; }
     }
 
     public class Wishlist

@@ -36,7 +36,7 @@ export class AdminOrderStatusComponent {
     public loggedinuser: any
     testBrowser: boolean;
     public productID: any;
-    
+    public statustypes: any;
     public user: string;
 
       // Shopping cart //
@@ -57,6 +57,18 @@ export class AdminOrderStatusComponent {
 
         }, error => console.error(error));
 
+        this.http.get('/api/AdminPage/GetStatustypes/').subscribe(data => {
+            this.statustypes = data;
+        })
+    }
+
+    ChangeStatus(orderid: any)
+    {
+        this.http.get('/api/AdminPage/ChangeOrderStatus/' + orderid + '/').subscribe(data => {
+            
+    
+            })
+            location.reload();
 
     }
         /// SHOPPING CART ///

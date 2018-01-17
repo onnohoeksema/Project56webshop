@@ -40,9 +40,10 @@ namespace Angular_webshop.Controllers
             Console.WriteLine(username);
             var orderuserproducts = (from a in _context.Users.Where(a => a.Username == username)
                                         from b in _context.Orders.Where(b => b.UserID == a.UserId)
+                                        from c in _context.statustypes.Where(c => c.StatusTypeID == b.StatusTypeID)
                                         //from c in _context.Products.Where(c => c.productID == b.ProductID)
                                         // used to include c.productName, c.productPrice
-                                        select new { b.OrderID, b.ProductList, b.OrderDate });    
+                                        select new { b.OrderID, b.ProductList, b.OrderPrice, b.OrderDate, c.StatusTypeName });    
             return Ok(orderuserproducts);
         }
 

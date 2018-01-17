@@ -30,7 +30,7 @@
 <div *ngIf="featureditem" >
     <p><b>Here is one of our featured items:</b></p>
     <ul *ngFor="let item of featureditem">
-        <h5>{{ item.productName }} </h5>
+        <h5><b>{{ item.productName }} </b></h5>
         <h5>Price: {{ item.productPrice | currency: 'EUR'}}</h5>
         <input type="button" (click)="GotoItem(item.productID)" value="More information">
     </ul>

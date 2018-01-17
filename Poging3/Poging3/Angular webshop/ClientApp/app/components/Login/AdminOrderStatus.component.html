@@ -15,13 +15,13 @@
         Order ID      
       </td>
       <td>
-          User Name
+          User ID
       </td>
       <td>
-        Product Name
+        Order List
       </td>
       <td>
-          Product Price
+          Order Price
         </td>
         <td>
             Order Date
@@ -36,12 +36,14 @@
   <tbody>
     <tr *ngFor="let Orders of adminorderstatuses"> 
         <td>{{ Orders.orderID }}</td>
-        <td>{{ Orders.UserName }}</td>
-        <td>{{ Orders.productName }}</td>
+        <td>{{ Orders.userID }}</td>
+        <td>{{ Orders.productList }}</td>
         <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
-        <td>{{ Orders.orderstatus }}</td>
+        <td>{{ Orders.statusTypeName }}</td>
+        <input type="button" (click)=ChangeStatus(Orders.orderID) value="Change order Status">
     </tr>
+
   </tbody>
   
 </table>
