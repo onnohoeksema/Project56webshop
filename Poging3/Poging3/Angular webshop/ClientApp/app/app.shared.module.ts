@@ -31,7 +31,6 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
 import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics.component';
 import { SearchResultsComponent } from './components/searchresults/searchresults.component';
 import { LocationComponent } from './components/location/location.component';
-import { TopBarComponent } from './components/topbar/topbar.component';
 
 import { AuthGuardAd } from './guards/auth.guard.admin';
 import { AuthGuard } from './guards/auth.guard';
@@ -66,8 +65,7 @@ import { PagerService } from './services/PagerService.service';
         ItemCategoriesComponent,
         ItemSpecificsComponent,
         SearchResultsComponent,
-        LocationComponent,
-        TopBarComponent
+        LocationComponent
     ],
     imports: [
         AgmCoreModule.forRoot({
