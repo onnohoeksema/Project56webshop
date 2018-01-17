@@ -26,11 +26,11 @@ const routes: Routes = [
 
 //Tot hier copieren als je het wil gebruiken, daarna de Import {---} veranderen naar jou adress en de Route changen.
 @Component({
-    selector: 'MyOrder',
-    templateUrl: './MyOrder.component.html'
+    selector: 'AdminOrderStatus',
+    templateUrl: './AdminOrderStatus.component.html'
 })
 
-export class MyOrderComponent {
+export class AdminOrderStatusComponent {
     public orderuserproducts: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredorders: any
     public loggedinuser: any

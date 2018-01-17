@@ -16,10 +16,8 @@ import { LoginPageComponent } from './components/Login/LoginPage.component';
 import { RegisterComponent } from './components/Login/Register.component';
 import { UserDashBoardComponent } from './components/Login/UserDashBoard.component';
 import { MyOrderComponent } from './components/Login/MyOrder.component';
-import { PurchaseHistoryComponent } from './components/Login/PurchaseHistory.component';
 import { ItemPageComponent } from './components/itempage/itempage.component';
 import { ShoppingCartComponent } from './components/shoppingcart/shoppingcart.component';
-import { PaymentRedirectComponent } from './components/paymentredirect/paymentredirect.component';
 import { WishlistComponent } from './components/Login/Wishlist.component';
 import { AccountSettingsComponent } from './components/Login/AccountSettings.component';
 import { AdminDashBoardComponent } from './components/Login/AdminDashBoard.component';
@@ -31,7 +29,7 @@ import { ItemCategoriesComponent } from './components/itemcategories/itemcategor
 import { ItemSpecificsComponent } from './components/itemspecifics/itemspecifics.component';
 import { SearchResultsComponent } from './components/searchresults/searchresults.component';
 import { LocationComponent } from './components/location/location.component';
-
+import { AdminOrderStatusComponent } from './components/Login/AdminOrderStatus.component'
 import { AuthGuardAd } from './guards/auth.guard.admin';
 import { AuthGuard } from './guards/auth.guard';
 import { ShoppingCartService} from './services/shoppingcart.service';
@@ -50,11 +48,9 @@ import { PagerService } from './services/PagerService.service';
         LoginPageComponent,
         RegisterComponent,
         UserDashBoardComponent,
-        PurchaseHistoryComponent,
         MyOrderComponent,
         ItemPageComponent,
         ShoppingCartComponent,
-        PaymentRedirectComponent,
         WishlistComponent,
         AccountSettingsComponent,
         AdminDashBoardComponent,
@@ -65,7 +61,8 @@ import { PagerService } from './services/PagerService.service';
         ItemCategoriesComponent,
         ItemSpecificsComponent,
         SearchResultsComponent,
-        LocationComponent
+        LocationComponent,
+        AdminOrderStatusComponent
     ],
     imports: [
         AgmCoreModule.forRoot({
@@ -89,10 +86,8 @@ import { PagerService } from './services/PagerService.service';
             { path: 'UserDashBoard', component: UserDashBoardComponent, canActivate: [AuthGuard] },
             { path: 'AdminDashBoard', component: AdminDashBoardComponent, canActivate: [AuthGuardAd] },
             { path: 'MyOrder', component: MyOrderComponent },
-            { path: 'PurchaseHistory', component: PurchaseHistoryComponent },
             { path: 'itempage', component: ItemPageComponent },
             { path: 'shoppingcart', component: ShoppingCartComponent },
-            { path: 'paymentredirect', component: PaymentRedirectComponent },
             { path: 'Wishlist', component: WishlistComponent },
             { path: 'AccountSettings', component: AccountSettingsComponent },
             { path: 'AdminUsers', component: AdminUsersComponent },
@@ -103,6 +98,7 @@ import { PagerService } from './services/PagerService.service';
             { path: 'itemspecifics', component: ItemSpecificsComponent },
             { path: 'searchresults', component: SearchResultsComponent},
             { path: 'location', component: LocationComponent },
+            { path: 'AdminOrderStatus', component: AdminOrderStatusComponent },
             { path: '**', redirectTo: 'home' }
         ])
     ],

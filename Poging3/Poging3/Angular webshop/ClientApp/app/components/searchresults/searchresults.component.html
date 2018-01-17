@@ -1,11 +1,40 @@
-<p>Search Results</p>
+<h2>Search Results</h2>
 <h5>You searched for: {{ itemtosearch }} </h5>
 
 <div>
-    <ul *ngFor="let item of searchItems">
-        <li>{{ item.productName }} </li>
+        
+        <nav><p>
+            <input type="button" class="btn btn-primary" value="Sort by name A-Z" (click)="NameSortAZ()" >
+            <input type="button" class="btn btn-primary" value="Sort by name Z-A" (click)="NameSortZA()" >
+            <input type="button" class="btn btn-primary" value="Sort by price Low-High" (click)="PriceSortLH()" >
+            <input type="button" class="btn btn-primary" value="Sort by price High-Low" (click)="PriceSortHL()" >
+            </p>
+
+        <ul *ngFor="let item of pagedItems">
+        <h5><b>{{ item.productName }} </b></h5>
+        <h5>Price: {{ item.productPrice | currency: 'EUR'}}</h5>
         <input type="button" class="btn btn-default" value="Go to Item" (click)="GotoItem(item.productID)" >
-    </ul>
+        </ul>
+
+                        <!-- pager -->
+                        <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                    <a (click)="setPage(1)">First</a>
+                                </li>
+                                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                                </li>
+                                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                                    <a (click)="setPage(page)">{{page}}</a>
+                                </li>
+                                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                                </li>
+                                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                                    <a (click)="setPage(pager.totalPages)">Last</a>
+                                </li>
+                            </ul>
+        </nav>
 </div>
 
 <nav>

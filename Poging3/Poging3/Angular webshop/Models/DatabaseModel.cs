@@ -112,7 +112,7 @@ namespace Models
     {
         public int OrderID { get; set; }
         public int UserID { get; set; } 
-        public int ProductID { get; set; }
+        public string ProductList { get; set; }
         public string OrderDate { get; set; }
     }
 

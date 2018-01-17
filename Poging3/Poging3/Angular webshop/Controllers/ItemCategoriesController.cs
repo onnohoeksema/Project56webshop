@@ -148,11 +148,32 @@ namespace Angular_webshop.Controllers
         public IActionResult GetSearch(string item)
         {
             
-            var search = _context.Products.Where(a => a.productName.Contains(item));
+            var search = _context.Products.Where(a => a.productName.Contains(item)).OrderBy(a => a.productName);
             foreach(var product in search)
             {
                 Console.WriteLine("{0}", product.productName);
             }
+            return Ok(search);
+        }
+        [HttpGet("NameSortZA/{itemname}")]
+        public IActionResult NameSortZA(string itemname)
+        {
+            var search = _context.Products.Where(a => a.productName.Contains(itemname)).OrderByDescending(a => a.productName);
+
+            return Ok(search);
+        }
+
+        [HttpGet("PriceSortLH/{itemname}")]
+         public IActionResult PriceSortLH(string itemname)
+        {
+            var search = _context.Products.Where(a => a.productName.Contains(itemname)).OrderBy(a => a.productPrice);
+            return Ok(search);
+        }
+
+        [HttpGet("PriceSortHL/{itemname}")]
+          public IActionResult PriceSortHL(string itemname)
+        {
+            var search = _context.Products.Where(a => a.productName.Contains(itemname)).OrderByDescending(a => a.productPrice);
             return Ok(search);
         }
 public class Product

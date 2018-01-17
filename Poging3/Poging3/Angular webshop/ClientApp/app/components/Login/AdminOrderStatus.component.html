@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html>
+<div>
+<head>
+    <meta charset="utf-8" />
+    <title></title>
+</head>
+
+<h2>Order Statuses:</h2>
+<table class="table table-bordered table-striped">
+          
+  <thead>
+    <tr>
+      <td>
+        Order ID      
+      </td>
+      <td>
+          User Name
+      </td>
+      <td>
+        Product Name
+      </td>
+      <td>
+          Product Price
+        </td>
+        <td>
+            Order Date
+        </td>
+        <td>
+            Order Status
+        </td>
+
+    </tr>
+  </thead>
+  
+  <tbody>
+    <tr *ngFor="let Orders of orderuserproducts"> 
+        <td>{{ Orders.orderID }}</td>
+        <td>{{ Orders.productName }}</td>
+        <td>{{ Orders.productPrice }}</td>
+        <td>{{ Orders.orderDate }}</td>
+        
+    </tr>
+  </tbody>
+  
+</table>
+
+    <div>
+        <nav>
+            <!--Dit Veranderen naar je desbetreffende router link.-->
+            <a routerLink="/UserDashBoard" class="btn btn-default">Back to dashboard</a>
+        </nav>
+    </div>
+
+    </div>
+</html>
