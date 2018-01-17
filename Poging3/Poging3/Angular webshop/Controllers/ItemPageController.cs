@@ -85,7 +85,7 @@ namespace Angular_webshop.Controllers
         public IActionResult GetRandomItem()
         {
             Console.WriteLine("starting randomizing");
-            var query = from productID in _context.Products
+            var query = from productID in _context.Products.Where(productID => productID.productStock>0)
                         select productID;
             
             int count = query.Count();
