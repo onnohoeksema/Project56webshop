@@ -17,9 +17,6 @@
       <td>
         Product Name
       </td>
-      <td>
-          Product Price
-        </td>
         <td>
             Order Date
         </td>
@@ -33,7 +30,6 @@
     <tr *ngFor="let Orders of orderuserproducts"> 
         <td>{{ Orders.orderID }}</td>
         <td>{{ Orders.productList }}</td>
-        <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
         <td>{{ Orders.statusTypeName }}</td>
         

@@ -20,9 +20,6 @@
       <td>
         Order List
       </td>
-      <td>
-          Order Price
-        </td>
         <td>
             Order Date
         </td>
@@ -38,7 +35,6 @@
         <td>{{ Orders.orderID }}</td>
         <td>{{ Orders.userID }}</td>
         <td>{{ Orders.productList }}</td>
-        <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
         <td>{{ Orders.statusTypeName }}</td>
         <input type="button" (click)=ChangeStatus(Orders.orderID) value="Change order Status">

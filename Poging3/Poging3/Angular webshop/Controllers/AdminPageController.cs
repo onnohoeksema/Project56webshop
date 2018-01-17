@@ -172,10 +172,7 @@ namespace Angular_webshop.Controllers
                                         from c in _context.statustypes.Where(c => c.StatusTypeID == b.StatusTypeID)
                                         // used to include c.productName, c.productPrice
                                         select new { b.OrderID, b.UserID, b.ProductList, b.OrderDate, c.StatusTypeName }).OrderBy(b => b.OrderID); 
-                                        foreach (var jemoeder in OrderStatusList)
-            {
-                Console.WriteLine("{0}",jemoeder.StatusTypeName);
-            }   
+                                        
             return Ok(OrderStatusList);
         }
         
