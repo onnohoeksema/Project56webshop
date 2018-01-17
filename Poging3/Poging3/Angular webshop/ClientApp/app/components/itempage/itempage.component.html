@@ -15,7 +15,7 @@
         </p>
         <p *ngFor="let product of pagedItems">
             
-            <input type="button" class="btn btn-default" value="{{product.productName}}, Price:{{product.productPrice}}" (click)="GotoItem(product.productID)" >
+            <input type="button" class="btn btn-default" value="{{product.productName}}, Price: {{product.productPrice | currency: 'EUR'}}" (click)="GotoItem(product.productID)" >
             
         </p>
                     <!-- pager -->
