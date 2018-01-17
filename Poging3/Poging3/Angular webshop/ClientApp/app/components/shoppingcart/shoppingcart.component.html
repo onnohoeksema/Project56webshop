@@ -18,8 +18,8 @@
     
 </style>
 
-<div class="myCart" *ngIf="shoppingCart && !cartIsEmpty()">
-    <div class="row">
+<div class="myCart col-lg-11" *ngIf="shoppingCart && !cartIsEmpty()">
+    <div class="row col-lg-12">
 
         <div class="columns">
             <h2>
@@ -80,6 +80,8 @@
             <button class="checkO btn btn-default">Checkout</button>
         </div>
     </div>
+
+    <br />
 </div>
 
 <div *ngIf="cartIsEmpty()">
