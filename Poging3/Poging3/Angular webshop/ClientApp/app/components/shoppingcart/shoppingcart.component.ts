@@ -3,6 +3,7 @@ import { isPlatformBrowser } from '@angular/common';
 import { Product } from '../../models/product.model';
 import { CartItem } from '../../models/cart.model';
 import { ShoppingCartService } from '../../services/shoppingcart.service';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
     selector: 'shoppingcart',
@@ -16,8 +17,12 @@ export class ShoppingCartComponent implements OnInit {
     public productPrice: number;
     public itemCount: number;
     public productQuantity: number;
+    public cartcontents: string;
 
-    constructor( @Inject(PLATFORM_ID) private platformId: string, private shoppingCartService: ShoppingCartService) { }   
+    constructor( @Inject(PLATFORM_ID) private platformId: string, private http: HttpClient, private shoppingCartService: ShoppingCartService) { }   
+    //retrieving userdata
+    public loggedinuser: any
+    testBrowser: boolean;
 
     ngOnInit() {
         // Update cart
@@ -86,5 +91,27 @@ export class ShoppingCartComponent implements OnInit {
             }
         }
         return true;
+    }
+
+    //Order items
+    OrderItems()
+    {
+        //drie dingen nodig: username, producten en datum. Datum komt vanuit Controller
+        //Username komt uit de ingelogde user > localstorage
+        //producten komen uit shopping cart
+        // Backend is klaar nu
+        //Here we go
+
+        this.testBrowser = isPlatformBrowser(this.platformId);
+        if (this.testBrowser) {
+        this.loggedinuser = localStorage.getItem('nameofUser')
+        this.cartcontents = JSON.stringify(localStorage.getItem('shoppingCart'));
+        }
+
+        //this.cartcontents = this.shoppingCartService.retrieveNew();
+        //send to db
+        this.http.get('/api/ShoppingCart/' + this.loggedinuser + '/' + this.cartcontents + '/' ).subscribe(data => {})
+        alert("Your order has been placed")
+        location.reload();
     }
 }
