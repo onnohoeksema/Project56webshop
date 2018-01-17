@@ -31,9 +31,6 @@ export class AdminProductsComponent {
     public products: any //this used to be string[] //= ["Test1", "Test2", "Test3"];
     public filteredproducts: any
 
-    public sortType     = 'name'; // set the default sort type
-    public sortReverse  = false;  // set the default sort order
-    public searchFish   = '';     // set the default search/filter term
     ShowEditTable: boolean = false;
     EditRowID: any = '';
 

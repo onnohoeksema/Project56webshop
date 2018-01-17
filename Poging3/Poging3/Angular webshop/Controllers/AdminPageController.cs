@@ -171,12 +171,38 @@ namespace Angular_webshop.Controllers
                                         from b in _context.Orders.Where(b => b.UserID == a.UserId)
                                         from c in _context.statustypes.Where(c => c.StatusTypeID == b.StatusTypeID)
                                         // used to include c.productName, c.productPrice
-                                        select new { b.OrderID, b.UserID, b.ProductList, b.OrderDate, c.StatusTypeName }); 
+                                        select new { b.OrderID, b.UserID, b.ProductList, b.OrderDate, c.StatusTypeName }).OrderBy(b => b.OrderID); 
                                         foreach (var jemoeder in OrderStatusList)
             {
                 Console.WriteLine("{0}",jemoeder.StatusTypeName);
             }   
             return Ok(OrderStatusList);
+        }
+        
+        [HttpGet("GetStatustypes")]
+        public IActionResult GetStatustypes()
+        {
+            var difstatustypes = from s in _context.statustypes
+                                select s;
+
+            return Ok(difstatustypes);
+        }
+
+        [HttpGet("ChangeOrderStatus/{orderid}")]
+        public IActionResult ChangeOrderStatus(int orderid)
+        {
+            var ordertochange = _context.Orders.Where(o => o.OrderID == orderid).FirstOrDefault();
+
+            if (ordertochange != null)
+            {
+                ordertochange.StatusTypeID += 1;
+                
+                _context.SaveChanges();
+                Console.WriteLine("status should be modified");
+            }
+            return Ok();
+        }
+
+
     }
-}
 }

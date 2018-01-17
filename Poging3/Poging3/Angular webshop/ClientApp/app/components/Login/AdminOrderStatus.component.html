@@ -41,7 +41,9 @@
         <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
         <td>{{ Orders.statusTypeName }}</td>
+        <input type="button" (click)=ChangeStatus(Orders.orderID) value="Change order Status">
     </tr>
+
   </tbody>
   
 </table>
