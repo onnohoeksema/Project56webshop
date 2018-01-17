@@ -14,6 +14,7 @@ export class NavMenuComponent implements OnInit {
     ngOnInit() {
         if (isPlatformBrowser(this.platformId)) {
             this.loggedIn();
+            this.isLoggedIn();
         }
     }
 
@@ -25,4 +26,15 @@ export class NavMenuComponent implements OnInit {
             this.loggedInAd = true;
         }
     }
+
+    isLoggedIn() {
+        if (localStorage.getItem('currentUser')) {
+            this.currentLogin = "YES"
+        }
+        else {
+            this.currentLogin = "NO"
+        }
+    }
+
+    public currentLogin = ""
 }

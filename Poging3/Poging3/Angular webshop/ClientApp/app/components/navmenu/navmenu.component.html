@@ -8,6 +8,7 @@
                 <span class='icon-bar'></span>
             </button>
             <a class='navbar-brand' [routerLink]="['/home']">The Loot Crate</a>
+            
         </div>
         <div class='clearfix'></div>
         <div class='navbar-collapse collapse'>
@@ -78,6 +79,9 @@
                     <a [routerLink]="['/location']">
                         <span class='glyphicon glyphicon-globe'></span> Contact info
                     </a>
+                </li>
+                <li>
+                    <a><p>Currently logged in: {{ currentLogin }}</p></a>
                 </li>
             </ul>
         </div>
