@@ -23,15 +23,19 @@
         <td>
             Order Date
         </td>
+        <td>
+            Order Status
+        </td>
     </tr>
   </thead>
   
   <tbody>
     <tr *ngFor="let Orders of orderuserproducts"> 
         <td>{{ Orders.orderID }}</td>
-        <td>{{ Orders.productName }}</td>
+        <td>{{ Orders.productList }}</td>
         <td>{{ Orders.productPrice }}</td>
         <td>{{ Orders.orderDate }}</td>
+        <td>{{ Orders.statusTypeName }}</td>
         
     </tr>
   </tbody>
