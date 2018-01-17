@@ -18,7 +18,7 @@ namespace Angular_webshop.Controllers
         }
 
         [HttpGet("OrderItems/{username}/{products}")]
-        public IActionResult OrderItems(string username, Product products)
+        public IActionResult OrderItems(string username, string products)
         {
             var userid = (from u in _context.Users.Where(u => u.Username == username)
                         select u.UserId).FirstOrDefault();
